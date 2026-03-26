@@ -193,6 +193,33 @@ export default function MapContainerComponent({
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <ZoomControl position="bottomright" />
+      {/* Legend */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 28,
+          left: 10,
+          zIndex: 800,
+          background: 'rgba(255,255,255,0.92)',
+          borderRadius: 10,
+          padding: '6px 10px',
+          fontSize: 11,
+          fontFamily: "'Plus Jakarta Sans',system-ui,sans-serif",
+          display: 'flex',
+          gap: 10,
+          boxShadow: '0 1px 4px rgba(0,0,0,0.15)',
+          color: '#374151',
+        }}
+      >
+        <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#059669', display: 'inline-block' }} />
+          Darmowe
+        </span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#2563eb', display: 'inline-block' }} />
+          Płatne
+        </span>
+      </div>
       <UserLocationMarker onLocationFound={handleLocationFound} />
       <FlyToToilet toilet={selectedToilet} />
       <MapCenterTracker onMove={onMapMove} />
