@@ -197,7 +197,7 @@ export default function MapContainerComponent({
       <div
         style={{
           position: 'absolute',
-          bottom: 28,
+          top: 10,
           left: 10,
           zIndex: 800,
           background: 'rgba(255,255,255,0.92)',
