@@ -15,9 +15,7 @@
     "free": "Free",
     "paid": "Paid",
     "accessible": "Accessible",
-    "openNow": "Open now",
-    "nearest": "Nearest",
-    "all": "All"
+    "openNow": "Open now"
   },
   "toilet": {
     "free": "It's free!",

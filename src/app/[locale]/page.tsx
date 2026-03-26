@@ -40,9 +40,10 @@ const ReviewForm = dynamic(() => import('@/components/ToiletCard/ReviewForm'), {
 
 export default function HomePage() {
   const [filters, setFilters] = useState<FilterState>({
-    openNow: false,
-    free: false,
+    showFree: false,
+    showPaid: false,
     accessible: false,
+    openNow: false,
   });
   const [selectedToilet, setSelectedToilet] = useState<Toilet | null>(null);
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);

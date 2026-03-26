@@ -152,12 +152,20 @@ export default function MapContainerComponent({
   }, [toilets]);
 
   const filteredToilets = useMemo(() => {
+    const anyTypeFilter = filters.showFree || filters.showPaid;
+
     return allToilets
       .filter((t) => t.lat !== 0 && t.lng !== 0)
       .filter((t) => t.status === 'active')
       .filter((t) => {
-        if (filters.free && t.type !== 'free') return false;
+        // Type filters: if none active → show all; if any active → show only selected types
+        if (anyTypeFilter) {
+          if (t.type === 'free' && !filters.showFree) return false;
+          if (t.type === 'paid' && !filters.showPaid) return false;
+        }
+        // Accessible: when ON, show ONLY accessible
         if (filters.accessible && !t.accessible) return false;
+        // Open now: when ON, show ONLY currently open
         if (filters.openNow) {
           const open = isOpenNow(t.hours);
           if (open === false || (open === null && !t.is24h)) return false;
