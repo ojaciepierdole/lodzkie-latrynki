@@ -55,6 +55,24 @@ const userIcon = L.divIcon({
   iconAnchor: [7, 7],
 });
 
+// --- Łódź Bounding Box ---
+
+const LODZ_BOUNDS = {
+  minLat: 51.65,
+  maxLat: 51.85,
+  minLng: 19.30,
+  maxLng: 19.60,
+};
+
+function isInLodz(lat: number, lng: number): boolean {
+  return (
+    lat >= LODZ_BOUNDS.minLat &&
+    lat <= LODZ_BOUNDS.maxLat &&
+    lng >= LODZ_BOUNDS.minLng &&
+    lng <= LODZ_BOUNDS.maxLng
+  );
+}
+
 // --- User Location Sub-component ---
 
 function UserLocationMarker({ onLocationFound }: { onLocationFound: (coords: [number, number]) => void }) {
@@ -62,11 +80,16 @@ function UserLocationMarker({ onLocationFound }: { onLocationFound: (coords: [nu
   const [position, setPosition] = useState<[number, number] | null>(null);
 
   useEffect(() => {
-    map.locate({ setView: true, maxZoom: 15 });
+    map.locate({ setView: false, maxZoom: 15 });
     map.on('locationfound', (e) => {
       const coords: [number, number] = [e.latlng.lat, e.latlng.lng];
       setPosition(coords);
       onLocationFound(coords);
+
+      if (isInLodz(coords[0], coords[1])) {
+        map.flyTo(coords, 15, { duration: 1 });
+      }
+      // Outside Łódź — keep default view (LODZ_CENTER, zoom 13)
     });
   }, [map, onLocationFound]);
 

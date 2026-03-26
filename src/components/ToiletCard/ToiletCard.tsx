@@ -72,7 +72,11 @@ function CardContent({
         <X size={20} />
       </button>
 
-      {/* Name and address */}
+      {/* Label + Name and address */}
+      <p className="text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wide flex items-center gap-1 mb-1">
+        <DoorOpen size={12} />
+        {t('label')}
+      </p>
       <h3 className="text-lg font-bold text-[var(--color-text)] pr-8">
         {toilet.name}
       </h3>
