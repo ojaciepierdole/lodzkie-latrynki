@@ -5,6 +5,19 @@
       "schedule": "3 0 * * *"
     }
   ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "lodzkie-latrynki.vercel.app"
+        }
+      ],
+      "destination": "https://wcgo.pl/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/api/toilets",
