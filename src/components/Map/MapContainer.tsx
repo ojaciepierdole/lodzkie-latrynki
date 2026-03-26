@@ -17,26 +17,27 @@ import { isOpenNow } from '@/lib/utils/open-hours';
 
 // --- Custom SVG Marker Icons ---
 
+// SVG icons for markers
+const ICON_FREE = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><path d="M16 8c-.7-1.4-2.3-2-4-2-3 0-4.5 1.5-4.5 3s1.5 2.5 4.5 3 4.5 1.5 4.5 3-1.5 3-4.5 3c-1.7 0-3.3-.6-4-2"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="3" y1="3" x2="21" y2="21" stroke="white" stroke-width="2.5"/></svg>`;
+const ICON_PAID = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><path d="M16 8c-.7-1.4-2.3-2-4-2-3 0-4.5 1.5-4.5 3s1.5 2.5 4.5 3 4.5 1.5 4.5 3-1.5 3-4.5 3c-1.7 0-3.3-.6-4-2"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/></svg>`;
+
 function createMarkerIcon(type: 'free' | 'paid' | 'closed'): L.DivIcon {
   const colors = {
-    free: { bg: '#059669', border: '#047857' },
-    paid: { bg: '#2563eb', border: '#1d4ed8' },
-    closed: { bg: '#9ca3af', border: '#6b7280' },
+    free: '#059669',
+    paid: '#2563eb',
+    closed: '#9ca3af',
   };
-  const c = colors[type];
+  const icon = type === 'free' ? ICON_FREE : ICON_PAID;
   return L.divIcon({
     className: 'custom-marker',
     html: `<div style="
-      background:${c.bg};
+      background:${colors[type]};
       border:3px solid white;
       border-radius:50%;
       width:36px;height:36px;
       display:flex;align-items:center;justify-content:center;
       box-shadow:0 2px 6px rgba(0,0,0,0.3);
-      color:white;font-weight:800;font-size:12px;
-      font-family:'Plus Jakarta Sans',system-ui,sans-serif;
-      letter-spacing:0.5px;
-    ">WC</div>`,
+    ">${icon}</div>`,
     iconSize: [36, 36],
     iconAnchor: [18, 18],
     popupAnchor: [0, -18],
@@ -152,21 +153,17 @@ export default function MapContainerComponent({
   }, [toilets]);
 
   const filteredToilets = useMemo(() => {
-    const anyTypeFilter = filters.showFree || filters.showPaid;
-
     return allToilets
       .filter((t) => t.lat !== 0 && t.lng !== 0)
       .filter((t) => t.status === 'active')
       .filter((t) => {
-        // Type filters: if none active → show all; if any active → show only selected types
-        if (anyTypeFilter) {
-          if (t.type === 'free' && !filters.showFree) return false;
-          if (t.type === 'paid' && !filters.showPaid) return false;
-        }
-        // Accessible: when ON, show ONLY accessible
-        if (filters.accessible && !t.accessible) return false;
-        // Open now: when ON, show ONLY currently open
-        if (filters.openNow) {
+        // Type visibility: toggle OFF = hide that type
+        if (t.type === 'free' && !filters.showFree) return false;
+        if (t.type === 'paid' && !filters.showPaid) return false;
+        // Accessible: OFF = hide non-accessible
+        if (!filters.accessible && !t.accessible) return false;
+        // Open now: OFF = hide closed
+        if (!filters.openNow) {
           const open = isOpenNow(t.hours);
           if (open === false || (open === null && !t.is24h)) return false;
         }
@@ -193,33 +190,6 @@ export default function MapContainerComponent({
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <ZoomControl position="bottomright" />
-      {/* Legend */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 10,
-          left: 10,
-          zIndex: 800,
-          background: 'rgba(255,255,255,0.92)',
-          borderRadius: 10,
-          padding: '6px 10px',
-          fontSize: 11,
-          fontFamily: "'Plus Jakarta Sans',system-ui,sans-serif",
-          display: 'flex',
-          gap: 10,
-          boxShadow: '0 1px 4px rgba(0,0,0,0.15)',
-          color: '#374151',
-        }}
-      >
-        <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#059669', display: 'inline-block' }} />
-          Darmowe
-        </span>
-        <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#2563eb', display: 'inline-block' }} />
-          Płatne
-        </span>
-      </div>
       <UserLocationMarker onLocationFound={handleLocationFound} />
       <FlyToToilet toilet={selectedToilet} />
       <MapCenterTracker onMove={onMapMove} />

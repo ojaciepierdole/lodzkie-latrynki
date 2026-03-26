@@ -54,3 +54,5 @@ design-system/łódzkie-latrynki/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+*.mp4
+!public/intro.mp4

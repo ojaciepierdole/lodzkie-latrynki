@@ -3,6 +3,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { locales, type Locale } from '@/i18n/config';
 import { StructuredData } from '@/components/Layout/StructuredData';
 import '@/app/globals.css';
@@ -72,6 +74,8 @@ export default async function LocaleLayout({ children, params }: Props) {
           {children}
         </NextIntlClientProvider>
         <StructuredData />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
