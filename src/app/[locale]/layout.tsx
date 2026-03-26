@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Plus_Jakarta_Sans } from 'next/font/google';
+import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { locales, type Locale } from '@/i18n/config';
@@ -33,10 +34,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       icon: '/favicon.svg',
       apple: '/favicon.svg',
     },
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: 'default',
+      title: 'wcgo.pl',
+    },
     other: {
       'mobile-web-app-capable': 'yes',
-      'apple-mobile-web-app-capable': 'yes',
-      'apple-mobile-web-app-status-bar-style': 'default',
     },
     openGraph: {
       title: t('title'),
@@ -51,6 +55,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
+  themeColor: '#9A3412',
 };
 
 export function generateStaticParams() {
@@ -81,6 +86,9 @@ export default async function LocaleLayout({ children, params }: Props) {
         <StructuredData />
         <Analytics />
         <SpeedInsights />
+        <Script id="sw-register" strategy="afterInteractive">
+          {`if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js') }`}
+        </Script>
       </body>
     </html>
   );
