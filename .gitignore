@@ -35,8 +35,15 @@ yarn-error.log*
 # playwright mcp logs
 .playwright-mcp/
 
-# screenshots (dev)
+# screenshots & test artifacts (dev)
 screenshot-*.png
+*.png
+!public/**/*.png
+!src/**/*.png
+/img/
+
+# source design files
+*.af
 
 # archives
 *.tar.gz
