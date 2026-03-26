@@ -18,7 +18,8 @@ export default function FindNearestFAB({
     <button
       onClick={onFindNearest}
       disabled={isLocating}
-      className="find-nearest-fab fixed left-1/2 -translate-x-1/2 z-[900] bottom-6
+      style={{ bottom: 'max(24px, env(safe-area-inset-bottom, 0px))' }}
+      className="fixed left-1/2 -translate-x-1/2 z-[900]
         bg-[var(--color-cta)] hover:bg-[var(--color-cta-hover)]
         text-white shadow-[0_4px_16px_rgba(234,88,12,0.4)]
         flex items-center gap-2.5 px-6 py-3.5 rounded-full

@@ -77,7 +77,7 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
               onTimeUpdate={handleTimeUpdate}
               onEnded={handleEnded}
               onError={handleError}
-              className="h-full max-h-dvh w-auto object-contain"
+              className="max-h-dvh max-w-full object-contain"
             />
             {/* Fade-to-black overlay on top of video */}
             <div
