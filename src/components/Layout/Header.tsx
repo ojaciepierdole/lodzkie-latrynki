@@ -18,14 +18,9 @@ export function Header() {
           className="h-20 sm:h-24 w-auto -my-4 sm:-my-5 shrink-0"
           priority
         />
-        <div className="flex flex-col leading-tight">
-          <span className="text-xs sm:text-sm text-[var(--color-text-secondary)] whitespace-nowrap">
-            {t('tagline')}
-          </span>
-          <span className="text-[10px] sm:text-xs text-[var(--color-text-secondary)] opacity-70 whitespace-nowrap">
-            {t('motto')}
-          </span>
-        </div>
+        <span className="text-xs sm:text-sm text-[var(--color-text-secondary)] whitespace-nowrap">
+          {t('tagline')}
+        </span>
       </div>
       <LanguageSwitcher />
     </header>

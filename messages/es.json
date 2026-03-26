@@ -2,8 +2,7 @@
   "meta": {
     "title": "wcgo.pl — Mapa de Baños Públicos de Łódź",
     "description": "Encuentra el baño público más cercano en Łódź. Mapa con horarios, precios y accesibilidad.",
-    "tagline": "Mapa de baños públicos",
-    "motto": "Porque contra la naturaleza nadie ha ganado 😎"
+    "tagline": "Mapa de baños públicos"
   },
   "map": {
     "findNearest": "Buscar más cercano",
@@ -89,5 +88,22 @@
     "openSource": "Proyecto de código abierto",
     "motto": "Lo hacemos más rápido que una licitación pública.",
     "lastUpdated": "Última actualización: {date}"
+  },
+  "onboarding": {
+    "slide1Title": "Cuando la naturaleza llama...",
+    "slide1Body": "wcgo.pl es un mapa de baños públicos de Łódź. Gratis, de pago, accesibles\u00a0— todos en un solo lugar.",
+    "slide2Title": "Encuentra uno en segundos",
+    "slide2Feature1": "Baños públicos gratuitos",
+    "slide2Feature2": "De pago — con precios y horarios",
+    "slide2Feature3": "Accesibles para personas con discapacidad",
+    "slide2Feature4": "Abiertos ahora — filtra en vivo",
+    "slide3Title": "¡Llévame allí!",
+    "slide3Body": "Toca un baño en el mapa → consulta horarios y opiniones → navega con un toque.",
+    "slide3Aside": "Sencillo como... bueno, ya sabes.",
+    "slide4Title": "Porque contra la naturaleza nadie ha ganado",
+    "slide4Subtitle": "Te deseamos pantalones secos y colas cortas.",
+    "slide4Button": "¡Vamos! 🚀",
+    "next": "Siguiente",
+    "skip": "Saltar"
   }
 }

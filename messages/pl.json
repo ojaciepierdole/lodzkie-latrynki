@@ -2,8 +2,7 @@
   "meta": {
     "title": "wcgo.pl — Mapa Toalet Miejskich w Łodzi",
     "description": "Znajdź najbliższą toaletę publiczną w Łodzi. Pilne sprawy miasta w jednym miejscu.",
-    "tagline": "Mapa toalet publicznych",
-    "motto": "Bo z g... jeszcze nikt nie wygrał 😎"
+    "tagline": "Mapa toalet publicznych"
   },
   "map": {
     "findNearest": "Znajdź najbliższą",
@@ -89,5 +88,22 @@
     "openSource": "Projekt open-source",
     "motto": "Robimy to szybciej niż przetarg.",
     "lastUpdated": "Ostatnia aktualizacja: {date}"
+  },
+  "onboarding": {
+    "slide1Title": "Gdy natura woła...",
+    "slide1Body": "wcgo.pl to mapa toalet publicznych w\u00a0Łodzi. Darmowe, płatne, dostępne\u00a0— wszystkie w\u00a0jednym miejscu.",
+    "slide2Title": "Znajdź w sekundę",
+    "slide2Feature1": "Bezpłatne toalety miejskie",
+    "slide2Feature2": "Płatne — z cenami i godzinami",
+    "slide2Feature3": "Dostępne dla osób z\u00a0niepełnosprawnością",
+    "slide2Feature4": "Otwarte teraz — filtruj na żywo",
+    "slide3Title": "Prowadź mnie!",
+    "slide3Body": "Kliknij toaletę na mapie → sprawdź godziny i\u00a0opinie → nawiguj jednym tapnięciem.",
+    "slide3Aside": "Proste jak... no wiesz.",
+    "slide4Title": "Bo z gównem jeszcze nikt nie\u00a0wygrał",
+    "slide4Subtitle": "Życzymy suchych spodni i\u00a0krótkich kolejek.",
+    "slide4Button": "Zaczynamy! 🚀",
+    "next": "Dalej",
+    "skip": "Pomiń"
   }
 }

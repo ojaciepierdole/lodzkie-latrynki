@@ -2,13 +2,14 @@
 
 import { useRef, useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
+import { OnboardingDialog } from './OnboardingDialog';
 
 const STORAGE_KEY = 'latrynki-intro-seen';
 const FADE_DURATION = 800; // ms
 const FADE_START_BEFORE_END = 1.2; // seconds before video ends, start fade to black
 
 export function IntroSplash({ children }: { children: React.ReactNode }) {
-  const [phase, setPhase] = useState<'video' | 'black' | 'fadein' | 'done'>('video');
+  const [phase, setPhase] = useState<'video' | 'black' | 'onboarding' | 'fadein' | 'done'>('video');
   const videoRef = useRef<HTMLVideoElement>(null);
   const [fadeToBlack, setFadeToBlack] = useState(false);
   const playStarted = useRef(false);
@@ -69,7 +70,7 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
   const handleEnded = useCallback(() => {
     setPhase('black');
     sessionStorage.setItem(STORAGE_KEY, '1');
-    setTimeout(() => setPhase('fadein'), 300);
+    setTimeout(() => setPhase('onboarding'), 300);
   }, []);
 
   // If video fails to load, skip intro
@@ -114,6 +115,9 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
             className="w-48 sm:w-64 h-auto"
             priority
           />
+        )}
+        {phase === 'onboarding' && (
+          <OnboardingDialog onComplete={() => setPhase('fadein')} />
         )}
         {phase === 'video' && (
           <>
