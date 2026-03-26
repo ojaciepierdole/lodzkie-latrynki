@@ -163,7 +163,7 @@ function CardContent({
       {/* Review CTA */}
       <button
         onClick={onOpenReviewForm}
-        className="mt-3 w-full bg-[var(--color-surface)] hover:bg-[var(--color-border)] text-[var(--color-text)] flex items-center justify-center gap-2 px-4 py-3 rounded-2xl font-semibold text-sm transition-colors border border-[var(--color-border)]"
+        className="mt-3 w-full bg-[var(--color-surface)] hover:bg-[var(--color-border)] text-[var(--color-text)] flex items-center justify-center gap-2 px-4 py-3 rounded-2xl font-semibold text-sm transition-colors border border-[var(--color-border)] cursor-pointer"
       >
         <MessageSquarePlus size={18} />
         {t('addReview')}
