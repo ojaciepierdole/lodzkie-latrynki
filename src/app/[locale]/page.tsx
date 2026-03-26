@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import { Plus } from 'lucide-react';
 import { IntroSplash } from '@/components/IntroSplash';
 import { Header } from '@/components/Layout/Header';
 import { FilterBar, type FilterState } from '@/components/Filters/FilterBar';
@@ -38,6 +39,10 @@ const ReviewForm = dynamic(() => import('@/components/ToiletCard/ReviewForm'), {
   ssr: false,
 });
 
+const SuggestForm = dynamic(() => import('@/components/SuggestForm'), {
+  ssr: false,
+});
+
 export default function HomePage() {
   const [filters, setFilters] = useState<FilterState>({
     showFree: true,
@@ -51,6 +56,7 @@ export default function HomePage() {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [isReviewFormOpen, setIsReviewFormOpen] = useState(false);
   const [isLocating, setIsLocating] = useState(false);
+  const [isSuggestFormOpen, setIsSuggestFormOpen] = useState(false);
 
   // Fetch reviews from Supabase API
   const fetchReviews = useCallback(async () => {
@@ -132,6 +138,14 @@ export default function HomePage() {
       { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 }
     );
   }, [userLocation, mapCenter, findNearestFromCoords]);
+
+  const handleOpenSuggestForm = useCallback(() => {
+    setIsSuggestFormOpen(true);
+  }, []);
+
+  const handleCloseSuggestForm = useCallback(() => {
+    setIsSuggestFormOpen(false);
+  }, []);
 
   const handleOpenReviewForm = useCallback(() => {
     setIsReviewFormOpen(true);
@@ -225,6 +239,49 @@ export default function HomePage() {
           onSubmit={handleSubmitReview}
         />
       )}
+
+      {/* Suggest toilet FAB — small "+" button to the right of the Find Nearest FAB */}
+      <button
+        onClick={handleOpenSuggestForm}
+        aria-label="Zaproponuj toaletę"
+        style={{
+          position: 'fixed',
+          bottom: 'max(24px, env(safe-area-inset-bottom, 0px))',
+          right: 16,
+          zIndex: 900,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: 48,
+          height: 48,
+          borderRadius: '50%',
+          fontSize: 14,
+          fontWeight: 600,
+          color: 'var(--color-cta)',
+          backgroundColor: 'var(--color-card)',
+          boxShadow: '0 2px 12px rgba(0,0,0,0.15)',
+          cursor: 'pointer',
+          border: '2px solid var(--color-cta)',
+          transition: 'all 200ms ease',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = 'var(--color-cta)';
+          e.currentTarget.style.color = 'white';
+          e.currentTarget.style.transform = 'scale(1.08)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = 'var(--color-card)';
+          e.currentTarget.style.color = 'var(--color-cta)';
+          e.currentTarget.style.transform = 'scale(1)';
+        }}
+      >
+        <Plus size={24} />
+      </button>
+
+      <SuggestForm
+        isOpen={isSuggestFormOpen}
+        onClose={handleCloseSuggestForm}
+      />
     </IntroSplash>
   );
 }
