@@ -1,24 +1,54 @@
-import { NextResponse } from 'next/server';
-import { readFileSync } from 'fs';
-import { join } from 'path';
-import type { ToiletsResponse } from '@/lib/types/toilet';
+import { createClient } from '@supabase/supabase-js'
+import { NextResponse } from 'next/server'
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+)
 
 export async function GET() {
-  try {
-    const seedPath = join(process.cwd(), 'src', 'lib', 'data', 'seed.json');
-    const raw = readFileSync(seedPath, 'utf-8');
-    const response = JSON.parse(raw) as ToiletsResponse;
+  const { data: toilets, error, count } = await supabase
+    .from('toilets')
+    .select('*', { count: 'exact' })
+    .eq('status', 'active')
 
-    return NextResponse.json(response, {
-      headers: {
-        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
-      },
-    });
-  } catch (error) {
-    console.error('Failed to fetch toilets:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch toilet data' },
-      { status: 500 }
-    );
+  if (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 })
   }
+
+  // Transform DB column names back to camelCase for frontend compatibility
+  const transformedData = (toilets || []).map(t => ({
+    id: t.id,
+    source: t.source,
+    name: t.name,
+    address: t.address,
+    lat: t.lat,
+    lng: t.lng,
+    type: t.type,
+    price: t.price,
+    accessible: t.accessible,
+    description: t.description,
+    hours: t.hours,
+    is24h: t.is24h,
+    lastScraped: t.last_scraped,
+    lastVerified: t.last_verified,
+    status: t.status,
+  }))
+
+  const umlCount = transformedData.filter(t => t.source === 'uml').length
+  const communityCount = transformedData.filter(t => t.source === 'community').length
+
+  return NextResponse.json({
+    data: transformedData,
+    meta: {
+      total: count || transformedData.length,
+      lastUpdated: new Date().toISOString(),
+      sources: { uml: umlCount, community: communityCount },
+    },
+  }, {
+    headers: {
+      'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+      'Access-Control-Allow-Origin': '*',
+    },
+  })
 }

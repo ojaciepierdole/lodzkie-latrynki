@@ -52,11 +52,22 @@ export default function HomePage() {
   const [isReviewFormOpen, setIsReviewFormOpen] = useState(false);
   const [isLocating, setIsLocating] = useState(false);
 
-  useEffect(() => {
-    import('@/lib/data/mock-reviews.json').then((mod) => {
-      setReviews(mod.default as Review[]);
-    });
+  // Fetch reviews from Supabase API
+  const fetchReviews = useCallback(async () => {
+    try {
+      const res = await fetch('/api/reviews');
+      if (res.ok) {
+        const data = await res.json();
+        setReviews(data as Review[]);
+      }
+    } catch {
+      // silent — reviews are non-critical
+    }
   }, []);
+
+  useEffect(() => {
+    fetchReviews();
+  }, [fetchReviews]);
 
   const handleMarkerClick = useCallback((toilet: Toilet) => {
     setIsReviewFormOpen(false);
@@ -130,21 +141,50 @@ export default function HomePage() {
     setIsReviewFormOpen(false);
   }, []);
 
-  const handleSubmitReview = useCallback((review: { rating: number; text: string }) => {
+  const handleSubmitReview = useCallback(async (review: { rating: number; text: string }) => {
     if (!selectedToilet) return;
 
-    const newReview: Review = {
-      id: `rev-${Date.now()}`,
-      toiletId: selectedToilet.id,
-      rating: review.rating,
-      text: review.text || undefined,
-      authorName: 'Anonim',
-      createdAt: new Date().toISOString(),
-      isMock: false,
-    };
+    try {
+      const res = await fetch('/api/reviews', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          toiletId: selectedToilet.id,
+          rating: review.rating,
+          text: review.text || null,
+        }),
+      });
 
-    setReviews(prev => [newReview, ...prev]);
-  }, [selectedToilet]);
+      if (res.ok) {
+        // Re-fetch all reviews to get the server-generated data
+        await fetchReviews();
+      } else {
+        // Optimistic fallback: add locally if API fails
+        const newReview: Review = {
+          id: `rev-${Date.now()}`,
+          toiletId: selectedToilet.id,
+          rating: review.rating,
+          text: review.text || undefined,
+          authorName: 'Anonim',
+          createdAt: new Date().toISOString(),
+          isMock: false,
+        };
+        setReviews(prev => [newReview, ...prev]);
+      }
+    } catch {
+      // Optimistic fallback on network error
+      const newReview: Review = {
+        id: `rev-${Date.now()}`,
+        toiletId: selectedToilet.id,
+        rating: review.rating,
+        text: review.text || undefined,
+        authorName: 'Anonim',
+        createdAt: new Date().toISOString(),
+        isMock: false,
+      };
+      setReviews(prev => [newReview, ...prev]);
+    }
+  }, [selectedToilet, fetchReviews]);
 
   return (
     <IntroSplash>

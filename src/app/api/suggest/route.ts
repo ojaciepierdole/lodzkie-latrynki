@@ -1,6 +1,10 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { randomUUID } from 'crypto';
-import type { CommunitySubmission } from '@/lib/types/toilet';
+import { createClient } from '@supabase/supabase-js'
+import { NextRequest, NextResponse } from 'next/server'
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+)
 
 /**
  * POST /api/suggest
@@ -10,75 +14,72 @@ import type { CommunitySubmission } from '@/lib/types/toilet';
  */
 
 // Simple in-memory rate limiter (use Redis/KV in production)
-const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>()
 
 function checkRateLimit(ip: string): boolean {
-  const now = Date.now();
-  const entry = rateLimitMap.get(ip);
+  const now = Date.now()
+  const entry = rateLimitMap.get(ip)
 
   if (!entry || now > entry.resetAt) {
-    rateLimitMap.set(ip, { count: 1, resetAt: now + 3600000 }); // 1 hour
-    return true;
+    rateLimitMap.set(ip, { count: 1, resetAt: now + 3600000 }) // 1 hour
+    return true
   }
 
   if (entry.count >= 5) {
-    return false;
+    return false
   }
 
-  entry.count++;
-  return true;
+  entry.count++
+  return true
 }
 
 export async function POST(request: NextRequest) {
-  const ip = request.headers.get('x-forwarded-for') || 'unknown';
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
 
   if (!checkRateLimit(ip)) {
     return NextResponse.json(
       { error: 'Rate limit exceeded. Try again in 1 hour.' },
       { status: 429 }
-    );
+    )
   }
 
   try {
-    const body = await request.json();
+    const body = await request.json()
 
     // Validate required fields
     if (!body.address || !body.name) {
       return NextResponse.json(
         { error: 'Address and name are required' },
         { status: 400 }
-      );
+      )
     }
 
-    const submission: CommunitySubmission = {
-      id: randomUUID(),
-      toilet: {
-        source: 'community',
+    const { error } = await supabase.from('community_submissions').insert({
+      toilet_data: {
         name: body.name,
         address: body.address,
         type: body.type || 'free',
         accessible: body.accessible || false,
-        description: body.notes,
-        hours: { raw: body.hours || '' },
-        is24h: false,
-        status: 'pending',
+        description: body.notes || null,
+        hours_raw: body.hours || null,
       },
-      submittedAt: new Date().toISOString(),
-      status: 'pending',
-    };
+      ip_hash: ip ? Buffer.from(ip).toString('base64').slice(0, 16) : null,
+    })
 
-    // TODO: Store in Vercel KV or Blob in production
-    console.log('[Suggest] New submission:', submission);
+    if (error) {
+      console.error('[Suggest] Supabase error:', error)
+      return NextResponse.json(
+        { error: 'Failed to save submission' },
+        { status: 500 }
+      )
+    }
 
-    return NextResponse.json({
-      success: true,
-      id: submission.id,
-    });
+    return NextResponse.json({ success: true })
   } catch (error) {
-    console.error('[Suggest] Error:', error);
+    console.error('[Suggest] Error:', error)
     return NextResponse.json(
       { error: 'Failed to process submission' },
       { status: 500 }
-    );
+    )
   }
 }
