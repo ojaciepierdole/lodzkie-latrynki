@@ -50,14 +50,14 @@ export default function ReviewForm({
     setSubmitted(true);
   }, [rating, text, onSubmit]);
 
-  if (!isOpen && !submitted) return null;
+  if (!isOpen) return null;
 
   return (
     <>
       {/* Overlay */}
       <div
         className="bottom-sheet-overlay active"
-        onClick={onClose}
+        onClick={submitted ? undefined : onClose}
         aria-hidden="true"
         style={{ zIndex: 1100 }}
       />
@@ -72,8 +72,8 @@ export default function ReviewForm({
           <div className="drag-handle" />
 
           {submitted ? (
-            /* Success state */
-            <div className="flex flex-col items-center justify-center py-10 gap-3">
+            /* Success state — auto-closes after 2s */
+            <div className="flex flex-col items-center justify-center py-10 gap-3 cursor-pointer" onClick={onClose}>
               <CheckCircle size={48} className="text-emerald-500" />
               <p className="text-lg font-bold text-[var(--color-text)]">
                 Dzięki za opinię!

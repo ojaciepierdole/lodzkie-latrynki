@@ -4,7 +4,8 @@ import { useState, useCallback, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { Header } from '@/components/Layout/Header';
 import { FilterBar, type FilterState } from '@/components/Filters/FilterBar';
-import type { Toilet, Review } from '@/lib/types/toilet';
+import type { Toilet, Review, ToiletsResponse } from '@/lib/types/toilet';
+import { haversineDistance } from '@/lib/utils/distance';
 
 function MapLoader() {
   return (
@@ -76,10 +77,28 @@ export default function HomePage() {
     }
 
     navigator.geolocation.getCurrentPosition(
-      (position) => {
+      async (position) => {
         const coords: [number, number] = [position.coords.latitude, position.coords.longitude];
         setUserLocation(coords);
-        setFilters(prev => ({ ...prev, nearest: true }));
+
+        // Fetch toilets and find nearest
+        try {
+          const res = await fetch('/api/toilets');
+          const data: ToiletsResponse = await res.json();
+          const active = data.data.filter(t => t.status === 'active' && t.lat !== 0);
+
+          if (active.length > 0) {
+            const nearest = active.reduce((best, t) => {
+              const dist = haversineDistance(coords[0], coords[1], t.lat, t.lng);
+              const bestDist = haversineDistance(coords[0], coords[1], best.lat, best.lng);
+              return dist < bestDist ? t : best;
+            });
+            setSelectedToilet(nearest);
+          }
+        } catch {
+          // Fallback: just set location, no auto-open
+        }
+
         setIsLocating(false);
       },
       () => {
