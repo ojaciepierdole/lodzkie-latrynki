@@ -41,14 +41,8 @@ body {
 
 
 .map-container {
-  height: calc(100dvh - 108px);
+  height: 100%;
   width: 100%;
-}
-
-@media (max-width: 640px) {
-  .map-container {
-    height: calc(100dvh - 116px);
-  }
 }
 
 .bottom-sheet-overlay {
