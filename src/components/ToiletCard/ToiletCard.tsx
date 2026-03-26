@@ -2,6 +2,7 @@
 
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
+import { useSwipeDismiss } from '@/lib/hooks/useSwipeDismiss';
 import {
   X,
   Clock,
@@ -210,6 +211,8 @@ export default function ToiletCard({
     return null;
   }, [toilet]);
 
+  const swipe = useSwipeDismiss(onClose);
+
   return (
     <>
       {/* Overlay */}
@@ -221,9 +224,13 @@ export default function ToiletCard({
 
       {/* Bottom sheet (mobile) */}
       <div
+        ref={swipe.ref}
         className={`bottom-sheet lg:hidden bg-[var(--color-card)] rounded-t-3xl shadow-[0_-4px_24px_rgba(0,0,0,0.1)] ${
           isOpen ? 'open' : ''
         }`}
+        onTouchStart={swipe.onTouchStart}
+        onTouchMove={swipe.onTouchMove}
+        onTouchEnd={swipe.onTouchEnd}
       >
         {toilet && (
           <CardContent

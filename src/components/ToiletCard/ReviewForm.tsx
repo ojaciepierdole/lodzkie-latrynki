@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { X, Camera, Send, CheckCircle } from 'lucide-react';
 import StarRating from './StarRating';
+import { useSwipeDismiss } from '@/lib/hooks/useSwipeDismiss';
 
 interface ReviewFormProps {
   toiletId: string;
@@ -50,6 +51,8 @@ export default function ReviewForm({
     setSubmitted(true);
   }, [rating, text, onSubmit]);
 
+  const swipe = useSwipeDismiss(onClose);
+
   if (!isOpen) return null;
 
   return (
@@ -64,8 +67,12 @@ export default function ReviewForm({
 
       {/* Bottom sheet */}
       <div
+        ref={swipe.ref}
         className="fixed bottom-0 left-0 right-0 bg-[var(--color-card)] rounded-t-3xl shadow-[0_-4px_24px_rgba(0,0,0,0.15)]"
         style={{ zIndex: 1101 }}
+        onTouchStart={swipe.onTouchStart}
+        onTouchMove={swipe.onTouchMove}
+        onTouchEnd={swipe.onTouchEnd}
       >
         <div className="relative p-5 pb-8">
           {/* Drag handle */}

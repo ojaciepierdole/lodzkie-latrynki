@@ -47,7 +47,7 @@ function UserLocationMarker({ onLocationFound }: { onLocationFound: (coords: [nu
   const [position, setPosition] = useState<[number, number] | null>(null);
 
   useEffect(() => {
-    map.locate({ setView: false, maxZoom: 16 });
+    map.locate({ setView: true, maxZoom: 15 });
     map.on('locationfound', (e) => {
       const coords: [number, number] = [e.latlng.lat, e.latlng.lng];
       setPosition(coords);
