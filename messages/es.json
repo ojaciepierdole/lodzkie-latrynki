@@ -34,10 +34,29 @@
     "details": "Detalles",
     "distance": "a {distance}",
     "cabins": "{count, plural, one {# cabina} other {# cabinas}}",
+    "addReview": "Comparte tu opinión",
     "source": {
       "uml": "Datos: Ciudad de Łódź",
       "community": "Reportado por la comunidad"
     }
+  },
+  "reviews": {
+    "title": "Opiniones",
+    "count": "{count, plural, one {# opinión} other {# opiniones}}",
+    "noReviews": "Sin opiniones aún. ¡Sé el primero!",
+    "showAll": "Mostrar todas ({count})",
+    "formTitle": "Valora este baño",
+    "placeholder": "Escribe una opinión...",
+    "addPhoto": "Añadir foto (próximamente)",
+    "submit": "Enviar opinión",
+    "anonymous": "Tu opinión es anónima.",
+    "success": "¡Gracias por tu opinión!",
+    "successSub": "Łódź no te olvidará.",
+    "today": "hoy",
+    "yesterday": "ayer",
+    "daysAgo": "hace {days} días",
+    "weeksAgo": "hace {weeks} semanas",
+    "monthsAgo": "hace {months} meses"
   },
   "suggest": {
     "title": "Conoces un baño? Compártelo!",

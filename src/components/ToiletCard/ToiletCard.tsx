@@ -12,15 +12,19 @@ import {
   CircleDollarSign,
   Coins,
   Accessibility,
+  MessageSquarePlus,
 } from 'lucide-react';
-import type { Toilet } from '@/lib/types/toilet';
+import type { Toilet, Review } from '@/lib/types/toilet';
+import ReviewList from './ReviewList';
 import { isOpenNow, formatHours } from '@/lib/utils/open-hours';
 import { haversineDistance, formatDistance } from '@/lib/utils/distance';
 
 interface ToiletCardProps {
   toilet: Toilet | null;
   userLocation: [number, number] | null;
+  reviews: Review[];
   onClose: () => void;
+  onOpenReviewForm: () => void;
 }
 
 type OpenStatus = 'h24' | 'open' | 'closed' | null;
@@ -29,7 +33,9 @@ interface CardContentProps {
   toilet: Toilet;
   distance: string | null;
   openStatus: OpenStatus;
+  reviews: Review[];
   onClose: () => void;
+  onOpenReviewForm: () => void;
   showDragHandle: boolean;
   t: ReturnType<typeof useTranslations>;
   tc: ReturnType<typeof useTranslations>;
@@ -39,11 +45,14 @@ function CardContent({
   toilet,
   distance,
   openStatus,
+  reviews,
   onClose,
+  onOpenReviewForm,
   showDragHandle,
   t,
   tc,
 }: CardContentProps) {
+  const toiletReviews = reviews.filter(r => r.toiletId === toilet.id);
   const formattedHours = formatHours(toilet.hours);
 
   const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${toilet.lat},${toilet.lng}`;
@@ -134,6 +143,12 @@ function CardContent({
         </p>
       )}
 
+      {/* Divider */}
+      <div className="mt-5 mb-4 border-t border-[var(--color-border)]" />
+
+      {/* Reviews */}
+      <ReviewList reviews={toiletReviews} maxVisible={3} />
+
       {/* CTA button */}
       <a
         href={directionsHref}
@@ -144,6 +159,15 @@ function CardContent({
         <Navigation size={18} />
         {t('navigate')}
       </a>
+
+      {/* Review CTA */}
+      <button
+        onClick={onOpenReviewForm}
+        className="mt-3 w-full bg-[var(--color-surface)] hover:bg-[var(--color-border)] text-[var(--color-text)] flex items-center justify-center gap-2 px-4 py-3 rounded-2xl font-semibold text-sm transition-colors border border-[var(--color-border)]"
+      >
+        <MessageSquarePlus size={18} />
+        {t('addReview')}
+      </button>
 
       {/* Source info */}
       <p className="mt-4 text-xs text-[var(--color-text-muted)] text-center">
@@ -156,7 +180,9 @@ function CardContent({
 export default function ToiletCard({
   toilet,
   userLocation,
+  reviews,
   onClose,
+  onOpenReviewForm,
 }: ToiletCardProps) {
   const t = useTranslations('toilet');
   const tc = useTranslations('common');
@@ -204,7 +230,9 @@ export default function ToiletCard({
             toilet={toilet}
             distance={distance}
             openStatus={openStatus}
+            reviews={reviews}
             onClose={onClose}
+            onOpenReviewForm={onOpenReviewForm}
             showDragHandle={true}
             t={t}
             tc={tc}
@@ -223,7 +251,9 @@ export default function ToiletCard({
             toilet={toilet}
             distance={distance}
             openStatus={openStatus}
+            reviews={reviews}
             onClose={onClose}
+            onOpenReviewForm={onOpenReviewForm}
             showDragHandle={false}
             t={t}
             tc={tc}

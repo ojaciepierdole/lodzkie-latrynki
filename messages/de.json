@@ -34,10 +34,29 @@
     "details": "Details",
     "distance": "{distance} entfernt",
     "cabins": "{count, plural, one {# Kabine} other {# Kabinen}}",
+    "addReview": "Bewertung abgeben",
     "source": {
       "uml": "Daten: Stadt Łódź",
       "community": "Von der Community gemeldet"
     }
+  },
+  "reviews": {
+    "title": "Bewertungen",
+    "count": "{count, plural, one {# Bewertung} other {# Bewertungen}}",
+    "noReviews": "Noch keine Bewertungen. Sei der Erste!",
+    "showAll": "Alle anzeigen ({count})",
+    "formTitle": "Bewerte diese Toilette",
+    "placeholder": "Schreibe eine Bewertung...",
+    "addPhoto": "Foto hinzufügen (bald verfügbar)",
+    "submit": "Bewertung abschicken",
+    "anonymous": "Deine Bewertung ist anonym.",
+    "success": "Danke für deine Bewertung!",
+    "successSub": "Łódź vergisst dich nicht.",
+    "today": "heute",
+    "yesterday": "gestern",
+    "daysAgo": "vor {days} Tagen",
+    "weeksAgo": "vor {weeks} Wochen",
+    "monthsAgo": "vor {months} Monaten"
   },
   "suggest": {
     "title": "Kennen Sie ein stilles Örtchen? Teilen Sie es!",

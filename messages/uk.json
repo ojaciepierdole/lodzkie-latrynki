@@ -34,10 +34,29 @@
     "details": "Деталі",
     "distance": "{distance} звідси",
     "cabins": "{count, plural, one {# кабіна} few {# кабіни} many {# кабін} other {# кабін}}",
+    "addReview": "Поділіться думкою",
     "source": {
       "uml": "Дані: Місто Лодзь",
       "community": "Повідомлено спільнотою"
     }
+  },
+  "reviews": {
+    "title": "Відгуки",
+    "count": "{count, plural, one {# відгук} few {# відгуки} many {# відгуків} other {# відгуків}}",
+    "noReviews": "Відгуків ще немає. Будьте першим!",
+    "showAll": "Показати всі ({count})",
+    "formTitle": "Оцініть цей туалет",
+    "placeholder": "Напишіть відгук...",
+    "addPhoto": "Додати фото (незабаром)",
+    "submit": "Надіслати відгук",
+    "anonymous": "Ваш відгук анонімний.",
+    "success": "Дякуємо за відгук!",
+    "successSub": "Лодзь вас не забуде.",
+    "today": "сьогодні",
+    "yesterday": "вчора",
+    "daysAgo": "{days} днів тому",
+    "weeksAgo": "{weeks} тижнів тому",
+    "monthsAgo": "{months} місяців тому"
   },
   "suggest": {
     "title": "Знаєте туалет? Поділіться!",

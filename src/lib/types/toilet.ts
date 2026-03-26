@@ -48,6 +48,17 @@ export interface CommunitySubmission {
   moderatorNote?: string;
 }
 
+export interface Review {
+  id: string;
+  toiletId: string;
+  rating: number;
+  text?: string;
+  photoUrl?: string;
+  authorName: string;
+  createdAt: string;
+  isMock: boolean;
+}
+
 export interface ToiletsResponse {
   data: Toilet[];
   meta: {

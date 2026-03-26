@@ -34,10 +34,29 @@
     "details": "Details",
     "distance": "{distance} away",
     "cabins": "{count, plural, one {# cabin} other {# cabins}}",
+    "addReview": "Share your opinion",
     "source": {
       "uml": "Data: City of Łódź",
       "community": "Reported by community"
     }
+  },
+  "reviews": {
+    "title": "Reviews",
+    "count": "{count, plural, one {# review} other {# reviews}}",
+    "noReviews": "No reviews yet. Be the first!",
+    "showAll": "Show all ({count})",
+    "formTitle": "Rate this loo",
+    "placeholder": "Write a review...",
+    "addPhoto": "Add photo (coming soon)",
+    "submit": "Submit review",
+    "anonymous": "Your review is anonymous.",
+    "success": "Thanks for your review!",
+    "successSub": "Łódź won't forget you.",
+    "today": "today",
+    "yesterday": "yesterday",
+    "daysAgo": "{days} days ago",
+    "weeksAgo": "{weeks} weeks ago",
+    "monthsAgo": "{months} months ago"
   },
   "suggest": {
     "title": "Know a loo? Share the scoop!",

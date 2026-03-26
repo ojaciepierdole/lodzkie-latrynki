@@ -1,0 +1,164 @@
+[
+  {
+    "id": "rev-001",
+    "toiletId": "uml-521465",
+    "rating": 5,
+    "text": "Głęboka ulga, polecam.",
+    "authorName": "Marek",
+    "createdAt": "2026-03-24T14:30:00Z",
+    "isMock": true
+  },
+  {
+    "id": "rev-002",
+    "toiletId": "uml-521465",
+    "rating": 4,
+    "text": "Dla toalety miejskiej — zaskakująco cywilizowana.",
+    "authorName": "Kasia",
+    "createdAt": "2026-03-22T09:15:00Z",
+    "isMock": true
+  },
+  {
+    "id": "rev-003",
+    "toiletId": "uml-521465",
+    "rating": 2,
+    "text": "Nie nadaje się na imprezy firmowe, ale w potrzebie ujdzie.",
+    "authorName": "Ania",
+    "createdAt": "2026-03-20T18:00:00Z",
+    "isMock": true
+  },
+  {
+    "id": "rev-004",
+    "toiletId": "uml-521447",
+    "rating": 5,
+    "text": "5 gwiazdek za sam fakt istnienia o 23:00.",
+    "authorName": "Tomek",
+    "createdAt": "2026-03-23T23:10:00Z",
+    "isMock": true
+  },
+  {
+    "id": "rev-005",
+    "toiletId": "uml-521447",
+    "rating": 4,
+    "text": "Czysto, ale kolejka jak do spowiedzi.",
+    "authorName": "Paweł",
+    "createdAt": "2026-03-21T12:00:00Z",
+    "isMock": true
+  },
+  {
+    "id": "rev-006",
+    "toiletId": "uml-521477",
+    "rating": 3,
+    "text": "Papier był. To już połowa sukcesu.",
+    "authorName": "Zofia",
+    "createdAt": "2026-03-19T15:30:00Z",
+    "isMock": true
+  },
+  {
+    "id": "rev-007",
+    "toiletId": "uml-521477",
+    "rating": 5,
+    "text": "Strategiczne położenie na Piotrkowskiej. Punkt ratunkowy.",
+    "authorName": "Bartek",
+    "createdAt": "2026-03-18T10:00:00Z",
+    "isMock": true
+  },
+  {
+    "id": "rev-008",
+    "toiletId": "uml-521444",
+    "rating": 1,
+    "text": "Automat zjadł 2 zł i nie otworzył drzwi. Trauma.",
+    "authorName": "Dorota",
+    "createdAt": "2026-03-17T08:45:00Z",
+    "isMock": true
+  },
+  {
+    "id": "rev-009",
+    "toiletId": "uml-521444",
+    "rating": 4,
+    "text": "Całodobowa i blisko centrum. W Łodzi na wagę złota.",
+    "authorName": "Krzysztof",
+    "createdAt": "2026-03-16T22:00:00Z",
+    "isMock": true
+  },
+  {
+    "id": "rev-010",
+    "toiletId": "uml-521504",
+    "rating": 5,
+    "text": "Jedyna łazienka w parku. Bohatersko służy mieszkańcom.",
+    "authorName": "Agnieszka",
+    "createdAt": "2026-03-15T14:20:00Z",
+    "isMock": true
+  },
+  {
+    "id": "rev-011",
+    "toiletId": "uml-521504",
+    "rating": 3,
+    "text": "Sezonowa, więc zimą trzeba kombinować. Latem OK.",
+    "authorName": "Jan",
+    "createdAt": "2026-03-14T11:00:00Z",
+    "isMock": true
+  },
+  {
+    "id": "rev-012",
+    "toiletId": "uml-521522",
+    "rating": 4,
+    "text": "Toi-toi na cmentarzu, ale czysty i zadbany. Szacunek.",
+    "authorName": "Halina",
+    "createdAt": "2026-03-13T09:30:00Z",
+    "isMock": true
+  },
+  {
+    "id": "rev-013",
+    "toiletId": "uml-521486",
+    "rating": 5,
+    "text": "Automatyczna, 24h, przy dworcu. Ideał nie istnie... a jednak.",
+    "authorName": "Michał",
+    "createdAt": "2026-03-12T07:00:00Z",
+    "isMock": true
+  },
+  {
+    "id": "rev-014",
+    "toiletId": "uml-521486",
+    "rating": 2,
+    "text": "Kolejka 15 minut rano. Ale przynajmniej jest.",
+    "authorName": "Ewa",
+    "createdAt": "2026-03-11T08:30:00Z",
+    "isMock": true
+  },
+  {
+    "id": "rev-015",
+    "toiletId": "uml-521480",
+    "rating": 4,
+    "text": "Ukryta w parku, ale warto szukać. Spokojna i czysta.",
+    "authorName": "Piotr",
+    "createdAt": "2026-03-10T16:00:00Z",
+    "isMock": true
+  },
+  {
+    "id": "rev-016",
+    "toiletId": "uml-521513",
+    "rating": 5,
+    "text": "Ratunek po 3 piwach na Piotrkowskiej. Łódź, dziękuję!",
+    "authorName": "Łukasz",
+    "createdAt": "2026-03-09T01:15:00Z",
+    "isMock": true
+  },
+  {
+    "id": "rev-017",
+    "toiletId": "uml-521513",
+    "rating": 3,
+    "text": "Płatna i tylko gotówka. Kto w 2026 nosi gotówkę?",
+    "authorName": "Magda",
+    "createdAt": "2026-03-08T13:00:00Z",
+    "isMock": true
+  },
+  {
+    "id": "rev-018",
+    "toiletId": "uml-521510",
+    "rating": 4,
+    "text": "Mała, ale jaka potrzebna. Darmowa — szacun dla miasta.",
+    "authorName": "Wojciech",
+    "createdAt": "2026-03-07T17:30:00Z",
+    "isMock": true
+  }
+]

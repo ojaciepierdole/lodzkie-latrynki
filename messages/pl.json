@@ -34,10 +34,29 @@
     "details": "Szczegóły",
     "distance": "{distance} stąd",
     "cabins": "{count, plural, one {# kabina} few {# kabiny} many {# kabin} other {# kabin}}",
+    "addReview": "Podziel się opinią",
     "source": {
       "uml": "Dane: Urząd Miasta Łodzi",
       "community": "Zgłoszone przez społeczność"
     }
+  },
+  "reviews": {
+    "title": "Opinie",
+    "count": "{count, plural, one {# opinia} few {# opinie} many {# opinii} other {# opinii}}",
+    "noReviews": "Brak opinii. Bądź pierwszy!",
+    "showAll": "Pokaż wszystkie ({count})",
+    "formTitle": "Oceń tę latrynkę",
+    "placeholder": "Napisz opinię...",
+    "addPhoto": "Dodaj zdjęcie (wkrótce)",
+    "submit": "Wyślij opinię",
+    "anonymous": "Opinia jest anonimowa.",
+    "success": "Dzięki za opinię!",
+    "successSub": "Łódź Ci nie zapomni.",
+    "today": "dziś",
+    "yesterday": "wczoraj",
+    "daysAgo": "{days} dni temu",
+    "weeksAgo": "{weeks} tyg. temu",
+    "monthsAgo": "{months} mies. temu"
   },
   "suggest": {
     "title": "Znasz latrynkę? Podziel się!",
