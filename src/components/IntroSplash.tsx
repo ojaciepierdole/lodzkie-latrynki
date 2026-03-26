@@ -119,7 +119,7 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
           <>
             <video
               ref={videoRef}
-              src="/intro.mp4"
+              src="https://zhana0boa1k4htp1.public.blob.vercel-storage.com/intro.mp4"
               autoPlay
               muted
               playsInline
