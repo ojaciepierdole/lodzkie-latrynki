@@ -10,7 +10,7 @@ import {
   DoorClosed,
   Navigation,
   MapPin,
-  CircleDollarSign,
+  BadgeCheck,
   Coins,
   Accessibility,
   MessageSquarePlus,
@@ -91,12 +91,12 @@ function CardContent({
       {/* Badges */}
       <div className="flex flex-wrap gap-2 mt-3">
         {toilet.type === 'free' ? (
-          <span className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300 px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
-            <CircleDollarSign size={13} />
+          <span className="bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+            <BadgeCheck size={13} />
             {t('free')}
           </span>
         ) : (
-          <span className="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+          <span className="bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
             <Coins size={13} />
             {t('paid')}
             {toilet.price && ` ${toilet.price}`}
@@ -104,7 +104,7 @@ function CardContent({
         )}
 
         {toilet.accessible && (
-          <span className="bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+          <span className="bg-purple-100 text-purple-800 px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
             <Accessibility size={13} />
             {t('accessible')}
           </span>

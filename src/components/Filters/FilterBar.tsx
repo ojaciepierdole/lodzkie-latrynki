@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Clock, CircleDollarSign, Accessibility, MapPin } from 'lucide-react';
+import { Clock, BadgeCheck, Accessibility, MapPin } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 export type FilterState = {
@@ -25,24 +25,45 @@ export function FilterBar({ filters, onFilterChange }: FilterBarProps) {
 
   const chips: { key: keyof FilterState; icon: LucideIcon; label: string }[] = [
     { key: 'openNow', icon: Clock, label: t('openNow') },
-    { key: 'free', icon: CircleDollarSign, label: t('free') },
+    { key: 'free', icon: BadgeCheck, label: t('free') },
     { key: 'accessible', icon: Accessibility, label: t('accessible') },
     { key: 'nearest', icon: MapPin, label: t('nearest') },
   ];
 
   return (
-    <div className="bg-[var(--color-card)] border-b border-[var(--color-border)] px-4 py-2.5 flex gap-2 overflow-x-auto shrink-0 filter-scroll">
+    <div
+      style={{
+        background: 'var(--color-card)',
+        borderBottom: '1px solid var(--color-border)',
+        padding: '8px 12px',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        gap: 6,
+        flexShrink: 0,
+      }}
+    >
       {chips.map(({ key, icon: Icon, label }) => (
         <button
           key={key}
           onClick={() => toggle(key)}
-          className={`flex items-center gap-1.5 px-3.5 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all duration-150 cursor-pointer ${
-            filters[key]
-              ? 'bg-[var(--color-primary)] text-white border border-transparent'
-              : 'bg-[var(--color-surface)] text-[var(--color-text-secondary)] border border-[var(--color-border)] hover:bg-[var(--color-border)] hover:text-[var(--color-text)]'
-          }`}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 4,
+            padding: '8px 4px',
+            borderRadius: 9999,
+            fontSize: 12,
+            fontWeight: 600,
+            whiteSpace: 'nowrap',
+            cursor: 'pointer',
+            transition: 'all 150ms',
+            border: filters[key] ? '1px solid transparent' : '1px solid var(--color-border)',
+            background: filters[key] ? 'var(--color-primary)' : 'var(--color-surface)',
+            color: filters[key] ? 'white' : 'var(--color-text-secondary)',
+          }}
         >
-          <Icon size={15} strokeWidth={2} />
+          <Icon size={14} strokeWidth={2} />
           {label}
         </button>
       ))}

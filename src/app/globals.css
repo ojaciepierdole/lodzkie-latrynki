@@ -30,24 +30,6 @@
   --color-ring: #9A3412;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #1C1917;
-    --color-card: #292524;
-    --color-surface: #1C1917;
-    --color-text: #FAFAF9;
-    --color-text-secondary: #A8A29E;
-    --color-text-muted: #78716C;
-    --color-border: #44403C;
-    --color-border-strong: #57534E;
-    --color-primary: #FB923C;
-    --color-primary-hover: #F97316;
-    --color-primary-light: #431407;
-    --color-cta: #FB923C;
-    --color-cta-hover: #F97316;
-    --color-ring: #FB923C;
-  }
-}
 
 body {
   background: var(--color-bg);
@@ -57,20 +39,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  .leaflet-container {
-    background: var(--color-bg);
-  }
-
-  .leaflet-popup-content-wrapper {
-    background: var(--color-card);
-    color: var(--color-text);
-  }
-
-  .leaflet-popup-tip {
-    background: var(--color-card);
-  }
-}
 
 .map-container {
   height: calc(100dvh - 108px);

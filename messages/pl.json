@@ -12,7 +12,7 @@
     "zoomOut": "Oddal"
   },
   "filters": {
-    "free": "Za darmo",
+    "free": "Bezpłatne",
     "paid": "Płatne",
     "accessible": "Dostępne",
     "openNow": "Otwarte teraz",
@@ -20,7 +20,7 @@
     "all": "Wszystkie"
   },
   "toilet": {
-    "free": "Za darmo!",
+    "free": "Bezpłatna",
     "paid": "Płatna",
     "price": "{price}",
     "open": "Otwarte — zapraszamy!",
