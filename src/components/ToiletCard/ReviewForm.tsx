@@ -50,20 +50,22 @@ export default function ReviewForm({
     setSubmitted(true);
   }, [rating, text, onSubmit]);
 
+  if (!isOpen && !submitted) return null;
+
   return (
     <>
       {/* Overlay */}
       <div
-        className={`bottom-sheet-overlay ${isOpen ? 'active' : ''}`}
+        className="bottom-sheet-overlay active"
         onClick={onClose}
         aria-hidden="true"
+        style={{ zIndex: 1100 }}
       />
 
       {/* Bottom sheet */}
       <div
-        className={`fixed bottom-0 left-0 right-0 z-[1002] bg-[var(--color-card)] rounded-t-3xl shadow-[0_-4px_24px_rgba(0,0,0,0.15)] transform transition-transform duration-300 ${
-          isOpen ? 'translate-y-0' : 'translate-y-full'
-        }`}
+        className="fixed bottom-0 left-0 right-0 bg-[var(--color-card)] rounded-t-3xl shadow-[0_-4px_24px_rgba(0,0,0,0.15)]"
+        style={{ zIndex: 1101 }}
       >
         <div className="relative p-5 pb-8">
           {/* Drag handle */}
