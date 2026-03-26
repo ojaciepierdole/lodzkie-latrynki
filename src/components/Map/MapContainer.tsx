@@ -160,10 +160,10 @@ export default function MapContainerComponent({
         // Type visibility: toggle OFF = hide that type
         if (t.type === 'free' && !filters.showFree) return false;
         if (t.type === 'paid' && !filters.showPaid) return false;
-        // Accessible: OFF = hide non-accessible
-        if (!filters.accessible && !t.accessible) return false;
-        // Open now: OFF = hide closed
-        if (!filters.openNow) {
+        // Accessible: ON = show only accessible
+        if (filters.accessible && !t.accessible) return false;
+        // Open now: ON = show only open
+        if (filters.openNow) {
           const open = isOpenNow(t.hours);
           if (open === false || (open === null && !t.is24h)) return false;
         }

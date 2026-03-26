@@ -76,9 +76,11 @@ function CardContent({
       <h3 className="text-lg font-bold text-[var(--color-text)] pr-8">
         {toilet.name}
       </h3>
-      <p className="text-sm text-[var(--color-text-secondary)] mt-0.5">
-        {toilet.address}
-      </p>
+      {toilet.address !== toilet.name && (
+        <p className="text-sm text-[var(--color-text-secondary)] mt-0.5">
+          {toilet.address}
+        </p>
+      )}
 
       {/* Distance */}
       {distance && (

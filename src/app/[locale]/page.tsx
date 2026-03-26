@@ -42,8 +42,8 @@ export default function HomePage() {
   const [filters, setFilters] = useState<FilterState>({
     showFree: true,
     showPaid: true,
-    accessible: true,
-    openNow: true,
+    accessible: false,
+    openNow: false,
   });
   const [selectedToilet, setSelectedToilet] = useState<Toilet | null>(null);
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
