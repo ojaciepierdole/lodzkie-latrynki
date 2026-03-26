@@ -1,0 +1,19 @@
+{
+  "name": "Łódzkie Latrynki — Mapa Toalet Miejskich",
+  "short_name": "Latrynki",
+  "description": "Znajdź najbliższą toaletę publiczną w Łodzi",
+  "start_url": "/pl",
+  "display": "standalone",
+  "background_color": "#FFFBF5",
+  "theme_color": "#9A3412",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["utilities", "navigation"],
+  "lang": "pl"
+}

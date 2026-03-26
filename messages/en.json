@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "title": "Łódzkie Latrynki — Public Toilet Map of Łódź",
+    "description": "Find the nearest public toilet in Łódź. Map with opening hours, prices, and accessibility info.",
+    "tagline": "The city's urgent matters"
+  },
+  "map": {
+    "findNearest": "Find nearest",
+    "myLocation": "My location",
+    "showAll": "Show all",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out"
+  },
+  "filters": {
+    "free": "Free",
+    "paid": "Paid",
+    "accessible": "Accessible",
+    "openNow": "Open now",
+    "nearest": "Nearest",
+    "all": "All"
+  },
+  "toilet": {
+    "free": "It's free!",
+    "paid": "Paid",
+    "price": "{price}",
+    "open": "Open — come on in!",
+    "closed": "Closed — keep looking",
+    "closedForSeason": "Closed for season",
+    "hours": "{hours}",
+    "h24": "Round the clock. Day and night.",
+    "accessible": "Wheelchair accessible",
+    "notAccessible": "Not wheelchair accessible",
+    "navigate": "Take me there!",
+    "details": "Details",
+    "distance": "{distance} away",
+    "cabins": "{count, plural, one {# cabin} other {# cabins}}",
+    "source": {
+      "uml": "Data: City of Łódź",
+      "community": "Reported by community"
+    }
+  },
+  "suggest": {
+    "title": "Know a loo? Share the scoop!",
+    "subtitle": "Help locals and visitors — report a toilet that's missing from the map.",
+    "address": "Address",
+    "addressPlaceholder": "e.g. ul. Piotrkowska 104",
+    "name": "Place name",
+    "namePlaceholder": "e.g. Galeria Łódzka",
+    "type": "Type",
+    "hours": "Opening hours",
+    "hoursPlaceholder": "e.g. 8:00-20:00",
+    "accessibleLabel": "Wheelchair accessible",
+    "notes": "Anything else?",
+    "submit": "Submit report",
+    "success": "Thanks! Łódź won't forget you.",
+    "error": "Oops — something got stuck. Give it another try."
+  },
+  "common": {
+    "loading": "Searching for the nearest safe harbour...",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "yes": "Yes",
+    "no": "No",
+    "close": "Close",
+    "back": "Back",
+    "noResults": "No loos match your filters. Try loosening them up!"
+  },
+  "footer": {
+    "data": "Data: City of Łódź",
+    "openSource": "Open-source project",
+    "motto": "We ship faster than a public tender.",
+    "lastUpdated": "Last updated: {date}"
+  }
+}

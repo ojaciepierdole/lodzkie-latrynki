@@ -1,0 +1,23 @@
+{
+  "crons": [
+    {
+      "path": "/api/scrape",
+      "schedule": "3 0 * * *"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/toilets",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, s-maxage=3600, stale-while-revalidate=86400"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ]
+}

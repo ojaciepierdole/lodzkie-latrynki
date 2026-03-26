@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "title": "Łódzkie Latrynki — Öffentliche Toiletten in Łódź",
+    "description": "Finden Sie die nächste öffentliche Toilette in Łódź. Karte mit Öffnungszeiten, Preisen und Barrierefreiheit.",
+    "tagline": "Die dringenden Angelegenheiten der Stadt"
+  },
+  "map": {
+    "findNearest": "Nächste finden",
+    "myLocation": "Mein Standort",
+    "showAll": "Alle anzeigen",
+    "zoomIn": "Vergrößern",
+    "zoomOut": "Verkleinern"
+  },
+  "filters": {
+    "free": "Kostenlos",
+    "paid": "Kostenpflichtig",
+    "accessible": "Barrierefrei",
+    "openNow": "Jetzt geöffnet",
+    "nearest": "Nächstgelegene",
+    "all": "Alle"
+  },
+  "toilet": {
+    "free": "Kostenlos!",
+    "paid": "Kostenpflichtig",
+    "price": "{price}",
+    "open": "Geöffnet — hereinspaziert!",
+    "closed": "Geschlossen — bitte weitersuchen",
+    "closedForSeason": "Saisonal geschlossen",
+    "hours": "{hours}",
+    "h24": "Rund um die Uhr. Tag und Nacht.",
+    "accessible": "Rollstuhlgerecht",
+    "notAccessible": "Nicht rollstuhlgerecht",
+    "navigate": "Bring mich hin!",
+    "details": "Details",
+    "distance": "{distance} entfernt",
+    "cabins": "{count, plural, one {# Kabine} other {# Kabinen}}",
+    "source": {
+      "uml": "Daten: Stadt Łódź",
+      "community": "Von der Community gemeldet"
+    }
+  },
+  "suggest": {
+    "title": "Kennen Sie ein stilles Örtchen? Teilen Sie es!",
+    "subtitle": "Helfen Sie Einwohnern und Touristen — melden Sie eine Toilette, die noch nicht auf der Karte ist.",
+    "address": "Adresse",
+    "addressPlaceholder": "z.B. ul. Piotrkowska 104",
+    "name": "Ortsname",
+    "namePlaceholder": "z.B. Galeria Łódzka",
+    "type": "Typ",
+    "hours": "Öffnungszeiten",
+    "hoursPlaceholder": "z.B. 8:00-20:00",
+    "accessibleLabel": "Rollstuhlgerecht",
+    "notes": "Noch etwas?",
+    "submit": "Meldung absenden",
+    "success": "Danke! Łódź wird es Ihnen nicht vergessen.",
+    "error": "Hoppla — da hat etwas gehakt. Bitte versuchen Sie es noch einmal."
+  },
+  "common": {
+    "loading": "Wir suchen den nächsten sicheren Hafen...",
+    "error": "Etwas ist schiefgelaufen",
+    "retry": "Erneut versuchen",
+    "yes": "Ja",
+    "no": "Nein",
+    "close": "Schließen",
+    "back": "Zurück",
+    "noResults": "Keine Toilette entspricht Ihren Filtern. Versuchen Sie es mit weniger Einschränkungen!"
+  },
+  "footer": {
+    "data": "Daten: Stadt Łódź",
+    "openSource": "Open-Source-Projekt",
+    "motto": "Wir liefern schneller als jede Ausschreibung.",
+    "lastUpdated": "Letzte Aktualisierung: {date}"
+  }
+}

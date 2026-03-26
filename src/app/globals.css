@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #9A3412;
+  --color-primary-hover: #7C2D12;
+  --color-primary-light: #FDBA74;
+
+  --color-accent-free: #059669;
+  --color-accent-paid: #2563EB;
+  --color-accent-accessible: #7C3AED;
+
+  --color-cta: #EA580C;
+  --color-cta-hover: #C2410C;
+
+  --color-bg: #FFFBF5;
+  --color-card: #FFFFFF;
+  --color-surface: #FEF7ED;
+
+  --color-text: #292524;
+  --color-text-secondary: #78716C;
+  --color-text-muted: #A8A29E;
+
+  --color-border: #E7E5E4;
+  --color-border-strong: #D6D3D1;
+
+  --color-success: #059669;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+
+  --color-ring: #9A3412;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1C1917;
+    --color-card: #292524;
+    --color-surface: #1C1917;
+    --color-text: #FAFAF9;
+    --color-text-secondary: #A8A29E;
+    --color-text-muted: #78716C;
+    --color-border: #44403C;
+    --color-border-strong: #57534E;
+    --color-primary: #FB923C;
+    --color-primary-hover: #F97316;
+    --color-primary-light: #431407;
+    --color-cta: #FB923C;
+    --color-cta-hover: #F97316;
+    --color-ring: #FB923C;
+  }
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  .leaflet-container {
+    background: var(--color-bg);
+  }
+
+  .leaflet-popup-content-wrapper {
+    background: var(--color-card);
+    color: var(--color-text);
+  }
+
+  .leaflet-popup-tip {
+    background: var(--color-card);
+  }
+}
+
+.map-container {
+  height: calc(100dvh - 108px);
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .map-container {
+    height: calc(100dvh - 116px);
+  }
+}
+
+.bottom-sheet-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+
+.bottom-sheet-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bottom-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  transform: translateY(100%);
+  transition: transform 300ms cubic-bezier(0.32, 0.72, 0, 1);
+  max-height: 85dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.bottom-sheet.open {
+  transform: translateY(0);
+}
+
+@media (min-width: 1024px) {
+  .side-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 380px;
+    height: 100%;
+    z-index: 1001;
+    transform: translateX(100%);
+    transition: transform 300ms cubic-bezier(0.32, 0.72, 0, 1);
+    overflow-y: auto;
+  }
+
+  .side-panel.open {
+    transform: translateX(0);
+  }
+}
+
+.drag-handle {
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--color-border-strong);
+  margin: 8px auto 16px;
+}
+
+@keyframes location-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(234, 88, 12, 0);
+  }
+}
+
+.location-pulse {
+  animation: location-pulse 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .location-pulse {
+    animation: none;
+  }
+
+  .bottom-sheet, .side-panel {
+    transition: none;
+  }
+}
+
+.filter-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.filter-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-marker {
+  background: none;
+  border: none;
+}
+
+.marker-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2.5px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 200ms ease;
+}
+
+.marker-icon:hover {
+  transform: scale(1.15);
+}
+
+.marker-icon.free { background: #059669; }
+.marker-icon.paid { background: #2563EB; }
+.marker-icon.closed { background: #A8A29E; }

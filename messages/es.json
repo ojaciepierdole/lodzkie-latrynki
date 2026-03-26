@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "title": "Łódzkie Latrynki — Mapa de Baños Públicos de Łódź",
+    "description": "Encuentra el baño público más cercano en Łódź. Mapa con horarios, precios y accesibilidad.",
+    "tagline": "Los asuntos urgentes de la ciudad"
+  },
+  "map": {
+    "findNearest": "Buscar más cercano",
+    "myLocation": "Mi ubicación",
+    "showAll": "Mostrar todos",
+    "zoomIn": "Acercar",
+    "zoomOut": "Alejar"
+  },
+  "filters": {
+    "free": "Gratis",
+    "paid": "De pago",
+    "accessible": "Accesible",
+    "openNow": "Abierto ahora",
+    "nearest": "Más cercanos",
+    "all": "Todos"
+  },
+  "toilet": {
+    "free": "Es gratis!",
+    "paid": "De pago",
+    "price": "{price}",
+    "open": "Abierto — bienvenido!",
+    "closed": "Cerrado — toca seguir buscando",
+    "closedForSeason": "Cerrado por temporada",
+    "hours": "{hours}",
+    "h24": "Las 24 horas. Día y noche.",
+    "accessible": "Accesible para sillas de ruedas",
+    "notAccessible": "No accesible para sillas de ruedas",
+    "navigate": "Llévame allí!",
+    "details": "Detalles",
+    "distance": "a {distance}",
+    "cabins": "{count, plural, one {# cabina} other {# cabinas}}",
+    "source": {
+      "uml": "Datos: Ciudad de Łódź",
+      "community": "Reportado por la comunidad"
+    }
+  },
+  "suggest": {
+    "title": "Conoces un baño? Compártelo!",
+    "subtitle": "Ayuda a vecinos y turistas — reporta un baño que no aparece en el mapa.",
+    "address": "Dirección",
+    "addressPlaceholder": "ej. ul. Piotrkowska 104",
+    "name": "Nombre del lugar",
+    "namePlaceholder": "ej. Galeria Łódzka",
+    "type": "Tipo",
+    "hours": "Horario de apertura",
+    "hoursPlaceholder": "ej. 8:00-20:00",
+    "accessibleLabel": "Accesible para sillas de ruedas",
+    "notes": "Algo más?",
+    "submit": "Enviar reporte",
+    "success": "Gracias! Łódź no te olvidará.",
+    "error": "Ups — algo se atascó. Inténtalo de nuevo."
+  },
+  "common": {
+    "loading": "Buscando el refugio más cercano...",
+    "error": "Algo salió mal",
+    "retry": "Reintentar",
+    "yes": "Sí",
+    "no": "No",
+    "close": "Cerrar",
+    "back": "Volver",
+    "noResults": "Ningún baño cumple tus filtros. Prueba con menos restricciones!"
+  },
+  "footer": {
+    "data": "Datos: Ciudad de Łódź",
+    "openSource": "Proyecto de código abierto",
+    "motto": "Lo hacemos más rápido que una licitación pública.",
+    "lastUpdated": "Última actualización: {date}"
+  }
+}

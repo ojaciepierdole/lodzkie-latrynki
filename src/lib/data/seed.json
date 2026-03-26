@@ -1,0 +1,1185 @@
+{
+  "data": [
+    {
+      "id": "uml-521444",
+      "source": "uml",
+      "name": "al. G.Palki - Wojska Polskiego",
+      "address": "al. G.Palki - Wojska Polskiego",
+      "lat": 51.759,
+      "lng": 19.457,
+      "type": "paid",
+      "accessible": false,
+      "description": "płatna 2 zł",
+      "hours": {
+        "mon": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "tue": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "wed": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "thu": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "fri": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "sat": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "sun": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "raw": "7:00-16:30"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521516",
+      "source": "uml",
+      "name": "Cmentarz Komunalny „Szczecińska”",
+      "address": "Cmentarz Komunalny „Szczecińska”",
+      "lat": 51.8163,
+      "lng": 19.3739,
+      "type": "free",
+      "accessible": false,
+      "description": "1 kabina standard toi-toi",
+      "hours": {
+        "raw": ""
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-642555",
+      "source": "uml",
+      "name": "Cmentarz Komunalny „Szczecińska” - 2 lokalizacja",
+      "address": "Cmentarz Komunalny „Szczecińska” - 2 lokalizacja",
+      "lat": 51.817,
+      "lng": 19.3725,
+      "type": "free",
+      "accessible": false,
+      "description": "1 kabina standard toi-toi",
+      "hours": {
+        "raw": ""
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-642558",
+      "source": "uml",
+      "name": "Cmentarz Komunalny „Szczecińska” - 3 lokalizacja",
+      "address": "Cmentarz Komunalny „Szczecińska” - 3 lokalizacja",
+      "lat": 51.8155,
+      "lng": 19.375,
+      "type": "free",
+      "accessible": true,
+      "description": "1 kabina dla osób z niepełnosprawnościami toi-toi",
+      "hours": {
+        "raw": ""
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521504",
+      "source": "uml",
+      "name": "Cmentarz Komunalnym „Doły”",
+      "address": "Cmentarz Komunalnym „Doły”",
+      "lat": 51.798,
+      "lng": 19.491,
+      "type": "free",
+      "accessible": false,
+      "description": "1 toaleta",
+      "hours": {
+        "mon": {
+          "open": "07:30",
+          "close": "15:30"
+        },
+        "tue": {
+          "open": "07:30",
+          "close": "15:30"
+        },
+        "wed": {
+          "open": "07:30",
+          "close": "15:30"
+        },
+        "thu": {
+          "open": "07:30",
+          "close": "15:30"
+        },
+        "fri": {
+          "open": "07:30",
+          "close": "15:30"
+        },
+        "sat": {
+          "open": "07:30",
+          "close": "15:30"
+        },
+        "sun": {
+          "open": "07:30",
+          "close": "15:30"
+        },
+        "raw": "7:30-15:30"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521513",
+      "source": "uml",
+      "name": "Cmentarz Komunalnym „Doły” - 2 lokalizacja",
+      "address": "Cmentarz Komunalnym „Doły” - 2 lokalizacja",
+      "lat": 51.7975,
+      "lng": 19.492,
+      "type": "free",
+      "accessible": true,
+      "description": "1 kabina standard oraz 1 kabina dla osób z niepełnosprawnościami  toi-toi",
+      "hours": {
+        "raw": ""
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521507",
+      "source": "uml",
+      "name": "Cmentarz Komunalnym „Zarzew”",
+      "address": "Cmentarz Komunalnym „Zarzew”",
+      "lat": 51.748,
+      "lng": 19.528,
+      "type": "free",
+      "accessible": false,
+      "description": "1 toaleta",
+      "hours": {
+        "mon": {
+          "open": "07:30",
+          "close": "15:30"
+        },
+        "tue": {
+          "open": "07:30",
+          "close": "15:30"
+        },
+        "wed": {
+          "open": "07:30",
+          "close": "15:30"
+        },
+        "thu": {
+          "open": "07:30",
+          "close": "15:30"
+        },
+        "fri": {
+          "open": "07:30",
+          "close": "15:30"
+        },
+        "sat": {
+          "open": "07:30",
+          "close": "15:30"
+        },
+        "sun": {
+          "open": "07:30",
+          "close": "15:30"
+        },
+        "raw": "7:30-15:30"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521510",
+      "source": "uml",
+      "name": "Cmentarz Komunalnym „Zarzew” - 2 lokalizacja",
+      "address": "Cmentarz Komunalnym „Zarzew” - 2 lokalizacja",
+      "lat": 51.7494,
+      "lng": 19.5289,
+      "type": "free",
+      "accessible": true,
+      "description": "1 kabina standard oraz 1 kabina dla osób z niepełnosprawnościami toi-toi",
+      "hours": {
+        "raw": ""
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521447",
+      "source": "uml",
+      "name": "Dworzec Łódź Kaliska",
+      "address": "Dworzec Łódź Kaliska",
+      "lat": 51.7578,
+      "lng": 19.4306,
+      "type": "paid",
+      "accessible": false,
+      "description": "przejście podziemne, płatna 2 zł",
+      "hours": {
+        "mon": {
+          "open": "06:30",
+          "close": "16:30"
+        },
+        "tue": {
+          "open": "06:30",
+          "close": "16:30"
+        },
+        "wed": {
+          "open": "06:30",
+          "close": "16:30"
+        },
+        "thu": {
+          "open": "06:30",
+          "close": "16:30"
+        },
+        "fri": {
+          "open": "06:30",
+          "close": "16:30"
+        },
+        "sat": {
+          "open": "06:30",
+          "close": "16:30"
+        },
+        "sun": {
+          "open": "06:30",
+          "close": "16:30"
+        },
+        "raw": "6:30-16:30"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521522",
+      "source": "uml",
+      "name": "Las Łagiewnicki",
+      "address": "Las Łagiewnicki",
+      "lat": 51.8335,
+      "lng": 19.4993,
+      "type": "paid",
+      "accessible": true,
+      "description": "5 kabin standard i 1 kabina dla osób niepełnosprawnych przy miejscu piknikowym",
+      "hours": {
+        "raw": ""
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521525",
+      "source": "uml",
+      "name": "Ogród Botaniczny",
+      "address": "Ogród Botaniczny",
+      "lat": 51.753,
+      "lng": 19.434,
+      "type": "paid",
+      "accessible": true,
+      "description": "w budynku przy kawiarni, 3 kabiny męskie i 3 damskie, w tym jedna dla osób niepełnosprawnych, wejście na teren Ogrodu po zakupieniu biletu wstępu",
+      "hours": {
+        "raw": "w godzinach otwarcia ogrodu.\nGodziny otwarcia: Ogród Botaniczny ŁÓDŹ"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521486",
+      "source": "uml",
+      "name": "Park 3 Maja",
+      "address": "Park 3 Maja",
+      "lat": 51.756,
+      "lng": 19.447,
+      "type": "free",
+      "accessible": true,
+      "description": "1 kabina dla osób niepełnosprawnych",
+      "hours": {
+        "raw": ""
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521480",
+      "source": "uml",
+      "name": "Park Helenów",
+      "address": "Park Helenów",
+      "lat": 51.775,
+      "lng": 19.485,
+      "type": "free",
+      "accessible": true,
+      "description": "1 kabina dla osób niepełnosprawnych",
+      "hours": {
+        "raw": ""
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521477",
+      "source": "uml",
+      "name": "Park im. A. Mickiewicza",
+      "address": "Park im. A. Mickiewicza",
+      "lat": 51.752,
+      "lng": 19.464,
+      "type": "free",
+      "accessible": true,
+      "description": "1 kabina standard i 1 kabina dla osób niepełnosprawnych",
+      "hours": {
+        "raw": ""
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521465",
+      "source": "uml",
+      "name": "Park im. ks. J. Poniatowskiego",
+      "address": "Park im. ks. J. Poniatowskiego",
+      "lat": 51.748,
+      "lng": 19.456,
+      "type": "paid",
+      "accessible": false,
+      "description": "toaleta automatyczna z dwoma kabinami, płatna 2 zł wyłącznie gotówką",
+      "hours": {
+        "raw": "całodobowa"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521501",
+      "source": "uml",
+      "name": "Park im. Łódzkich Harcerek",
+      "address": "Park im. Łódzkich Harcerek",
+      "lat": 51.744,
+      "lng": 19.442,
+      "type": "free",
+      "accessible": true,
+      "description": "1 kabina dla osób niepełnosprawnych (tylko w okresie letnim)",
+      "hours": {
+        "raw": ""
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521495",
+      "source": "uml",
+      "name": "Park im. marsz. J. Piłsudskiego",
+      "address": "Park im. marsz. J. Piłsudskiego",
+      "lat": 51.761,
+      "lng": 19.459,
+      "type": "free",
+      "accessible": true,
+      "description": "2 kabiny standard i 2 kabiny dla osób niepełnosprawnych",
+      "hours": {
+        "raw": ""
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521489",
+      "source": "uml",
+      "name": "Park im. Roberta Baden-Powella",
+      "address": "Park im. Roberta Baden-Powella",
+      "lat": 51.784,
+      "lng": 19.432,
+      "type": "free",
+      "accessible": true,
+      "description": "1 kabina dla osób niepełnosprawnych",
+      "hours": {
+        "raw": ""
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521483",
+      "source": "uml",
+      "name": "Park im. Szarych Szeregów",
+      "address": "Park im. Szarych Szeregów",
+      "lat": 51.777,
+      "lng": 19.473,
+      "type": "free",
+      "accessible": true,
+      "description": "1 kabina dla osób niepełnosprawnych",
+      "hours": {
+        "raw": ""
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521492",
+      "source": "uml",
+      "name": "Park Podolski",
+      "address": "Park Podolski",
+      "lat": 51.735,
+      "lng": 19.451,
+      "type": "free",
+      "accessible": true,
+      "description": "1 kabina dla osób niepełnosprawnych",
+      "hours": {
+        "raw": ""
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521462",
+      "source": "uml",
+      "name": "Park Reymonta",
+      "address": "Park Reymonta",
+      "lat": 51.763,
+      "lng": 19.438,
+      "type": "free",
+      "accessible": false,
+      "description": "szalet nieczynny - obok postawiony Toi Toi",
+      "hours": {
+        "raw": "całodobowa"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521468",
+      "source": "uml",
+      "name": "Park Staromiejski",
+      "address": "Park Staromiejski",
+      "lat": 51.773,
+      "lng": 19.45,
+      "type": "paid",
+      "accessible": false,
+      "description": "3 toalety automatyczne, płatne 2 zł wyłącznie gotówką",
+      "hours": {
+        "raw": "calodobowa"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521498",
+      "source": "uml",
+      "name": "Park Widzewska Górka",
+      "address": "Park Widzewska Górka",
+      "lat": 51.757,
+      "lng": 19.505,
+      "type": "free",
+      "accessible": true,
+      "description": "1 kabina standard i 1 kabina dla osób niepełnosprawnych",
+      "hours": {
+        "raw": ""
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521450",
+      "source": "uml",
+      "name": "Plac Niepodległości 7",
+      "address": "Plac Niepodległości 7",
+      "lat": 51.771,
+      "lng": 19.452,
+      "type": "paid",
+      "accessible": false,
+      "description": "płatna 2 zł",
+      "hours": {
+        "mon": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "tue": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "wed": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "thu": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "fri": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "sat": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "sun": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "raw": "7:00-16.30"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521453",
+      "source": "uml",
+      "name": "Rondo Inwalidów",
+      "address": "Rondo Inwalidów",
+      "lat": 51.7606,
+      "lng": 19.5376,
+      "type": "paid",
+      "accessible": false,
+      "description": "przejście podziemne, płatna 2 zł",
+      "hours": {
+        "mon": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "tue": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "wed": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "thu": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "fri": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "sat": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "sun": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "raw": "7:00-16:30"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521459",
+      "source": "uml",
+      "name": "Skwer im. A. Margolis-Edelman",
+      "address": "Skwer im. A. Margolis-Edelman",
+      "lat": 51.769,
+      "lng": 19.453,
+      "type": "paid",
+      "accessible": false,
+      "description": "toaleta automatyczna, płatna 2 zł",
+      "hours": {
+        "raw": "całodobowa"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521471",
+      "source": "uml",
+      "name": "Skwer Ireny Tuwim",
+      "address": "Skwer Ireny Tuwim",
+      "lat": 51.7643,
+      "lng": 19.4459,
+      "type": "paid",
+      "accessible": false,
+      "description": "toaleta automatyczna z jedną kabiną, planowane uruchomienie w 2025 r. na czas letni, płatna 2 zł wyłącznie gotówką",
+      "hours": {
+        "raw": "całodobowa"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521474",
+      "source": "uml",
+      "name": "Skwer Wiedźmina",
+      "address": "Skwer Wiedźmina",
+      "lat": 51.7655,
+      "lng": 19.4565,
+      "type": "paid",
+      "accessible": false,
+      "description": "toaleta automatyczna z dwoma kabinami, planowane uruchomienie czerwiec/ lipiec w 2025 r., płatna 2 zł wyłącznie gotówką",
+      "hours": {
+        "raw": "całodobowa"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521414",
+      "source": "uml",
+      "name": "ul. Piotrkowska 102/14U",
+      "address": "ul. Piotrkowska 102/14U",
+      "lat": 51.763,
+      "lng": 19.456,
+      "type": "free",
+      "accessible": false,
+      "description": "Szadkowska-Lipińska Aleksandra",
+      "hours": {
+        "raw": ""
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521417",
+      "source": "uml",
+      "name": "ul. Piotrkowska 102/2U (LU, od 2011-12-31)",
+      "address": "ul. Piotrkowska 102/2U (LU, od 2011-12-31)",
+      "lat": 51.763,
+      "lng": 19.456,
+      "type": "free",
+      "accessible": false,
+      "description": "Bistro 102",
+      "hours": {
+        "mon": {
+          "open": "16:00",
+          "close": "01:00"
+        },
+        "tue": {
+          "open": "16:00",
+          "close": "01:00"
+        },
+        "wed": {
+          "open": "16:00",
+          "close": "01:00"
+        },
+        "thu": {
+          "open": "16:00",
+          "close": "01:00"
+        },
+        "fri": {
+          "open": "16:00",
+          "close": "01:00"
+        },
+        "sat": {
+          "open": "16:00",
+          "close": "01:00"
+        },
+        "sun": {
+          "open": "16:00",
+          "close": "01:00"
+        },
+        "raw": "pon i wt - zamknięte\nśr i ndz 16:00-1:00\nczw 16:00-2:00\npt 16:00-5:00\nsob 16:00-01:00"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521420",
+      "source": "uml",
+      "name": "ul. Piotrkowska 102/8U",
+      "address": "ul. Piotrkowska 102/8U",
+      "lat": 51.763,
+      "lng": 19.456,
+      "type": "free",
+      "accessible": false,
+      "description": "Pizzeria Toskania",
+      "hours": {
+        "mon": {
+          "open": "12:00",
+          "close": "22:00"
+        },
+        "tue": {
+          "open": "12:00",
+          "close": "22:00"
+        },
+        "wed": {
+          "open": "12:00",
+          "close": "22:00"
+        },
+        "thu": {
+          "open": "12:00",
+          "close": "22:00"
+        },
+        "fri": {
+          "open": "12:00",
+          "close": "22:00"
+        },
+        "sat": {
+          "open": "12:00",
+          "close": "22:00"
+        },
+        "sun": {
+          "open": "12:00",
+          "close": "22:00"
+        },
+        "raw": "pon i wt - zamknięte\nśr i czw 12:00-22:00\npt i sob 12:00-01:00\nnd 13:00-20:00"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521423",
+      "source": "uml",
+      "name": "ul. Piotrkowska 102/9U",
+      "address": "ul. Piotrkowska 102/9U",
+      "lat": 51.763,
+      "lng": 19.456,
+      "type": "free",
+      "accessible": false,
+      "description": "Klub Łódź Kaliska",
+      "hours": {
+        "mon": {
+          "open": "17:00",
+          "close": "02:00"
+        },
+        "tue": {
+          "open": "17:00",
+          "close": "02:00"
+        },
+        "wed": {
+          "open": "17:00",
+          "close": "02:00"
+        },
+        "thu": {
+          "open": "17:00",
+          "close": "02:00"
+        },
+        "fri": {
+          "open": "17:00",
+          "close": "02:00"
+        },
+        "sat": {
+          "open": "17:00",
+          "close": "02:00"
+        },
+        "sun": {
+          "open": "17:00",
+          "close": "02:00"
+        },
+        "raw": "środa-piątek 17:00–02:00\nsobota 17:00-06:00"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521426",
+      "source": "uml",
+      "name": "ul. Piotrkowska 113/11U",
+      "address": "ul. Piotrkowska 113/11U",
+      "lat": 51.761,
+      "lng": 19.4555,
+      "type": "free",
+      "accessible": false,
+      "description": "Hashtag Sushi",
+      "hours": {
+        "mon": {
+          "open": "10:00",
+          "close": "20:45"
+        },
+        "tue": {
+          "open": "10:00",
+          "close": "20:45"
+        },
+        "wed": {
+          "open": "10:00",
+          "close": "20:45"
+        },
+        "thu": {
+          "open": "10:00",
+          "close": "20:45"
+        },
+        "fri": {
+          "open": "10:00",
+          "close": "20:45"
+        },
+        "sat": {
+          "open": "10:00",
+          "close": "20:45"
+        },
+        "sun": {
+          "open": "10:00",
+          "close": "20:45"
+        },
+        "raw": "pon-śr 10:00-20:45\nczw 12:00-21:45\npt 11:30-21:45\nsob-nd 12:00-21:45"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521435",
+      "source": "uml",
+      "name": "ul. Piotrkowska 137/3U",
+      "address": "ul. Piotrkowska 137/3U",
+      "lat": 51.758,
+      "lng": 19.4545,
+      "type": "free",
+      "accessible": false,
+      "description": "CAFE CYKADA Jakub Ciszewski Jadwiga Ciszewska s.c.",
+      "hours": {
+        "mon": {
+          "open": "12:00",
+          "close": "17:30"
+        },
+        "tue": {
+          "open": "12:00",
+          "close": "17:30"
+        },
+        "wed": {
+          "open": "12:00",
+          "close": "17:30"
+        },
+        "thu": {
+          "open": "12:00",
+          "close": "17:30"
+        },
+        "fri": {
+          "open": "12:00",
+          "close": "17:30"
+        },
+        "sat": {
+          "open": "12:00",
+          "close": "17:30"
+        },
+        "sun": {
+          "open": "12:00",
+          "close": "17:30"
+        },
+        "raw": "pon-pt. 12:00-17:30\nsob 12:00-16:00"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521429",
+      "source": "uml",
+      "name": "ul. Piotrkowska 153/1U",
+      "address": "ul. Piotrkowska 153/1U",
+      "lat": 51.756,
+      "lng": 19.4535,
+      "type": "free",
+      "accessible": false,
+      "description": "Pizzeria In Centro",
+      "hours": {
+        "mon": {
+          "open": "12:00",
+          "close": "22:00"
+        },
+        "tue": {
+          "open": "12:00",
+          "close": "22:00"
+        },
+        "wed": {
+          "open": "12:00",
+          "close": "22:00"
+        },
+        "thu": {
+          "open": "12:00",
+          "close": "22:00"
+        },
+        "fri": {
+          "open": "12:00",
+          "close": "22:00"
+        },
+        "sat": {
+          "open": "12:00",
+          "close": "22:00"
+        },
+        "sun": {
+          "open": "12:00",
+          "close": "22:00"
+        },
+        "raw": "pon-sob 12:00-22:00\nnd 13:00-22:00"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521411",
+      "source": "uml",
+      "name": "ul. Piotrkowska 41/1U",
+      "address": "ul. Piotrkowska 41/1U",
+      "lat": 51.7695,
+      "lng": 19.458,
+      "type": "free",
+      "accessible": false,
+      "description": "Pizzeria Da Grasso",
+      "hours": {
+        "mon": {
+          "open": "10:00",
+          "close": "22:00"
+        },
+        "tue": {
+          "open": "10:00",
+          "close": "22:00"
+        },
+        "wed": {
+          "open": "10:00",
+          "close": "22:00"
+        },
+        "thu": {
+          "open": "10:00",
+          "close": "22:00"
+        },
+        "fri": {
+          "open": "10:00",
+          "close": "22:00"
+        },
+        "sat": {
+          "open": "10:00",
+          "close": "22:00"
+        },
+        "sun": {
+          "open": "10:00",
+          "close": "22:00"
+        },
+        "raw": "10:00-22:00"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521432",
+      "source": "uml",
+      "name": "ul. Piotrkowska 67/10U",
+      "address": "ul. Piotrkowska 67/10U",
+      "lat": 51.767,
+      "lng": 19.457,
+      "type": "free",
+      "accessible": false,
+      "description": "Restauracja Presto",
+      "hours": {
+        "mon": {
+          "open": "11:45",
+          "close": "21:45"
+        },
+        "tue": {
+          "open": "11:45",
+          "close": "21:45"
+        },
+        "wed": {
+          "open": "11:45",
+          "close": "21:45"
+        },
+        "thu": {
+          "open": "11:45",
+          "close": "21:45"
+        },
+        "fri": {
+          "open": "11:45",
+          "close": "21:45"
+        },
+        "sat": {
+          "open": "11:45",
+          "close": "21:45"
+        },
+        "sun": {
+          "open": "11:45",
+          "close": "21:45"
+        },
+        "raw": "pon-czw: 11:45-21:45\npt-sob 11:45-22:45\nnd 11:45-21:45"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521438",
+      "source": "uml",
+      "name": "ul. Płk Dr Stanisława Więckowskiego 1/15U",
+      "address": "ul. Płk Dr Stanisława Więckowskiego 1/15U",
+      "lat": 51.774,
+      "lng": 19.448,
+      "type": "free",
+      "accessible": false,
+      "description": "PRESTO Sp. z o.o.",
+      "hours": {
+        "mon": {
+          "open": "11:45",
+          "close": "21:45"
+        },
+        "tue": {
+          "open": "11:45",
+          "close": "21:45"
+        },
+        "wed": {
+          "open": "11:45",
+          "close": "21:45"
+        },
+        "thu": {
+          "open": "11:45",
+          "close": "21:45"
+        },
+        "fri": {
+          "open": "11:45",
+          "close": "21:45"
+        },
+        "sat": {
+          "open": "11:45",
+          "close": "21:45"
+        },
+        "sun": {
+          "open": "11:45",
+          "close": "21:45"
+        },
+        "raw": "pon-czw: 11:45-21:45\npt-sob 11:45-22:45\nnd 11:45-21:45"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521441",
+      "source": "uml",
+      "name": "ul. Rydzowa-Lniana",
+      "address": "ul. Rydzowa-Lniana",
+      "lat": 51.734,
+      "lng": 19.47,
+      "type": "paid",
+      "accessible": false,
+      "description": "Na targowisku, płatna 2 zł",
+      "hours": {
+        "mon": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "tue": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "wed": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "thu": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "fri": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "sat": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "sun": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "raw": "7:00-16:30"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521456",
+      "source": "uml",
+      "name": "ul. Targowa",
+      "address": "ul. Targowa",
+      "lat": 51.77,
+      "lng": 19.464,
+      "type": "paid",
+      "accessible": false,
+      "description": "przejście podziemne, płatna 2 zł",
+      "hours": {
+        "mon": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "tue": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "wed": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "thu": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "fri": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "sat": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "sun": {
+          "open": "07:00",
+          "close": "16:30"
+        },
+        "raw": "7:00-16:30"
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    },
+    {
+      "id": "uml-521519",
+      "source": "uml",
+      "name": "Uroczysko Lublinek",
+      "address": "Uroczysko Lublinek",
+      "lat": 51.719,
+      "lng": 19.385,
+      "type": "paid",
+      "accessible": true,
+      "description": "1 kabina standard i 1 kabina dla osób niepełnosprawnych",
+      "hours": {
+        "raw": ""
+      },
+      "is24h": false,
+      "lastScraped": "2026-03-26T11:52:25.807Z",
+      "status": "active"
+    }
+  ],
+  "meta": {
+    "total": 41,
+    "lastUpdated": "2026-03-26T11:53:10.952Z",
+    "sources": {
+      "uml": 41,
+      "community": 0
+    }
+  }
+}

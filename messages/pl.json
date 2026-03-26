@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "title": "Łódzkie Latrynki — Mapa Toalet Miejskich",
+    "description": "Znajdź najbliższą toaletę publiczną w Łodzi. Pilne sprawy miasta w jednym miejscu.",
+    "tagline": "Pilne sprawy miasta"
+  },
+  "map": {
+    "findNearest": "Znajdź najbliższą",
+    "myLocation": "Gdzie jestem?",
+    "showAll": "Pokaż wszystkie",
+    "zoomIn": "Przybliż",
+    "zoomOut": "Oddal"
+  },
+  "filters": {
+    "free": "Za darmo",
+    "paid": "Płatne",
+    "accessible": "Dostępne",
+    "openNow": "Otwarte teraz",
+    "nearest": "Najbliższe",
+    "all": "Wszystkie"
+  },
+  "toilet": {
+    "free": "Za darmo!",
+    "paid": "Płatna",
+    "price": "{price}",
+    "open": "Otwarte — zapraszamy!",
+    "closed": "Zamknięte — trzeba szukać dalej",
+    "closedForSeason": "Zamknięte sezonowo",
+    "hours": "{hours}",
+    "h24": "Non-stop. Dzień i noc.",
+    "accessible": "Dostępna dla osób z niepełnosprawnościami",
+    "notAccessible": "Brak udogodnień dla osób z niepełnosprawnościami",
+    "navigate": "Prowadź mnie!",
+    "details": "Szczegóły",
+    "distance": "{distance} stąd",
+    "cabins": "{count, plural, one {# kabina} few {# kabiny} many {# kabin} other {# kabin}}",
+    "source": {
+      "uml": "Dane: Urząd Miasta Łodzi",
+      "community": "Zgłoszone przez społeczność"
+    }
+  },
+  "suggest": {
+    "title": "Znasz latrynkę? Podziel się!",
+    "subtitle": "Pomóż mieszkańcom i turystom — zgłoś toaletę, której nie ma na mapie.",
+    "address": "Adres",
+    "addressPlaceholder": "np. ul. Piotrkowska 104",
+    "name": "Nazwa miejsca",
+    "namePlaceholder": "np. Galeria Łódzka",
+    "type": "Typ",
+    "hours": "Godziny otwarcia",
+    "hoursPlaceholder": "np. 8:00–20:00",
+    "accessibleLabel": "Dostępna dla osób z niepełnosprawnościami",
+    "notes": "Coś jeszcze?",
+    "submit": "Wyślij zgłoszenie",
+    "success": "Dzięki! Łódź Ci nie zapomni.",
+    "error": "Ups — coś się zacięło. Spróbuj jeszcze raz."
+  },
+  "common": {
+    "loading": "Szukamy najbliższej przystani...",
+    "error": "Coś poszło nie tak",
+    "retry": "Spróbuj jeszcze raz",
+    "yes": "Tak",
+    "no": "Nie",
+    "close": "Zamknij",
+    "back": "Wróć",
+    "noResults": "Żadna latrynka nie spełnia kryteriów. Poluzuj filtry!"
+  },
+  "footer": {
+    "data": "Dane: Urząd Miasta Łodzi",
+    "openSource": "Projekt open-source",
+    "motto": "Robimy to szybciej niż przetarg.",
+    "lastUpdated": "Ostatnia aktualizacja: {date}"
+  }
+}
