@@ -4,8 +4,8 @@ import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import Script from 'next/script';
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { ConditionalAnalytics } from '@/components/ConditionalAnalytics';
+import { CookieConsent } from '@/components/CookieConsent';
 import { locales, type Locale } from '@/i18n/config';
 import { StructuredData } from '@/components/Layout/StructuredData';
 import '@/app/globals.css';
@@ -82,10 +82,10 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className="min-h-dvh bg-[var(--color-bg)] text-[var(--color-text)] antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
+          <CookieConsent />
         </NextIntlClientProvider>
         <StructuredData />
-        <Analytics />
-        <SpeedInsights />
+        <ConditionalAnalytics />
         <Script id="sw-register" strategy="afterInteractive">
           {`if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js') }`}
         </Script>

@@ -89,6 +89,12 @@
     "motto": "Lo hacemos más rápido que una licitación pública.",
     "lastUpdated": "Última actualización: {date}"
   },
+  "cookies": {
+    "message": "Usamos cookies para análisis y mejorar nuestro servicio.",
+    "accept": "Aceptar",
+    "reject": "Rechazar",
+    "privacy": "Política de privacidad"
+  },
   "onboarding": {
     "slide1Title": "Cuando la naturaleza llama...",
     "slide1Body": "wcgo.pl es un mapa de baños públicos de Łódź. Gratis, de pago, accesibles\u00a0— todos en un solo lugar.",

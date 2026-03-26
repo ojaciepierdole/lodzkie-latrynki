@@ -89,6 +89,12 @@
     "motto": "We ship faster than a public tender.",
     "lastUpdated": "Last updated: {date}"
   },
+  "cookies": {
+    "message": "We use cookies for analytics and to improve our service.",
+    "accept": "Accept",
+    "reject": "Decline",
+    "privacy": "Privacy policy"
+  },
   "onboarding": {
     "slide1Title": "When nature calls...",
     "slide1Body": "wcgo.pl is a\u00a0public toilet map of Łódź. Free, paid, accessible\u00a0— all in one place.",

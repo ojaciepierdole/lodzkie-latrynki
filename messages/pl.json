@@ -89,6 +89,12 @@
     "motto": "Robimy to szybciej niż przetarg.",
     "lastUpdated": "Ostatnia aktualizacja: {date}"
   },
+  "cookies": {
+    "message": "Używamy plików cookie do analizy ruchu i poprawy jakości serwisu.",
+    "accept": "Akceptuję",
+    "reject": "Odrzucam",
+    "privacy": "Polityka prywatności"
+  },
   "onboarding": {
     "slide1Title": "Gdy natura woła...",
     "slide1Body": "wcgo.pl to mapa toalet publicznych w\u00a0Łodzi. Darmowe, płatne, dostępne\u00a0— wszystkie w\u00a0jednym miejscu.",

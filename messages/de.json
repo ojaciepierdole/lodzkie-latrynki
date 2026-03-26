@@ -89,6 +89,12 @@
     "motto": "Wir liefern schneller als jede Ausschreibung.",
     "lastUpdated": "Letzte Aktualisierung: {date}"
   },
+  "cookies": {
+    "message": "Wir verwenden Cookies für Analysen und zur Verbesserung unseres Dienstes.",
+    "accept": "Akzeptieren",
+    "reject": "Ablehnen",
+    "privacy": "Datenschutz"
+  },
   "onboarding": {
     "slide1Title": "Wenn die Natur ruft...",
     "slide1Body": "wcgo.pl ist eine Karte öffentlicher Toiletten in Łódź. Kostenlos, kostenpflichtig, barrierefrei\u00a0— alles an einem Ort.",
