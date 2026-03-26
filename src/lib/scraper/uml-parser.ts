@@ -108,7 +108,7 @@ function cellText($: cheerio.CheerioAPI, cell: Element): string {
 async function scrapePage(): Promise<RawToilet[]> {
   const res = await fetch(UML_BASE_URL, {
     headers: {
-      'User-Agent': 'LodzkieLatrynki/1.0 (+https://lodzkie-latrynki.vercel.app)',
+      'User-Agent': 'wcgo.pl/1.0 (+https://wcgo.pl)',
       Accept: 'text/html',
     },
     next: { revalidate: 0 },

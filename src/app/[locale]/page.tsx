@@ -47,6 +47,7 @@ export default function HomePage() {
   });
   const [selectedToilet, setSelectedToilet] = useState<Toilet | null>(null);
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
+  const [mapCenter, setMapCenter] = useState<[number, number]>([51.7592, 19.456]);
   const [reviews, setReviews] = useState<Review[]>([]);
   const [isReviewFormOpen, setIsReviewFormOpen] = useState(false);
   const [isLocating, setIsLocating] = useState(false);
@@ -71,11 +72,37 @@ export default function HomePage() {
     setUserLocation(coords);
   }, []);
 
+  const findNearestFromCoords = useCallback(async (coords: [number, number]) => {
+    try {
+      const res = await fetch('/api/toilets');
+      const data: ToiletsResponse = await res.json();
+      const active = data.data.filter(t => t.status === 'active' && t.lat !== 0);
+
+      if (active.length > 0) {
+        const nearest = active.reduce((best, t) => {
+          const dist = haversineDistance(coords[0], coords[1], t.lat, t.lng);
+          const bestDist = haversineDistance(coords[0], coords[1], best.lat, best.lng);
+          return dist < bestDist ? t : best;
+        });
+        setSelectedToilet(nearest);
+      }
+    } catch {
+      // silent
+    }
+  }, []);
+
   const handleFindNearest = useCallback(() => {
     setIsLocating(true);
 
+    // If we already have the user's location from the map, use it directly
+    if (userLocation) {
+      findNearestFromCoords(userLocation).then(() => setIsLocating(false));
+      return;
+    }
+
+    // Try geolocation, fallback to map center
     if (!navigator.geolocation) {
-      setIsLocating(false);
+      findNearestFromCoords(mapCenter).then(() => setIsLocating(false));
       return;
     }
 
@@ -83,33 +110,17 @@ export default function HomePage() {
       async (position) => {
         const coords: [number, number] = [position.coords.latitude, position.coords.longitude];
         setUserLocation(coords);
-
-        // Fetch toilets and find nearest
-        try {
-          const res = await fetch('/api/toilets');
-          const data: ToiletsResponse = await res.json();
-          const active = data.data.filter(t => t.status === 'active' && t.lat !== 0);
-
-          if (active.length > 0) {
-            const nearest = active.reduce((best, t) => {
-              const dist = haversineDistance(coords[0], coords[1], t.lat, t.lng);
-              const bestDist = haversineDistance(coords[0], coords[1], best.lat, best.lng);
-              return dist < bestDist ? t : best;
-            });
-            setSelectedToilet(nearest);
-          }
-        } catch {
-          // Fallback: just set location, no auto-open
-        }
-
+        await findNearestFromCoords(coords);
         setIsLocating(false);
       },
-      () => {
+      async () => {
+        // Geolocation failed — use current map center as fallback
+        await findNearestFromCoords(mapCenter);
         setIsLocating(false);
       },
-      { enableHighAccuracy: true, timeout: 10000 }
+      { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 }
     );
-  }, []);
+  }, [userLocation, mapCenter, findNearestFromCoords]);
 
   const handleOpenReviewForm = useCallback(() => {
     setIsReviewFormOpen(true);
@@ -145,8 +156,10 @@ export default function HomePage() {
             toilets={[]}
             filters={filters}
             userLocation={userLocation}
+            selectedToilet={selectedToilet}
             onMarkerClick={handleMarkerClick}
             onUserLocationFound={handleUserLocationFound}
+            onMapMove={setMapCenter}
           />
         </div>
       </main>

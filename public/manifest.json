@@ -1,6 +1,6 @@
 {
-  "name": "Łódzkie Latrynki — Mapa Toalet Miejskich",
-  "short_name": "Latrynki",
+  "name": "wcgo.pl — Mapa Toalet Miejskich",
+  "short_name": "wcgo.pl",
   "description": "Znajdź najbliższą toaletę publiczną w Łodzi",
   "start_url": "/pl",
   "display": "standalone",

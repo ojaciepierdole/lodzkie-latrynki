@@ -1,5 +1,5 @@
 const NOMINATIM_URL = 'https://nominatim.openstreetmap.org/search';
-const USER_AGENT = 'LodzkieLatrynki/1.0 (+https://lodzkie-latrynki.vercel.app)';
+const USER_AGENT = 'wcgo.pl/1.0 (+https://wcgo.pl)';
 
 /**
  * Manual coordinate overrides for well-known Łódź locations.

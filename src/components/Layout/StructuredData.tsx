@@ -2,9 +2,9 @@ export function StructuredData() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'Łódzkie Latrynki',
+    name: 'wcgo.pl',
     description: 'Interaktywna mapa publicznych toalet w Łodzi. Znajdź najbliższą toaletę z informacją o godzinach otwarcia, cenie i dostępności.',
-    url: 'https://lodzkie-latrynki.vercel.app',
+    url: 'https://wcgo.pl',
     applicationCategory: 'UtilityApplication',
     operatingSystem: 'All',
     offers: {

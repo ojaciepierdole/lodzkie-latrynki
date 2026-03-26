@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://lodzkie-latrynki.vercel.app/sitemap.xml
+Sitemap: https://wcgo.pl/sitemap.xml

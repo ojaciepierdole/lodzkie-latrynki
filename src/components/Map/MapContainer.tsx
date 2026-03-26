@@ -65,8 +65,35 @@ interface MapContainerProps {
   toilets: Toilet[];
   filters: FilterState;
   userLocation: [number, number] | null;
+  selectedToilet: Toilet | null;
   onMarkerClick: (toilet: Toilet) => void;
   onUserLocationFound: (coords: [number, number]) => void;
+  onMapMove: (center: [number, number]) => void;
+}
+
+// --- Fly to selected toilet ---
+
+function FlyToToilet({ toilet }: { toilet: Toilet | null }) {
+  const map = useMap();
+  useEffect(() => {
+    if (toilet && toilet.lat !== 0 && toilet.lng !== 0) {
+      map.flyTo([toilet.lat, toilet.lng], 16, { duration: 1 });
+    }
+  }, [map, toilet]);
+  return null;
+}
+
+function MapCenterTracker({ onMove }: { onMove: (center: [number, number]) => void }) {
+  const map = useMap();
+  useEffect(() => {
+    const handler = () => {
+      const c = map.getCenter();
+      onMove([c.lat, c.lng]);
+    };
+    map.on('moveend', handler);
+    return () => { map.off('moveend', handler); };
+  }, [map, onMove]);
+  return null;
 }
 
 // --- Map Component ---
@@ -82,8 +109,10 @@ export default function MapContainerComponent({
   toilets,
   filters,
   userLocation,
+  selectedToilet,
   onMarkerClick,
   onUserLocationFound,
+  onMapMove,
 }: MapContainerProps) {
   const [allToilets, setAllToilets] = useState<Toilet[]>([]);
 
@@ -151,6 +180,8 @@ export default function MapContainerComponent({
       />
       <ZoomControl position="bottomright" />
       <UserLocationMarker onLocationFound={handleLocationFound} />
+      <FlyToToilet toilet={selectedToilet} />
+      <MapCenterTracker onMove={onMapMove} />
       <MarkerClusterGroup
         chunkedLoading
         maxClusterRadius={50}

@@ -31,6 +31,7 @@ export default function FindNearestFAB({
         borderRadius: '9999px',
         fontSize: '14px',
         fontWeight: 600,
+        whiteSpace: 'nowrap' as const,
         color: 'white',
         backgroundColor: 'var(--color-cta)',
         boxShadow: '0 4px 16px rgba(234,88,12,0.4)',
