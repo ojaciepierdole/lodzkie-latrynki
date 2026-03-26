@@ -1,14 +1,13 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Clock, BadgeCheck, Accessibility, MapPin } from 'lucide-react';
+import { Clock, BadgeCheck, Accessibility } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 export type FilterState = {
   openNow: boolean;
   free: boolean;
   accessible: boolean;
-  nearest: boolean;
 };
 
 interface FilterBarProps {
@@ -27,7 +26,6 @@ export function FilterBar({ filters, onFilterChange }: FilterBarProps) {
     { key: 'openNow', icon: Clock, label: t('openNow') },
     { key: 'free', icon: BadgeCheck, label: t('free') },
     { key: 'accessible', icon: Accessibility, label: t('accessible') },
-    { key: 'nearest', icon: MapPin, label: t('nearest') },
   ];
 
   return (
@@ -37,7 +35,7 @@ export function FilterBar({ filters, onFilterChange }: FilterBarProps) {
         borderBottom: '1px solid var(--color-border)',
         padding: '8px 12px',
         display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)',
+        gridTemplateColumns: 'repeat(3, 1fr)',
         gap: 6,
         flexShrink: 0,
       }}

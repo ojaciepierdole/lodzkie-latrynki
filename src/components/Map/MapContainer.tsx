@@ -13,7 +13,7 @@ import L from 'leaflet';
 import type { Toilet } from '@/lib/types/toilet';
 import type { FilterState } from '@/components/Filters/FilterBar';
 import { isOpenNow } from '@/lib/utils/open-hours';
-import { haversineDistance } from '@/lib/utils/distance';
+
 
 // --- Custom SVG Marker Icons ---
 
@@ -163,16 +163,8 @@ export default function MapContainerComponent({
           if (open === false || (open === null && !t.is24h)) return false;
         }
         return true;
-      })
-      .sort((a, b) => {
-        if (filters.nearest && userLocation) {
-          const distA = haversineDistance(userLocation[0], userLocation[1], a.lat, a.lng);
-          const distB = haversineDistance(userLocation[0], userLocation[1], b.lat, b.lng);
-          return distA - distB;
-        }
-        return 0;
       });
-  }, [allToilets, filters, userLocation]);
+  }, [allToilets, filters]);
 
   const handleLocationFound = useCallback(
     (coords: [number, number]) => {

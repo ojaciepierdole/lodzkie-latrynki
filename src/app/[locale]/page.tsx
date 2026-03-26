@@ -43,7 +43,6 @@ export default function HomePage() {
     openNow: false,
     free: false,
     accessible: false,
-    nearest: false,
   });
   const [selectedToilet, setSelectedToilet] = useState<Toilet | null>(null);
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
