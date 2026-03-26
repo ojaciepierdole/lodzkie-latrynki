@@ -2,7 +2,8 @@
   "meta": {
     "title": "wcgo.pl — Mapa Toalet Miejskich w Łodzi",
     "description": "Znajdź najbliższą toaletę publiczną w Łodzi. Pilne sprawy miasta w jednym miejscu.",
-    "tagline": "Mapa toalet publicznych"
+    "tagline": "Mapa toalet publicznych",
+    "motto": "Bo z g... jeszcze nikt nie wygrał 😎"
   },
   "map": {
     "findNearest": "Znajdź najbliższą",

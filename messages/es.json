@@ -2,7 +2,8 @@
   "meta": {
     "title": "wcgo.pl — Mapa de Baños Públicos de Łódź",
     "description": "Encuentra el baño público más cercano en Łódź. Mapa con horarios, precios y accesibilidad.",
-    "tagline": "Mapa de baños públicos"
+    "tagline": "Mapa de baños públicos",
+    "motto": "Porque contra la naturaleza nadie ha ganado 😎"
   },
   "map": {
     "findNearest": "Buscar más cercano",

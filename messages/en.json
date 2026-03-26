@@ -2,7 +2,8 @@
   "meta": {
     "title": "wcgo.pl — Public Toilet Map of Łódź",
     "description": "Find the nearest public toilet in Łódź. Map with opening hours, prices, and accessibility info.",
-    "tagline": "Public toilet map"
+    "tagline": "Public toilet map",
+    "motto": "Because nobody ever won against nature's call 😎"
   },
   "map": {
     "findNearest": "Find nearest",

@@ -2,7 +2,8 @@
   "meta": {
     "title": "wcgo.pl — Öffentliche Toiletten in Łódź",
     "description": "Finden Sie die nächste öffentliche Toilette in Łódź. Karte mit Öffnungszeiten, Preisen und Barrierefreiheit.",
-    "tagline": "Karte öffentlicher Toiletten"
+    "tagline": "Karte öffentlicher Toiletten",
+    "motto": "Weil gegen die Natur noch niemand gewonnen hat 😎"
   },
   "map": {
     "findNearest": "Nächste finden",
