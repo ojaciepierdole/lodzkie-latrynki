@@ -20,25 +20,37 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    // Manually try to play the video after mount (autoPlay is unreliable)
     const v = videoRef.current;
-    if (v) {
+    if (!v) return;
+
+    // When video has buffered enough to play — start it
+    const onCanPlay = () => {
+      playStarted.current = true;
       v.play().catch(() => {
-        // Autoplay blocked — skip intro
         sessionStorage.setItem(STORAGE_KEY, '1');
         setPhase('done');
       });
+    };
+
+    v.addEventListener('canplay', onCanPlay, { once: true });
+
+    // Also try autoplay immediately (works if data is cached)
+    if (v.readyState >= 3) {
+      onCanPlay();
     }
 
-    // Safety timeout — if video hasn't started playing within 5s, skip
+    // Generous timeout — 15s for slow networks to download 5.4MB
     const timeout = setTimeout(() => {
       if (!playStarted.current) {
         sessionStorage.setItem(STORAGE_KEY, '1');
         setPhase('done');
       }
-    }, 5000);
+    }, 15000);
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+      v.removeEventListener('canplay', onCanPlay);
+    };
   }, []);
 
   const handlePlaying = useCallback(() => {
