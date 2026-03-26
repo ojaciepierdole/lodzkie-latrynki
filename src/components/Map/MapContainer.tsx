@@ -17,12 +17,26 @@ import { haversineDistance } from '@/lib/utils/distance';
 
 // --- Custom SVG Marker Icons ---
 
-const TOILET_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 12h10a2 2 0 0 1 2 2v1a4 4 0 0 1-4 4h-6a4 4 0 0 1-4-4v-1a2 2 0 0 1 2-2z"/><path d="M7 12V8a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v4"/><path d="M12 19v2"/></svg>`;
-
 function createMarkerIcon(type: 'free' | 'paid' | 'closed'): L.DivIcon {
+  const colors = {
+    free: { bg: '#059669', border: '#047857' },
+    paid: { bg: '#2563eb', border: '#1d4ed8' },
+    closed: { bg: '#9ca3af', border: '#6b7280' },
+  };
+  const c = colors[type];
   return L.divIcon({
     className: 'custom-marker',
-    html: `<div class="marker-icon ${type}">${TOILET_SVG}</div>`,
+    html: `<div style="
+      background:${c.bg};
+      border:3px solid white;
+      border-radius:50%;
+      width:36px;height:36px;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 2px 6px rgba(0,0,0,0.3);
+      color:white;font-weight:800;font-size:12px;
+      font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+      letter-spacing:0.5px;
+    ">WC</div>`,
     iconSize: [36, 36],
     iconAnchor: [18, 18],
     popupAnchor: [0, -18],
