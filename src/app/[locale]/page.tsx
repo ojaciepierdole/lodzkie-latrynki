@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import { IntroSplash } from '@/components/IntroSplash';
 import { Header } from '@/components/Layout/Header';
 import { FilterBar, type FilterState } from '@/components/Filters/FilterBar';
 import type { Toilet, Review, ToiletsResponse } from '@/lib/types/toilet';
@@ -135,38 +136,42 @@ export default function HomePage() {
   }, [selectedToilet]);
 
   return (
-    <main className="flex flex-col h-dvh">
-      <Header />
-      <FilterBar filters={filters} onFilterChange={setFilters} />
-      <div className="flex-1 relative">
-        <MapContainer
-          toilets={[]}
-          filters={filters}
-          userLocation={userLocation}
-          onMarkerClick={handleMarkerClick}
-          onUserLocationFound={handleUserLocationFound}
-        />
-        <FindNearestFAB
-          onFindNearest={handleFindNearest}
-          isLocating={isLocating}
-        />
-        <ToiletCard
-          toilet={selectedToilet}
-          userLocation={userLocation}
-          reviews={reviews}
-          onClose={handleCloseCard}
-          onOpenReviewForm={handleOpenReviewForm}
-        />
-        {selectedToilet && (
-          <ReviewForm
-            toiletId={selectedToilet.id}
-            toiletName={selectedToilet.name}
-            isOpen={isReviewFormOpen}
-            onClose={handleCloseReviewForm}
-            onSubmit={handleSubmitReview}
+    <IntroSplash>
+      <main className="flex flex-col h-dvh">
+        <Header />
+        <FilterBar filters={filters} onFilterChange={setFilters} />
+        <div className="flex-1 relative">
+          <MapContainer
+            toilets={[]}
+            filters={filters}
+            userLocation={userLocation}
+            onMarkerClick={handleMarkerClick}
+            onUserLocationFound={handleUserLocationFound}
           />
-        )}
-      </div>
-    </main>
+        </div>
+      </main>
+
+      {/* Fixed overlays — outside main flow to avoid stacking context issues */}
+      <FindNearestFAB
+        onFindNearest={handleFindNearest}
+        isLocating={isLocating}
+      />
+      <ToiletCard
+        toilet={selectedToilet}
+        userLocation={userLocation}
+        reviews={reviews}
+        onClose={handleCloseCard}
+        onOpenReviewForm={handleOpenReviewForm}
+      />
+      {selectedToilet && (
+        <ReviewForm
+          toiletId={selectedToilet.id}
+          toiletName={selectedToilet.name}
+          isOpen={isReviewFormOpen}
+          onClose={handleCloseReviewForm}
+          onSubmit={handleSubmitReview}
+        />
+      )}
+    </IntroSplash>
   );
 }
