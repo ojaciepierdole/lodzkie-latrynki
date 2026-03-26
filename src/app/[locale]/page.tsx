@@ -57,10 +57,12 @@ export default function HomePage() {
   }, []);
 
   const handleMarkerClick = useCallback((toilet: Toilet) => {
+    setIsReviewFormOpen(false);
     setSelectedToilet(toilet);
   }, []);
 
   const handleCloseCard = useCallback(() => {
+    setIsReviewFormOpen(false);
     setSelectedToilet(null);
   }, []);
 
