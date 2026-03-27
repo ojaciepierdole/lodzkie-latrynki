@@ -13,6 +13,7 @@ interface SuggestFormProps {
 export default function SuggestForm({ isOpen, onClose }: SuggestFormProps) {
   const t = useTranslations('suggest');
   const tf = useTranslations('filters');
+  const tc = useTranslations('common');
 
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
@@ -255,13 +256,16 @@ export default function SuggestForm({ isOpen, onClose }: SuggestFormProps) {
       <div
         ref={swipe.ref}
         style={sheetStyle}
+        role="dialog"
+        aria-modal="true"
+        aria-label={t('title')}
         onTouchStart={swipe.onTouchStart}
         onTouchMove={swipe.onTouchMove}
         onTouchEnd={swipe.onTouchEnd}
       >
         <div style={{ padding: '20px 20px 32px' }}>
           {/* Drag handle */}
-          <div style={dragHandleStyle} />
+          <div style={dragHandleStyle} aria-hidden="true" />
 
           {status === 'success' ? (
             /* Success state */
@@ -289,9 +293,9 @@ export default function SuggestForm({ isOpen, onClose }: SuggestFormProps) {
                 type="button"
                 onClick={onClose}
                 style={closeButtonStyle}
-                aria-label="Close"
+                aria-label={tc('close')}
               >
-                <X size={20} />
+                <X size={20} aria-hidden="true" />
               </button>
 
               {/* Title */}
@@ -310,8 +314,9 @@ export default function SuggestForm({ isOpen, onClose }: SuggestFormProps) {
 
                 {/* Name */}
                 <div style={fieldGroupStyle}>
-                  <label style={labelStyle}>{t('name')} *</label>
+                  <label htmlFor="suggest-name" style={labelStyle}>{t('name')} *</label>
                   <input
+                    id="suggest-name"
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -322,8 +327,9 @@ export default function SuggestForm({ isOpen, onClose }: SuggestFormProps) {
 
                 {/* Address */}
                 <div style={fieldGroupStyle}>
-                  <label style={labelStyle}>{t('address')} *</label>
+                  <label htmlFor="suggest-address" style={labelStyle}>{t('address')} *</label>
                   <input
+                    id="suggest-address"
                     type="text"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
@@ -334,21 +340,21 @@ export default function SuggestForm({ isOpen, onClose }: SuggestFormProps) {
 
                 {/* Type (radio) */}
                 <div style={fieldGroupStyle}>
-                  <label style={labelStyle}>{t('type')}</label>
-                  <div style={radioGroupStyle}>
+                  <span id="suggest-type-label" style={labelStyle}>{t('type')}</span>
+                  <div style={radioGroupStyle} role="radiogroup" aria-labelledby="suggest-type-label">
                     <label
                       style={radioLabelStyle(type === 'free')}
                       onClick={() => setType('free')}
                     >
                       <input
                         type="radio"
-                        name="toilet-type"
+                        name="suggest-toilet-type"
                         value="free"
                         checked={type === 'free'}
                         onChange={() => setType('free')}
-                        style={{ display: 'none' }}
+                        style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', borderWidth: 0 }}
                       />
-                      <span style={{
+                      <span aria-hidden="true" style={{
                         width: 16,
                         height: 16,
                         borderRadius: '50%',
@@ -375,13 +381,13 @@ export default function SuggestForm({ isOpen, onClose }: SuggestFormProps) {
                     >
                       <input
                         type="radio"
-                        name="toilet-type"
+                        name="suggest-toilet-type"
                         value="paid"
                         checked={type === 'paid'}
                         onChange={() => setType('paid')}
-                        style={{ display: 'none' }}
+                        style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', borderWidth: 0 }}
                       />
-                      <span style={{
+                      <span aria-hidden="true" style={{
                         width: 16,
                         height: 16,
                         borderRadius: '50%',
@@ -441,8 +447,9 @@ export default function SuggestForm({ isOpen, onClose }: SuggestFormProps) {
 
                 {/* Hours */}
                 <div style={fieldGroupStyle}>
-                  <label style={labelStyle}>{t('hours')}</label>
+                  <label htmlFor="suggest-hours" style={labelStyle}>{t('hours')}</label>
                   <input
+                    id="suggest-hours"
                     type="text"
                     value={hours}
                     onChange={(e) => setHours(e.target.value)}
@@ -453,8 +460,9 @@ export default function SuggestForm({ isOpen, onClose }: SuggestFormProps) {
 
                 {/* Notes */}
                 <div style={fieldGroupStyle}>
-                  <label style={labelStyle}>{t('notes')}</label>
+                  <label htmlFor="suggest-notes" style={labelStyle}>{t('notes')}</label>
                   <textarea
+                    id="suggest-notes"
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                     style={textareaStyle}
