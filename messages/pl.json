@@ -26,6 +26,8 @@
     "open": "Otwarte",
     "closed": "Zamknięte",
     "closedForSeason": "Zamknięte sezonowo",
+    "inferredOpen": "Prawdop. otwarte",
+    "inferredClosed": "Prawdop. zamknięte",
     "hours": "{hours}",
     "h24": "Całodobowo",
     "accessible": "Dostępna",
@@ -45,7 +47,17 @@
       "public": "Publiczna",
       "commercial": "Komercyjna",
       "cultural": "Kulturalna",
-      "government": "Administracja"
+      "government": "Administracja",
+      "hospital": "Szpital",
+      "clinic": "Przychodnia",
+      "library": "Biblioteka",
+      "restaurant": "Restauracja",
+      "gas_station": "Stacja paliw",
+      "shopping": "Centrum handlowe",
+      "transit": "Dworzec",
+      "park": "Park",
+      "university": "Uczelnia",
+      "cemetery": "Cmentarz"
     },
     "feature": {
       "female": "Damska",

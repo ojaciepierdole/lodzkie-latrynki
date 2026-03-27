@@ -26,6 +26,8 @@
     "open": "Відчинено",
     "closed": "Зачинено",
     "closedForSeason": "Закрито на сезон",
+    "inferredOpen": "Ймовірно відчинено",
+    "inferredClosed": "Ймовірно зачинено",
     "hours": "{hours}",
     "h24": "Цілодобово",
     "accessible": "Доступно",
@@ -45,7 +47,17 @@
       "public": "Громадський",
       "commercial": "Комерційний",
       "cultural": "Культурний",
-      "government": "Адміністрація"
+      "government": "Адміністрація",
+      "hospital": "Лікарня",
+      "clinic": "Поліклініка",
+      "library": "Бібліотека",
+      "restaurant": "Ресторан",
+      "gas_station": "АЗС",
+      "shopping": "Торговий центр",
+      "transit": "Вокзал",
+      "park": "Парк",
+      "university": "Університет",
+      "cemetery": "Кладовище"
     },
     "feature": {
       "female": "Жіночий",

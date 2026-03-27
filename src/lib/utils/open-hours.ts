@@ -99,6 +99,50 @@ function translateRaw(raw: string, locale: string): string {
 }
 
 /**
+ * Infer opening hours from a toilet category when no explicit hours are available.
+ */
+export function inferHoursFromCategory(category: string): { is24h: boolean; hours?: OpeningHours } | null {
+  switch (category) {
+    case 'hospital':
+    case 'gas_station':
+      return { is24h: true };
+    case 'transit':
+      return { is24h: false, hours: buildUniformHours('05:00', '23:00') };
+    case 'shopping':
+      return { is24h: false, hours: buildWeekendHours('09:00', '21:00', '10:00', '20:00') };
+    case 'library':
+    case 'university':
+      return { is24h: false, hours: buildWeekdayHours('09:00', '19:00') };
+    case 'clinic':
+      return { is24h: false, hours: buildWeekdayHours('07:00', '18:00') };
+    case 'restaurant':
+      return { is24h: false, hours: buildUniformHours('10:00', '22:00') };
+    case 'park':
+      return { is24h: false, hours: buildUniformHours('06:00', '22:00') };
+    case 'cemetery':
+      return { is24h: false, hours: buildUniformHours('07:00', '19:00') };
+    default:
+      return null;
+  }
+}
+
+function buildUniformHours(open: string, close: string): OpeningHours {
+  const day: DayHours = { open, close };
+  return { mon: day, tue: day, wed: day, thu: day, fri: day, sat: day, sun: day, raw: '' };
+}
+
+function buildWeekdayHours(open: string, close: string): OpeningHours {
+  const day: DayHours = { open, close };
+  return { mon: day, tue: day, wed: day, thu: day, fri: day, raw: '' };
+}
+
+function buildWeekendHours(weekOpen: string, weekClose: string, weekendOpen: string, weekendClose: string): OpeningHours {
+  const weekday: DayHours = { open: weekOpen, close: weekClose };
+  const weekend: DayHours = { open: weekendOpen, close: weekendClose };
+  return { mon: weekday, tue: weekday, wed: weekday, thu: weekday, fri: weekday, sat: weekend, sun: weekend, raw: '' };
+}
+
+/**
  * Format opening hours for display.
  *
  * @param hours - The opening hours data

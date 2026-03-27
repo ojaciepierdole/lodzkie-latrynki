@@ -26,6 +26,8 @@
     "open": "Open",
     "closed": "Closed",
     "closedForSeason": "Closed for season",
+    "inferredOpen": "Likely open",
+    "inferredClosed": "Likely closed",
     "hours": "{hours}",
     "h24": "24/7",
     "accessible": "Accessible",
@@ -45,7 +47,17 @@
       "public": "Public",
       "commercial": "Commercial",
       "cultural": "Cultural",
-      "government": "Government"
+      "government": "Government",
+      "hospital": "Hospital",
+      "clinic": "Clinic",
+      "library": "Library",
+      "restaurant": "Restaurant",
+      "gas_station": "Gas station",
+      "shopping": "Shopping center",
+      "transit": "Transit station",
+      "park": "Park",
+      "university": "University",
+      "cemetery": "Cemetery"
     },
     "feature": {
       "female": "Women's",

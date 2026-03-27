@@ -24,10 +24,20 @@ import {
   SmilePlus,
   CircleDot,
   Sparkles,
+  Hospital,
+  Stethoscope,
+  BookOpen,
+  UtensilsCrossed,
+  Fuel,
+  ShoppingBag,
+  TrainFront,
+  TreePine,
+  GraduationCap,
+  Cross,
 } from 'lucide-react';
 import type { Toilet, Review, ToiletFeature, ToiletCategory } from '@/lib/types/toilet';
 import ReviewList from './ReviewList';
-import { isOpenNow, formatHours } from '@/lib/utils/open-hours';
+import { isOpenNow, formatHours, inferHoursFromCategory } from '@/lib/utils/open-hours';
 import { haversineDistance, formatDistance } from '@/lib/utils/distance';
 
 const FEATURE_CONFIG: Record<ToiletFeature, { icon: typeof User; labelKey: string }> = {
@@ -41,9 +51,19 @@ const FEATURE_CONFIG: Record<ToiletFeature, { icon: typeof User; labelKey: strin
 };
 
 const CATEGORY_CONFIG: Partial<Record<ToiletCategory, { icon: typeof Building2; labelKey: string; colors: string }>> = {
-  commercial: { icon: Building2, labelKey: 'category.commercial', colors: 'bg-amber-100 text-amber-800' },
-  cultural: { icon: Palette, labelKey: 'category.cultural', colors: 'bg-purple-100 text-purple-800' },
-  government: { icon: Landmark, labelKey: 'category.government', colors: 'bg-slate-100 text-slate-800' },
+  commercial: { icon: Building2, labelKey: 'category.commercial', colors: 'bg-amber-600 text-white' },
+  cultural: { icon: Palette, labelKey: 'category.cultural', colors: 'bg-purple-600 text-white' },
+  government: { icon: Landmark, labelKey: 'category.government', colors: 'bg-slate-600 text-white' },
+  hospital: { icon: Hospital, labelKey: 'category.hospital', colors: 'bg-red-600 text-white' },
+  clinic: { icon: Stethoscope, labelKey: 'category.clinic', colors: 'bg-pink-600 text-white' },
+  library: { icon: BookOpen, labelKey: 'category.library', colors: 'bg-indigo-600 text-white' },
+  restaurant: { icon: UtensilsCrossed, labelKey: 'category.restaurant', colors: 'bg-orange-600 text-white' },
+  gas_station: { icon: Fuel, labelKey: 'category.gas_station', colors: 'bg-yellow-600 text-white' },
+  shopping: { icon: ShoppingBag, labelKey: 'category.shopping', colors: 'bg-rose-600 text-white' },
+  transit: { icon: TrainFront, labelKey: 'category.transit', colors: 'bg-cyan-600 text-white' },
+  park: { icon: TreePine, labelKey: 'category.park', colors: 'bg-green-600 text-white' },
+  university: { icon: GraduationCap, labelKey: 'category.university', colors: 'bg-blue-600 text-white' },
+  cemetery: { icon: Cross, labelKey: 'category.cemetery', colors: 'bg-stone-600 text-white' },
 };
 
 interface ToiletCardProps {
@@ -55,7 +75,7 @@ interface ToiletCardProps {
   onOpenCorrectionForm: () => void;
 }
 
-type OpenStatus = 'h24' | 'open' | 'closed' | null;
+type OpenStatus = 'h24' | 'open' | 'closed' | 'inferred_open' | 'inferred_closed' | null;
 
 interface CardContentProps {
   toilet: Toilet;
@@ -194,6 +214,18 @@ function CardContent({
             <span className="text-gray-500 font-semibold flex items-center gap-1.5">
               <span className="inline-flex rounded-full h-2.5 w-2.5 bg-gray-400"></span>
               {t('closed')}
+            </span>
+          )}
+          {openStatus === 'inferred_open' && (
+            <span className="text-emerald-500 font-medium flex items-center gap-1.5 text-sm">
+              <span className="inline-flex rounded-full h-2 w-2 bg-emerald-400 opacity-60"></span>
+              {t('inferredOpen')}
+            </span>
+          )}
+          {openStatus === 'inferred_closed' && (
+            <span className="text-gray-400 font-medium flex items-center gap-1.5 text-sm">
+              <span className="inline-flex rounded-full h-2 w-2 bg-gray-300"></span>
+              {t('inferredClosed')}
             </span>
           )}
         </div>
@@ -335,6 +367,16 @@ export default function ToiletCard({
     const open = isOpenNow(toilet.hours);
     if (open === true) return 'open';
     if (open === false) return 'closed';
+    // Infer from category when no hours data
+    const inferred = inferHoursFromCategory(toilet.category);
+    if (inferred) {
+      if (inferred.is24h) return 'h24';
+      if (inferred.hours) {
+        const inferredOpen = isOpenNow(inferred.hours);
+        if (inferredOpen === true) return 'inferred_open';
+        if (inferredOpen === false) return 'inferred_closed';
+      }
+    }
     return null;
   }, [toilet]);
 

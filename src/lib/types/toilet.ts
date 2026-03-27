@@ -1,4 +1,8 @@
-export type ToiletCategory = 'public' | 'commercial' | 'cultural' | 'government';
+export type ToiletCategory =
+  | 'public' | 'commercial' | 'cultural' | 'government'
+  | 'hospital' | 'clinic' | 'library' | 'restaurant'
+  | 'gas_station' | 'shopping' | 'transit' | 'park'
+  | 'university' | 'cemetery';
 
 export type ToiletFeature =
   | 'female'
