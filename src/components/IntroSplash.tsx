@@ -9,17 +9,24 @@ const FADE_DURATION = 800; // ms
 const FADE_START_BEFORE_END = 1.2; // seconds before video ends, start fade to black
 
 export function IntroSplash({ children }: { children: React.ReactNode }) {
-  const [phase, setPhase] = useState<'video' | 'black' | 'onboarding' | 'fadein' | 'done'>('video');
+  // Start in 'checking' to avoid rendering <video autoPlay> before sessionStorage check
+  const [phase, setPhase] = useState<'checking' | 'video' | 'black' | 'onboarding' | 'fadein' | 'done'>('checking');
   const videoRef = useRef<HTMLVideoElement>(null);
   const [fadeToBlack, setFadeToBlack] = useState(false);
   const playStarted = useRef(false);
 
-  // Check sessionStorage after mount to avoid hydration mismatch
+  // Step 1: Check sessionStorage after mount to avoid hydration mismatch
   useEffect(() => {
     if (sessionStorage.getItem(STORAGE_KEY)) {
       setPhase('done');
-      return;
+    } else {
+      setPhase('video');
     }
+  }, []);
+
+  // Step 2: Setup video playback only after confirming intro wasn't seen
+  useEffect(() => {
+    if (phase !== 'video') return;
 
     const v = videoRef.current;
     if (!v) return;
@@ -52,7 +59,7 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
       clearTimeout(timeout);
       v.removeEventListener('canplay', onCanPlay);
     };
-  }, []);
+  }, [phase]);
 
   const handlePlaying = useCallback(() => {
     playStarted.current = true;
@@ -86,7 +93,7 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
     }
   }, [phase]);
 
-  if (phase === 'done') return <>{children}</>;
+  if (phase === 'done' || phase === 'checking') return <>{children}</>;
 
   return (
     <>
@@ -124,7 +131,6 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
             <video
               ref={videoRef}
               src="https://zhana0boa1k4htp1.public.blob.vercel-storage.com/intro.mp4"
-              autoPlay
               muted
               playsInline
               onPlaying={handlePlaying}

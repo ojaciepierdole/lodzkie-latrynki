@@ -32,10 +32,14 @@ function parseType(raw: string): { type: 'free' | 'paid'; price?: string } {
     return { type: 'free' };
   }
   const priceMatch = lower.match(/(\d+\s*(?:,\d+)?\s*zł)/);
-  return {
-    type: 'paid',
-    price: priceMatch ? priceMatch[1] : undefined,
-  };
+  if (priceMatch) {
+    return { type: 'paid', price: priceMatch[1] };
+  }
+  if (lower.includes('płatn')) {
+    return { type: 'paid' };
+  }
+  // No price keywords found — default to free (toi-toi, park cabins, etc.)
+  return { type: 'free' };
 }
 
 /**
@@ -44,7 +48,8 @@ function parseType(raw: string): { type: 'free' | 'paid'; price?: string } {
  */
 function parseHours(raw: string): { hours: OpeningHours; is24h: boolean } {
   const cleaned = raw.trim();
-  const is24h = cleaned.toLowerCase().includes('24');
+  const lower = cleaned.toLowerCase();
+  const is24h = lower.includes('24') || lower.includes('całodobow') || lower.includes('calodobow');
 
   const timeMatch = cleaned.match(/(\d{1,2})[:.:](\d{2})\s*[-–]\s*(\d{1,2})[:.:](\d{2})/);
 

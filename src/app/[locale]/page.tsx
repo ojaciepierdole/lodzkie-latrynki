@@ -261,14 +261,14 @@ export default function HomePage() {
         />
       )}
 
-      {/* Suggest toilet FAB — small "+" button to the right of the Find Nearest FAB */}
+      {/* Suggest toilet FAB — small "+" button, bottom-left to avoid Leaflet zoom controls */}
       <button
         onClick={handleOpenSuggestForm}
         aria-label="Zaproponuj toaletę"
         style={{
           position: 'fixed',
           bottom: 'calc(max(24px, env(safe-area-inset-bottom, 0px)) + 60px)',
-          right: 16,
+          left: 16,
           zIndex: 900,
           display: 'flex',
           alignItems: 'center',
