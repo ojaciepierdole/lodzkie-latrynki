@@ -5,26 +5,23 @@
 See: .paul/PROJECT.md (updated 2026-03-27)
 
 **Core value:** Najdokładniejsza, cross-referencyjna mapa toalet aglomeracji łódzkiej
-**Current focus:** v1.2 Data Integration — Phase 1: Import & Mapping
+**Current focus:** v1.2 Data Integration — COMPLETE
 
 ## Current Position
 
 Milestone: v1.2 Data Integration (v1.2.0)
-Phase: 2 of 3 (Triangulacja) — DONE
-Plan: 02-01 + 02-02 complete
-Status: Applying Phase 3
-Last activity: 2026-03-27 — Triangulacja complete, 3 false positives fixed, 2 genuine enriched
+Phase: 3 of 3 — ALL COMPLETE
+Status: Done
+Last activity: 2026-03-27 — Phase 3 shipped, API + frontend + scraper updated
 
 Progress:
-- Milestone: [██████░░░░] 60%
-- Phase 2:   [██████████] 100%
+- Milestone: [██████████] 100%
 
 ## Loop Position
 
-Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ◉        ○     [Applying Phase 1]
+  ✓        ✓        ✓     [Milestone complete]
 ```
 
 ## Accumulated Context
@@ -32,28 +29,26 @@ PLAN ──▶ APPLY ──▶ UNIFY
 ### Decisions
 | Decision | Phase | Impact |
 |----------|-------|--------|
-| Bounding box aglomeracji: lat 51.58-51.92, lng 19.15-19.75 | Pre | Filtruje 245 z 10321 rekordów |
-| `accessible` = "Dla osób z niepełnosprawnością" z parameters | Pre | Nie trzeba nowego pola |
-| Overlap threshold: 100m radius | Pre | 12 matched, 233 new |
-| Supabase already provisioned (eadwosniketmcvfgucmu) | 01-01 | Nie trzeba nowego projektu |
-| TEXT IDs preserved (uml-X, gdziejesttron-X) | 01-01 | Spójność z istniejącym kodem |
-| PostGIS enabled, location backfilled | 01-01 | Proximity queries gotowe |
+| Bounding box aglomeracji: lat 51.58-51.92, lng 19.15-19.75 | 1 | 245 z 10321 rekordów |
+| TEXT IDs preserved (uml-X, gdziejesttron-X) | 1 | Spójność z kodem |
+| PostGIS enabled, location backfilled | 1 | ST_DWithin ready |
+| 3/5 overlaps = false positives | 2 | Unlinked, created as new |
+| UML authoritative for coords/name, gdziejesttron for features | 2 | Triangulation rule |
+| Nested Supabase select for child tables | 3 | Single query, no N+1 |
 
 ### Deferred Issues
 | Issue | Origin | Effort | Revisit |
 |-------|--------|--------|---------|
-| reviews table has no `source` column | 01-01 | S | Phase 3 (API update) |
-| Anon key may lack INSERT perms on new tables | 01-01 | S | Test during import |
-
-### Blockers/Concerns
-None.
+| reviews table has no `source` column | 1 | S | v1.3 |
+| Next.js build `hash` error (unrelated to our code) | 3 | M | Investigate separately |
+| RLS policies overly permissive (anon can write) | 1 | S | Tighten for prod |
 
 ## Session Continuity
 
 Last session: 2026-03-27
-Stopped at: Schema migration applied. TS types + import script agents running.
-Next action: Wait for agents, then run import, verify data.
-Resume context: Supabase schema ready. 41 existing + 233 new records to import.
+Stopped at: v1.2 milestone complete — all 3 phases shipped
+Next action: Deploy to Vercel, verify production
+Resume context: 284 toilets, 3 sources, API + frontend updated
 
 ---
 *STATE.md — Updated after every significant action*
