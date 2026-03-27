@@ -1,6 +1,26 @@
 import type { OpeningHours, DayHours } from '@/lib/types/toilet';
 
 const DAY_KEYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'] as const;
+type DayKey = (typeof DAY_KEYS)[number];
+
+/** Ordered mon-sun for display (ISO week order) */
+const DISPLAY_ORDER: DayKey[] = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+const DAY_NAMES: Record<string, Record<DayKey, string>> = {
+  pl: { mon: 'pn', tue: 'wt', wed: 'śr', thu: 'czw', fri: 'pt', sat: 'sob', sun: 'nd' },
+  en: { mon: 'Mon', tue: 'Tue', wed: 'Wed', thu: 'Thu', fri: 'Fri', sat: 'Sat', sun: 'Sun' },
+  de: { mon: 'Mo', tue: 'Di', wed: 'Mi', thu: 'Do', fri: 'Fr', sat: 'Sa', sun: 'So' },
+  es: { mon: 'lun', tue: 'mar', wed: 'mi\u00e9', thu: 'jue', fri: 'vie', sat: 's\u00e1b', sun: 'dom' },
+  uk: { mon: '\u043f\u043d', tue: '\u0432\u0442', wed: '\u0441\u0440', thu: '\u0447\u0442', fri: '\u043f\u0442', sat: '\u0441\u0431', sun: '\u043d\u0434' },
+};
+
+const EVERYDAY_LABEL: Record<string, string> = {
+  pl: 'codziennie',
+  en: 'daily',
+  de: 't\u00e4glich',
+  es: 'diario',
+  uk: 'щодня',
+};
 
 /**
  * Check if a toilet is currently open based on its opening hours
@@ -25,24 +45,110 @@ export function isOpenNow(hours: OpeningHours): boolean | null {
   return currentMinutes >= openMinutes && currentMinutes <= closeMinutes;
 }
 
+/** Get localized day name */
+function dayName(key: DayKey, locale: string): string {
+  const names = DAY_NAMES[locale] ?? DAY_NAMES.pl;
+  return names[key];
+}
+
+/** Check if two DayHours have the same open/close */
+function sameHours(a: DayHours, b: DayHours): boolean {
+  return a.open === b.open && a.close === b.close;
+}
+
+/** Format a time range */
+function timeRange(h: DayHours): string {
+  return `${h.open}\u2013${h.close}`;
+}
+
+/** Check if days form a consecutive run in DISPLAY_ORDER */
+function isConsecutiveRun(days: DayKey[]): boolean {
+  if (days.length <= 1) return true;
+  for (let i = 1; i < days.length; i++) {
+    const prevIdx = DISPLAY_ORDER.indexOf(days[i - 1]);
+    const currIdx = DISPLAY_ORDER.indexOf(days[i]);
+    if (currIdx !== prevIdx + 1) return false;
+  }
+  return true;
+}
+
+/** Format a group of days: consecutive -> "pn-pt", non-consecutive -> "wt, śr, pt" */
+function formatDayGroup(days: DayKey[], locale: string): string {
+  if (days.length === 7) return EVERYDAY_LABEL[locale] ?? EVERYDAY_LABEL.pl;
+  if (days.length >= 2 && isConsecutiveRun(days)) {
+    return `${dayName(days[0], locale)}\u2013${dayName(days[days.length - 1], locale)}`;
+  }
+  return days.map((d) => dayName(d, locale)).join(', ');
+}
+
 /**
- * Format opening hours for display
+ * Translate English day abbreviations in raw string to localized ones.
  */
-export function formatHours(hours: OpeningHours): string {
-  if (!hours.raw) return '';
+function translateRaw(raw: string, locale: string): string {
+  const names = DAY_NAMES[locale] ?? DAY_NAMES.pl;
+  const enNames = DAY_NAMES.en;
+  let result = raw;
+  // Replace English abbreviations (case-insensitive) with localized ones
+  for (const key of DISPLAY_ORDER) {
+    const enName = enNames[key];
+    // Match whole-word boundaries to avoid partial replacements
+    const regex = new RegExp(`\\b${enName}\\b`, 'gi');
+    result = result.replace(regex, names[key]);
+  }
+  return result;
+}
 
-  // If all days have the same hours, show once
-  const mon = hours.mon;
-  if (mon) {
-    const allSame = DAY_KEYS.slice(1, 6).every((day) => {
-      const d = hours[day];
-      return d && d.open === mon.open && d.close === mon.close;
-    });
+/**
+ * Format opening hours for display.
+ *
+ * @param hours - The opening hours data
+ * @param locale - Locale code (pl, en, de, es, uk). Defaults to 'pl'.
+ *
+ * Smart formatting rules:
+ * - All days same hours -> "08:00-13:00 (codziennie)"
+ * - Mon-Fri same, weekend different -> "pn-pt 08:00-13:00, sob 10:00-14:00"
+ * - Partial week, same hours -> "wt, sr, pt, sob 08:00-13:00"
+ * - Different hours -> compact grouped list
+ */
+export function formatHours(hours: OpeningHours, locale: string = 'pl'): string {
+  // Collect all days that have hours, in display order
+  const entries: { day: DayKey; hours: DayHours }[] = [];
+  for (const day of DISPLAY_ORDER) {
+    const dh = hours[day];
+    if (dh) entries.push({ day, hours: dh });
+  }
 
-    if (allSame) {
-      return `${mon.open}–${mon.close}`;
+  // No structured data — fall back to raw (translated)
+  if (entries.length === 0) {
+    if (!hours.raw) return '';
+    return translateRaw(hours.raw, locale);
+  }
+
+  // Group consecutive days with the same hours
+  const groups: { days: DayKey[]; hours: DayHours }[] = [];
+  for (const entry of entries) {
+    const last = groups[groups.length - 1];
+    if (last && sameHours(last.hours, entry.hours)) {
+      last.days.push(entry.day);
+    } else {
+      groups.push({ days: [entry.day], hours: entry.hours });
     }
   }
 
-  return hours.raw;
+  // Single group covering all 7 days -> "08:00-13:00 (codziennie)"
+  if (groups.length === 1 && groups[0].days.length === 7) {
+    const everyday = EVERYDAY_LABEL[locale] ?? EVERYDAY_LABEL.pl;
+    return `${timeRange(groups[0].hours)} (${everyday})`;
+  }
+
+  // Single group, partial week, same hours -> "wt, sr, pt 08:00-13:00"
+  if (groups.length === 1) {
+    const g = groups[0];
+    return `${formatDayGroup(g.days, locale)} ${timeRange(g.hours)}`;
+  }
+
+  // Multiple groups -> "pn-pt 08:00-13:00, sob 10:00-14:00"
+  return groups
+    .map((g) => `${formatDayGroup(g.days, locale)} ${timeRange(g.hours)}`)
+    .join(', ');
 }

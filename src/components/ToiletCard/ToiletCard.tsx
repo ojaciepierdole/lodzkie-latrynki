@@ -1,13 +1,12 @@
 'use client';
 
-import { useMemo } from 'react';
-import { useTranslations } from 'next-intl';
+import React, { useMemo } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 import { useSwipeDismiss } from '@/lib/hooks/useSwipeDismiss';
 import {
   X,
   Clock,
   DoorOpen,
-  DoorClosed,
   Navigation,
   MapPin,
   BadgeCheck,
@@ -15,6 +14,7 @@ import {
   Accessibility,
   MessageSquarePlus,
   FileWarning,
+  Cable,
   Building2,
   Landmark,
   Palette,
@@ -66,6 +66,7 @@ interface CardContentProps {
   onOpenReviewForm: () => void;
   onOpenCorrectionForm: () => void;
   showDragHandle: boolean;
+  locale: string;
   t: ReturnType<typeof useTranslations>;
   tc: ReturnType<typeof useTranslations>;
 }
@@ -79,11 +80,12 @@ function CardContent({
   onOpenReviewForm,
   onOpenCorrectionForm,
   showDragHandle,
+  locale,
   t,
   tc,
 }: CardContentProps) {
   const toiletReviews = reviews.filter(r => r.toiletId === toilet.id);
-  const formattedHours = formatHours(toilet.hours);
+  const formattedHours = formatHours(toilet.hours, locale);
 
   const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${toilet.lat},${toilet.lng}`;
 
@@ -103,8 +105,17 @@ function CardContent({
 
       {/* Label + Name and address */}
       <p className="text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wide flex items-center gap-1 mb-1">
-        <DoorOpen size={12} />
-        {t('label')}
+        {toilet.category && toilet.category !== 'public' && CATEGORY_CONFIG[toilet.category] ? (
+          <>
+            {React.createElement(CATEGORY_CONFIG[toilet.category]!.icon, { size: 12 })}
+            {t(`category.${toilet.category}`)}
+          </>
+        ) : (
+          <>
+            <DoorOpen size={12} />
+            {t('label')}
+          </>
+        )}
       </p>
       <h3 className="text-lg font-bold text-[var(--color-text)] pr-8">
         {toilet.name}
@@ -126,12 +137,12 @@ function CardContent({
       {/* Badges */}
       <div className="flex flex-wrap gap-2 mt-3">
         {toilet.type === 'free' ? (
-          <span className="bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+          <span className="bg-emerald-600 text-white px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
             <BadgeCheck size={13} />
             {t('free')}
           </span>
         ) : (
-          <span className="bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+          <span className="bg-blue-600 text-white px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
             <Coins size={13} />
             {t('paid')}
             {toilet.price && ` ${toilet.price}`}
@@ -139,7 +150,7 @@ function CardContent({
         )}
 
         {toilet.accessible && (
-          <span className="bg-purple-100 text-purple-800 px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+          <span className="bg-purple-600 text-white px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
             <Accessibility size={13} />
             {t('accessible')}
           </span>
@@ -171,14 +182,17 @@ function CardContent({
             </span>
           )}
           {openStatus === 'open' && (
-            <span className="text-emerald-600 font-semibold flex items-center gap-1">
-              <DoorOpen size={14} />
+            <span className="text-emerald-600 font-semibold flex items-center gap-1.5">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
               {t('open')}
             </span>
           )}
           {openStatus === 'closed' && (
-            <span className="text-red-600 font-semibold flex items-center gap-1">
-              <DoorClosed size={14} />
+            <span className="text-gray-500 font-semibold flex items-center gap-1.5">
+              <span className="inline-flex rounded-full h-2.5 w-2.5 bg-gray-400"></span>
               {t('closed')}
             </span>
           )}
@@ -271,13 +285,20 @@ function CardContent({
       </button>
 
       {/* Source info */}
-      <p className="mt-4 text-xs text-[var(--color-text-muted)] text-center">
-        {toilet.source === 'uml'
-          ? t('source.uml')
-          : toilet.source === 'gdziejesttron'
-            ? t('source.gdziejesttron')
-            : t('source.community')}
-      </p>
+      <div className="mt-4 flex items-center justify-center gap-1.5 text-xs text-[var(--color-text-muted)]">
+        <Cable size={12} />
+        {toilet.source === 'uml' ? (
+          <a href="https://uml.lodz.pl/dla-mieszkancow/toalety-miejskie/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+            Urząd Miasta Łodzi
+          </a>
+        ) : toilet.source === 'gdziejesttron' ? (
+          <a href="https://gdziejesttron.pl" target="_blank" rel="noopener noreferrer" className="hover:underline">
+            gdziejesttron.pl
+          </a>
+        ) : (
+          <span>{t('source.community')}</span>
+        )}
+      </div>
     </div>
   );
 }
@@ -292,6 +313,7 @@ export default function ToiletCard({
 }: ToiletCardProps) {
   const t = useTranslations('toilet');
   const tc = useTranslations('common');
+  const locale = useLocale();
   const isOpen = toilet !== null;
 
   // Calculate distance if user location available
@@ -347,6 +369,7 @@ export default function ToiletCard({
             onOpenReviewForm={onOpenReviewForm}
             onOpenCorrectionForm={onOpenCorrectionForm}
             showDragHandle={true}
+            locale={locale}
             t={t}
             tc={tc}
           />
@@ -369,6 +392,7 @@ export default function ToiletCard({
             onOpenReviewForm={onOpenReviewForm}
             onOpenCorrectionForm={onOpenCorrectionForm}
             showDragHandle={false}
+            locale={locale}
             t={t}
             tc={tc}
           />
