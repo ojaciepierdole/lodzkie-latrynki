@@ -232,7 +232,7 @@ function CardContent({
               <span
                 key={feature}
                 title={t(cfg.labelKey)}
-                className="inline-flex items-center gap-1 bg-gray-100 dark:bg-gray-800 text-[var(--color-text-secondary)] px-2 py-0.5 rounded-full text-xs"
+                className="inline-flex items-center gap-1 bg-gray-100 text-gray-700 px-2 py-0.5 rounded-full text-xs"
               >
                 <FeatureIcon size={12} />
                 {t(cfg.labelKey)}
