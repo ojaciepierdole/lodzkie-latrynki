@@ -176,16 +176,7 @@ function CardContent({
           </span>
         )}
 
-        {toilet.category && CATEGORY_CONFIG[toilet.category] && (() => {
-          const cfg = CATEGORY_CONFIG[toilet.category]!;
-          const CatIcon = cfg.icon;
-          return (
-            <span className={`${cfg.colors} px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1`}>
-              <CatIcon size={13} />
-              {t(cfg.labelKey)}
-            </span>
-          );
-        })()}
+        {/* Category badge removed — shown as label above name */}
       </div>
 
       {/* Hours and status — only show when there's something to display */}
@@ -246,12 +237,19 @@ function CardContent({
         </div>
       )}
 
-      {/* Description */}
-      {toilet.description && (
-        <p className="mt-3 text-sm text-[var(--color-text-secondary)]">
-          {toilet.description}
-        </p>
-      )}
+      {/* Description — filter out attribution patterns */}
+      {toilet.description && (() => {
+        const cleaned = toilet.description
+          .replace(/Dane dzięki[^.]*\./gi, '')
+          .replace(/CC BY[-\s]*SA[^.]*\./gi, '')
+          .replace(/Open\s*Street\s*Map[^.]*\./gi, '')
+          .trim();
+        return cleaned ? (
+          <p className="mt-3 text-sm text-[var(--color-text-secondary)]">
+            {cleaned}
+          </p>
+        ) : null;
+      })()}
 
       {/* Features */}
       {toilet.features && toilet.features.length > 0 && (
@@ -316,20 +314,26 @@ function CardContent({
         {t('reportCorrection')}
       </button>
 
-      {/* Source info */}
-      <div className="mt-4 flex items-center justify-center gap-1.5 text-xs text-[var(--color-text-muted)]">
-        <Cable size={12} />
-        {toilet.source === 'uml' ? (
-          <a href="https://uml.lodz.pl/dla-mieszkancow/toalety-miejskie/" target="_blank" rel="noopener noreferrer" className="hover:underline">
-            Urząd Miasta Łodzi
+      {/* Source + attribution footer */}
+      <div className="mt-4 flex flex-col items-center gap-0.5 text-xs text-[var(--color-text-muted)]">
+        <div className="flex items-center gap-1.5">
+          <Cable size={12} />
+          {toilet.source === 'uml' ? (
+            <a href="https://uml.lodz.pl/dla-mieszkancow/toalety-miejskie/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+              Urząd Miasta Łodzi
+            </a>
+          ) : toilet.source === 'gdziejesttron' ? (
+            <a href="https://gdziejesttron.pl" target="_blank" rel="noopener noreferrer" className="hover:underline">
+              gdziejesttron.pl
+            </a>
+          ) : (
+            <span>{t('source.community')}</span>
+          )}
+          <span className="text-[var(--color-border-strong)]">·</span>
+          <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer" className="hover:underline">
+            © OpenStreetMap
           </a>
-        ) : toilet.source === 'gdziejesttron' ? (
-          <a href="https://gdziejesttron.pl" target="_blank" rel="noopener noreferrer" className="hover:underline">
-            gdziejesttron.pl
-          </a>
-        ) : (
-          <span>{t('source.community')}</span>
-        )}
+        </div>
       </div>
     </div>
   );
