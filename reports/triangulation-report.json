@@ -1,0 +1,124 @@
+{
+  "generated": "2026-03-27",
+  "phase": "Phase 2: Triangulacja",
+  "summary": {
+    "total_toilets": 284,
+    "total_sources": 286,
+    "overlap_genuine": 2,
+    "overlap_false_positive": 3,
+    "false_positives_fixed": true
+  },
+  "sources": {
+    "uml": {
+      "count": 41,
+      "confidence": 1.0,
+      "origin": "UML Łódź official register",
+      "strengths": ["official data", "verified coordinates (Google Geocoding)", "opening hours raw"],
+      "weaknesses": ["no features", "no images", "no cabin count"]
+    },
+    "gdziejesttron": {
+      "count": 243,
+      "confidence": 0.8,
+      "origin": "gdziejesttron.pl crowdsource API",
+      "strengths": ["features/parameters", "cabin count", "images", "user reviews"],
+      "weaknesses": ["UPPERCASE addresses", "some inaccurate coordinates", "sparse opening hours"]
+    },
+    "community": {
+      "count": 0,
+      "confidence": 0.5,
+      "origin": "wcgo.pl user submissions",
+      "strengths": ["local knowledge"],
+      "weaknesses": ["unverified", "no approval workflow yet"]
+    }
+  },
+  "coverage": {
+    "description": { "uml": "41/41 (100%)", "gdziejesttron": "85/243 (35%)", "total": "126/284 (44%)" },
+    "hours_raw": { "uml": "24/41 (59%)", "gdziejesttron": "68/243 (28%)", "total": "92/284 (32%)" },
+    "hours_normalized": { "uml": "1/41 (2%)", "gdziejesttron": "68/243 (28%)", "total": "69/284 (24%)" },
+    "accessible": { "uml": "16/41 (39%)", "gdziejesttron": "19/243 (8%)", "total": "35/284 (12%)" },
+    "paid": { "uml": "14/41 (34%)", "gdziejesttron": "3/243 (1%)", "total": "17/284 (6%)" },
+    "features": { "uml": "2/41 (5%)", "gdziejesttron": "122/243 (50%)", "total": "124/284 (44%)" },
+    "cabin_count": { "uml": "1/41 (2%)", "gdziejesttron": "67/243 (28%)", "total": "68/284 (24%)" },
+    "claimed_by": { "uml": "1/41 (2%)", "gdziejesttron": "49/243 (20%)", "total": "50/284 (18%)" },
+    "images": { "uml": "1/41 (2%)", "gdziejesttron": "6/243 (2%)", "total": "7/284 (2%)" },
+    "location_postgis": { "uml": "41/41 (100%)", "gdziejesttron": "243/243 (100%)", "total": "284/284 (100%)" }
+  },
+  "overlap_analysis": {
+    "method": "haversine distance < 100m",
+    "initial_matches": 5,
+    "genuine_matches": 2,
+    "false_positives": 3,
+    "records": [
+      {
+        "uml_id": "uml-521447",
+        "uml_name": "Dworzec Łódź Kaliska",
+        "gdziejesttron_id": "8321",
+        "gdziejesttron_name": "Toaleta",
+        "distance_m": 13,
+        "verdict": "GENUINE",
+        "enrichment": ["cabin_count=1", "feature: porcelain"]
+      },
+      {
+        "uml_id": "uml-521471",
+        "uml_name": "Skwer Ireny Tuwim",
+        "gdziejesttron_id": "10980",
+        "gdziejesttron_name": "Toaleta na skwerze",
+        "distance_m": 26,
+        "verdict": "GENUINE",
+        "enrichment": ["accessible=true", "features: female, male", "description added"]
+      },
+      {
+        "uml_id": "uml-521492",
+        "uml_name": "Park Podolski",
+        "gdziejesttron_id": "1211",
+        "gdziejesttron_name": "Stacja Benzynowa ORLEN",
+        "distance_m": 94,
+        "verdict": "FALSE_POSITIVE",
+        "reason": "Different establishments: public park toilet vs gas station",
+        "fix": "Unlinked provenance, created gdziejesttron-1211 as new record"
+      },
+      {
+        "uml_id": "uml-521474",
+        "uml_name": "Skwer Wiedźmina",
+        "gdziejesttron_id": "3178",
+        "gdziejesttron_name": "Ferment Pizza i Krany",
+        "distance_m": 49,
+        "verdict": "FALSE_POSITIVE",
+        "reason": "Different establishments: public toilet vs restaurant",
+        "fix": "Unlinked provenance, created gdziejesttron-3178 as new record"
+      },
+      {
+        "uml_id": "uml-521444",
+        "uml_name": "al. G.Palki - Wojska Polskiego",
+        "gdziejesttron_id": "3576",
+        "gdziejesttron_name": "Fundacja Aktywizacja Oddział w Łodzi",
+        "distance_m": 56,
+        "verdict": "FALSE_POSITIVE",
+        "reason": "Different establishments: public toilet vs foundation office",
+        "fix": "Unlinked provenance, created gdziejesttron-3576 as new record"
+      }
+    ]
+  },
+  "triangulation_rules_applied": {
+    "coordinates": "UML preferred (Google Geocoding verified)",
+    "name_address": "UML preferred (official register)",
+    "hours": "gdziejesttron preferred (per-day granularity) > UML (raw string)",
+    "accessible_type": "UML preferred (official) with gdziejesttron enrichment",
+    "features_images": "gdziejesttron only source",
+    "cabin_count_owner": "gdziejesttron only source"
+  },
+  "categories": {
+    "public": 176,
+    "commercial": 101,
+    "cultural": 4,
+    "government": 3
+  },
+  "data_quality_fixes": {
+    "addresses_normalized": "UPPERCASE → Title Case for all gdziejesttron records",
+    "typo_fixes": "Łódz → Łódź",
+    "postgis_backfilled": "281 → 284 records (100%)",
+    "hours_raw_generated": "68 records from normalized toilet_hours",
+    "cabin_count_backfilled": "68 records from raw_data.qty",
+    "claimed_by_backfilled": "50 records from raw_data.owner"
+  }
+}

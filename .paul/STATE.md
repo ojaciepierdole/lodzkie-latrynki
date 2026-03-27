@@ -10,14 +10,14 @@ See: .paul/PROJECT.md (updated 2026-03-27)
 ## Current Position
 
 Milestone: v1.2 Data Integration (v1.2.0)
-Phase: 1 of 3 (Import & Mapping)
-Plan: 01-01 done, 01-02 + 01-03 in progress
-Status: Applying
-Last activity: 2026-03-27 — Schema migration applied to Supabase
+Phase: 2 of 3 (Triangulacja) — DONE
+Plan: 02-01 + 02-02 complete
+Status: Applying Phase 3
+Last activity: 2026-03-27 — Triangulacja complete, 3 false positives fixed, 2 genuine enriched
 
 Progress:
-- Milestone: [██░░░░░░░░] 15%
-- Phase 1:   [████░░░░░░] 40%
+- Milestone: [██████░░░░] 60%
+- Phase 2:   [██████████] 100%
 
 ## Loop Position
 
