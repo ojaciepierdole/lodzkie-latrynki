@@ -37,7 +37,23 @@
     "reportCorrection": "Reportar corrección",
     "source": {
       "uml": "Datos: Ciudad de Łódź",
-      "community": "Reportado por la comunidad"
+      "community": "Reportado por la comunidad",
+      "gdziejesttron": "Datos: gdziejesttron.pl"
+    },
+    "category": {
+      "public": "Público",
+      "commercial": "Comercial",
+      "cultural": "Cultural",
+      "government": "Administración"
+    },
+    "feature": {
+      "female": "Mujeres",
+      "male": "Hombres",
+      "neutral": "Género neutro",
+      "changing_table": "Cambiador",
+      "child_friendly": "Apto para niños",
+      "porcelain": "Inodoro de porcelana",
+      "hygiene_supplies": "Artículos de higiene"
     }
   },
   "reviews": {

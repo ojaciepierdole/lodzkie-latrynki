@@ -37,7 +37,23 @@
     "reportCorrection": "Zgłoś korektę",
     "source": {
       "uml": "Dane: Urząd Miasta Łodzi",
-      "community": "Zgłoszone przez społeczność"
+      "community": "Zgłoszone przez społeczność",
+      "gdziejesttron": "Dane: gdziejesttron.pl"
+    },
+    "category": {
+      "public": "Publiczna",
+      "commercial": "Komercyjna",
+      "cultural": "Kulturalna",
+      "government": "Administracja"
+    },
+    "feature": {
+      "female": "Damska",
+      "male": "Męska",
+      "neutral": "Neutralna",
+      "changing_table": "Przewijak",
+      "child_friendly": "Przyjazna dzieciom",
+      "porcelain": "Muszla porcelanowa",
+      "hygiene_supplies": "Środki higieniczne"
     }
   },
   "reviews": {

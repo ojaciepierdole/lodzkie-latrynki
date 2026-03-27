@@ -99,6 +99,24 @@ export async function POST(request: NextRequest) {
         console.error(`[Scraper] Upsert error for ${toilet.id}:`, error)
       } else {
         upsertedCount++
+
+        // Track provenance in toilet_sources
+        const { error: sourceError } = await supabase
+          .from('toilet_sources')
+          .upsert(
+            {
+              toilet_id: toilet.id,
+              source: 'uml',
+              source_id: toilet.id,
+              last_synced_at: new Date().toISOString(),
+              confidence: 1.0,
+            },
+            { onConflict: 'toilet_id,source' }
+          )
+
+        if (sourceError) {
+          console.error(`[Scraper] Source provenance error for ${toilet.id}:`, sourceError)
+        }
       }
     }
 

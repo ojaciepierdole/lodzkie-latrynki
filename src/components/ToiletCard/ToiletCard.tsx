@@ -15,11 +15,36 @@ import {
   Accessibility,
   MessageSquarePlus,
   FileWarning,
+  Building2,
+  Landmark,
+  Palette,
+  User,
+  Users,
+  Baby,
+  SmilePlus,
+  CircleDot,
+  Sparkles,
 } from 'lucide-react';
-import type { Toilet, Review } from '@/lib/types/toilet';
+import type { Toilet, Review, ToiletFeature, ToiletCategory } from '@/lib/types/toilet';
 import ReviewList from './ReviewList';
 import { isOpenNow, formatHours } from '@/lib/utils/open-hours';
 import { haversineDistance, formatDistance } from '@/lib/utils/distance';
+
+const FEATURE_CONFIG: Record<ToiletFeature, { icon: typeof User; labelKey: string }> = {
+  female: { icon: User, labelKey: 'feature.female' },
+  male: { icon: User, labelKey: 'feature.male' },
+  neutral: { icon: Users, labelKey: 'feature.neutral' },
+  changing_table: { icon: Baby, labelKey: 'feature.changing_table' },
+  child_friendly: { icon: SmilePlus, labelKey: 'feature.child_friendly' },
+  porcelain: { icon: CircleDot, labelKey: 'feature.porcelain' },
+  hygiene_supplies: { icon: Sparkles, labelKey: 'feature.hygiene_supplies' },
+};
+
+const CATEGORY_CONFIG: Partial<Record<ToiletCategory, { icon: typeof Building2; labelKey: string; colors: string }>> = {
+  commercial: { icon: Building2, labelKey: 'category.commercial', colors: 'bg-amber-100 text-amber-800' },
+  cultural: { icon: Palette, labelKey: 'category.cultural', colors: 'bg-purple-100 text-purple-800' },
+  government: { icon: Landmark, labelKey: 'category.government', colors: 'bg-slate-100 text-slate-800' },
+};
 
 interface ToiletCardProps {
   toilet: Toilet | null;
@@ -119,6 +144,17 @@ function CardContent({
             {t('accessible')}
           </span>
         )}
+
+        {toilet.category && CATEGORY_CONFIG[toilet.category] && (() => {
+          const cfg = CATEGORY_CONFIG[toilet.category]!;
+          const CatIcon = cfg.icon;
+          return (
+            <span className={`${cfg.colors} px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1`}>
+              <CatIcon size={13} />
+              {t(cfg.labelKey)}
+            </span>
+          );
+        })()}
       </div>
 
       {/* Hours and status */}
@@ -147,10 +183,53 @@ function CardContent({
         )}
       </div>
 
+      {/* Images */}
+      {toilet.images && toilet.images.length > 0 && (
+        <div className="mt-4 flex gap-2 overflow-x-auto pb-1 -mx-1 px-1">
+          {toilet.images.map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt={`${toilet.name} ${i + 1}`}
+              loading="lazy"
+              className="h-20 w-auto rounded-lg object-cover shrink-0"
+            />
+          ))}
+        </div>
+      )}
+
       {/* Description */}
       {toilet.description && (
         <p className="mt-3 text-sm text-[var(--color-text-secondary)]">
           {toilet.description}
+        </p>
+      )}
+
+      {/* Features */}
+      {toilet.features && toilet.features.length > 0 && (
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {toilet.features.map((feature) => {
+            const cfg = FEATURE_CONFIG[feature];
+            if (!cfg) return null;
+            const FeatureIcon = cfg.icon;
+            return (
+              <span
+                key={feature}
+                title={t(cfg.labelKey)}
+                className="inline-flex items-center gap-1 bg-gray-100 dark:bg-gray-800 text-[var(--color-text-secondary)] px-2 py-0.5 rounded-full text-xs"
+              >
+                <FeatureIcon size={12} />
+                {t(cfg.labelKey)}
+              </span>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Cabin count */}
+      {toilet.cabinCount != null && toilet.cabinCount > 0 && (
+        <p className="mt-2 text-xs text-[var(--color-text-secondary)]">
+          {t('cabins', { count: toilet.cabinCount })}
         </p>
       )}
 
@@ -191,7 +270,11 @@ function CardContent({
 
       {/* Source info */}
       <p className="mt-4 text-xs text-[var(--color-text-muted)] text-center">
-        {toilet.source === 'uml' ? t('source.uml') : t('source.community')}
+        {toilet.source === 'uml'
+          ? t('source.uml')
+          : toilet.source === 'gdziejesttron'
+            ? t('source.gdziejesttron')
+            : t('source.community')}
       </p>
     </div>
   );

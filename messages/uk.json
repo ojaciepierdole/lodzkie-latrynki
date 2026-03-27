@@ -37,7 +37,23 @@
     "reportCorrection": "Повідомити про виправлення",
     "source": {
       "uml": "Дані: Місто Лодзь",
-      "community": "Повідомлено спільнотою"
+      "community": "Повідомлено спільнотою",
+      "gdziejesttron": "Дані: gdziejesttron.pl"
+    },
+    "category": {
+      "public": "Громадський",
+      "commercial": "Комерційний",
+      "cultural": "Культурний",
+      "government": "Адміністрація"
+    },
+    "feature": {
+      "female": "Жіночий",
+      "male": "Чоловічий",
+      "neutral": "Гендерно нейтральний",
+      "changing_table": "Пеленальний столик",
+      "child_friendly": "Для дітей",
+      "porcelain": "Порцелянова раковина",
+      "hygiene_supplies": "Засоби гігієни"
     }
   },
   "reviews": {

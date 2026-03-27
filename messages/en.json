@@ -37,7 +37,23 @@
     "reportCorrection": "Report correction",
     "source": {
       "uml": "Data: City of Łódź",
-      "community": "Reported by community"
+      "community": "Reported by community",
+      "gdziejesttron": "Data: gdziejesttron.pl"
+    },
+    "category": {
+      "public": "Public",
+      "commercial": "Commercial",
+      "cultural": "Cultural",
+      "government": "Government"
+    },
+    "feature": {
+      "female": "Women's",
+      "male": "Men's",
+      "neutral": "Gender neutral",
+      "changing_table": "Baby changing",
+      "child_friendly": "Child friendly",
+      "porcelain": "Porcelain toilet",
+      "hygiene_supplies": "Hygiene supplies"
     }
   },
   "reviews": {

@@ -37,7 +37,23 @@
     "reportCorrection": "Korrektur melden",
     "source": {
       "uml": "Daten: Stadt Łódź",
-      "community": "Von der Community gemeldet"
+      "community": "Von der Community gemeldet",
+      "gdziejesttron": "Daten: gdziejesttron.pl"
+    },
+    "category": {
+      "public": "Öffentlich",
+      "commercial": "Kommerziell",
+      "cultural": "Kulturell",
+      "government": "Verwaltung"
+    },
+    "feature": {
+      "female": "Damen",
+      "male": "Herren",
+      "neutral": "Geschlechtsneutral",
+      "changing_table": "Wickelraum",
+      "child_friendly": "Kinderfreundlich",
+      "porcelain": "Porzellantoilette",
+      "hygiene_supplies": "Hygieneartikel"
     }
   },
   "reviews": {
