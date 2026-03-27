@@ -5,9 +5,18 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { OnboardingDialog } from './OnboardingDialog';
 
-const STORAGE_KEY = 'latrynki-intro-seen';
+const COOKIE_NAME = 'latrynki-intro-seen';
+const COOKIE_MAX_AGE = 365 * 24 * 60 * 60; // 1 year in seconds
 const FADE_DURATION = 800; // ms
 const FADE_START_BEFORE_END = 1.2; // seconds before video ends, start fade to black
+
+function hasIntroCookie(): boolean {
+  return document.cookie.split('; ').some(c => c.startsWith(`${COOKIE_NAME}=`));
+}
+
+function setIntroCookie(): void {
+  document.cookie = `${COOKIE_NAME}=1; path=/; max-age=${COOKIE_MAX_AGE}; SameSite=Lax`;
+}
 
 export function IntroSplash({ children }: { children: React.ReactNode }) {
   const t = useTranslations('onboarding');
@@ -19,7 +28,7 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
 
   // Step 1: Check sessionStorage after mount to avoid hydration mismatch
   useEffect(() => {
-    if (sessionStorage.getItem(STORAGE_KEY)) {
+    if (hasIntroCookie()) {
       setPhase('done');
     } else {
       setPhase('video');
@@ -37,7 +46,7 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
     const onCanPlay = () => {
       playStarted.current = true;
       v.play().catch(() => {
-        sessionStorage.setItem(STORAGE_KEY, '1');
+        setIntroCookie();
         setPhase('done');
       });
     };
@@ -52,7 +61,7 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
     // Generous timeout — 15s for slow networks to download 5.4MB
     const timeout = setTimeout(() => {
       if (!playStarted.current) {
-        sessionStorage.setItem(STORAGE_KEY, '1');
+        setIntroCookie();
         setPhase('done');
       }
     }, 15000);
@@ -78,13 +87,13 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
 
   const handleEnded = useCallback(() => {
     setPhase('black');
-    sessionStorage.setItem(STORAGE_KEY, '1');
+    setIntroCookie();
     setTimeout(() => setPhase('onboarding'), 300);
   }, []);
 
   // If video fails to load, skip intro
   const handleError = useCallback(() => {
-    sessionStorage.setItem(STORAGE_KEY, '1');
+    setIntroCookie();
     setPhase('done');
   }, []);
 

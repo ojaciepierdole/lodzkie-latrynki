@@ -123,10 +123,10 @@ interface Toilet {
 - z-index: overlay `1000`, sheet `1001`, ReviewForm overlay `1100`, ReviewForm sheet `1101`
 
 ### IntroSplash
-- Gra `public/intro.mp4` raz na sesję (sessionStorage klucz: `latrynki-intro-seen`)
+- Gra `public/intro.mp4` raz (cookie `latrynki-intro-seen`, ważne 1 rok)
 - Fallback: jeśli video error → skip do 'done'
 - Fazy: video → black → fadein → done
-- Żeby przetestować ponownie: nowa karta przeglądarki lub `sessionStorage.removeItem('latrynki-intro-seen')`
+- Żeby przetestować ponownie: usuń cookie `latrynki-intro-seen` w DevTools → Application → Cookies
 
 ### Tailwind v4 + Dynamic Imports
 - Komponenty w `dynamic()` import nie generują CSS z Tailwind v4 — używaj **inline styles** w FindNearestFAB i podobnych komponentach
