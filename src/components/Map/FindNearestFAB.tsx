@@ -62,7 +62,7 @@ export default function FindNearestFAB({
               borderRadius: '50%',
             }}
           />
-          Szukam...
+          {t('locating')}
         </>
       ) : (
         <>

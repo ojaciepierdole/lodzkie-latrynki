@@ -37,7 +37,12 @@ export interface Toilet {
   // Meta
   lastScraped: string;
   lastVerified?: string;
-  status: 'active' | 'pending' | 'closed';
+  status: 'active' | 'pending' | 'closed' | 'archived';
+
+  // Timestamps
+  createdAt?: string;
+  updatedAt?: string;
+  adminOverride?: boolean;
 }
 
 export interface OpeningHours {
@@ -73,8 +78,12 @@ export interface Review {
   authorName: string;
   createdAt: string;
   isMock: boolean;
-  source: 'gdziejesttron' | 'community';
-  sourceId?: string;
+
+  // Moderation
+  isHidden?: boolean;
+  hiddenBy?: string;
+  hiddenAt?: string;
+  hideReason?: string;
 }
 
 export interface ToiletSource {

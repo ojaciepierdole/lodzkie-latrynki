@@ -9,7 +9,8 @@
     "myLocation": "Gdzie jestem?",
     "showAll": "Pokaż wszystkie",
     "zoomIn": "Przybliż",
-    "zoomOut": "Oddal"
+    "zoomOut": "Oddal",
+    "locating": "Szukam..."
   },
   "filters": {
     "free": "Bezpłatne",
@@ -72,7 +73,8 @@
     "yesterday": "wczoraj",
     "daysAgo": "{days} dni temu",
     "weeksAgo": "{weeks} tyg. temu",
-    "monthsAgo": "{months} mies. temu"
+    "monthsAgo": "{months} mies. temu",
+    "photoBy": "Zdjęcie od {author}"
   },
   "suggest": {
     "title": "Znasz latrynkę? Podziel się!",

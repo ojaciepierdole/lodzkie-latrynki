@@ -9,7 +9,8 @@
     "myLocation": "Mi ubicación",
     "showAll": "Mostrar todos",
     "zoomIn": "Acercar",
-    "zoomOut": "Alejar"
+    "zoomOut": "Alejar",
+    "locating": "Buscando..."
   },
   "filters": {
     "free": "Gratis",
@@ -72,7 +73,8 @@
     "yesterday": "ayer",
     "daysAgo": "hace {days} días",
     "weeksAgo": "hace {weeks} semanas",
-    "monthsAgo": "hace {months} meses"
+    "monthsAgo": "hace {months} meses",
+    "photoBy": "Foto de {author}"
   },
   "suggest": {
     "title": "Conoces un baño? Compártelo!",

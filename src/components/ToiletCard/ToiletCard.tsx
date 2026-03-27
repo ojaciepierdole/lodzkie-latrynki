@@ -157,31 +157,33 @@ function CardContent({
         })()}
       </div>
 
-      {/* Hours and status */}
-      <div className="mt-4 flex items-center gap-2 text-sm">
-        <Clock size={16} className="text-[var(--color-text-secondary)] shrink-0" />
-        {openStatus === 'h24' ? (
-          <span className="text-[var(--color-primary)] font-semibold">
-            {t('h24')}
-          </span>
-        ) : (
-          <span className="text-[var(--color-text-secondary)]">
-            {formattedHours}
-          </span>
-        )}
-        {openStatus === 'open' && (
-          <span className="text-emerald-600 font-semibold flex items-center gap-1">
-            <DoorOpen size={14} />
-            {t('open')}
-          </span>
-        )}
-        {openStatus === 'closed' && (
-          <span className="text-red-600 font-semibold flex items-center gap-1">
-            <DoorClosed size={14} />
-            {t('closed')}
-          </span>
-        )}
-      </div>
+      {/* Hours and status — only show when there's something to display */}
+      {(openStatus || formattedHours) && (
+        <div className="mt-4 flex items-center gap-2 text-sm">
+          <Clock size={16} className="text-[var(--color-text-secondary)] shrink-0" />
+          {openStatus === 'h24' ? (
+            <span className="text-[var(--color-primary)] font-semibold">
+              {t('h24')}
+            </span>
+          ) : (
+            <span className="text-[var(--color-text-secondary)]">
+              {formattedHours}
+            </span>
+          )}
+          {openStatus === 'open' && (
+            <span className="text-emerald-600 font-semibold flex items-center gap-1">
+              <DoorOpen size={14} />
+              {t('open')}
+            </span>
+          )}
+          {openStatus === 'closed' && (
+            <span className="text-red-600 font-semibold flex items-center gap-1">
+              <DoorClosed size={14} />
+              {t('closed')}
+            </span>
+          )}
+        </div>
+      )}
 
       {/* Images */}
       {toilet.images && toilet.images.length > 0 && (

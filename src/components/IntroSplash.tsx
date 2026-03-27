@@ -2,6 +2,7 @@
 
 import { useRef, useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { OnboardingDialog } from './OnboardingDialog';
 
 const STORAGE_KEY = 'latrynki-intro-seen';
@@ -9,6 +10,7 @@ const FADE_DURATION = 800; // ms
 const FADE_START_BEFORE_END = 1.2; // seconds before video ends, start fade to black
 
 export function IntroSplash({ children }: { children: React.ReactNode }) {
+  const t = useTranslations('onboarding');
   // Start in 'checking' to avoid rendering <video autoPlay> before sessionStorage check
   const [phase, setPhase] = useState<'checking' | 'video' | 'black' | 'onboarding' | 'fadein' | 'done'>('checking');
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -165,7 +167,7 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
               onClick={handleEnded}
               className="absolute bottom-8 right-6 text-white/40 text-xs tracking-wider uppercase hover:text-white/70 transition-colors"
             >
-              Pomiń
+              {t('skip')}
             </button>
           </>
         )}

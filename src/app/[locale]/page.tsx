@@ -195,7 +195,6 @@ export default function HomePage() {
           authorName: 'Anonim',
           createdAt: new Date().toISOString(),
           isMock: false,
-          source: 'community' as const,
         };
         setReviews(prev => [newReview, ...prev]);
       }
@@ -209,7 +208,6 @@ export default function HomePage() {
         authorName: 'Anonim',
         createdAt: new Date().toISOString(),
         isMock: false,
-        source: 'community' as const,
       };
       setReviews(prev => [newReview, ...prev]);
     }

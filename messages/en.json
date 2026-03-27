@@ -9,7 +9,8 @@
     "myLocation": "My location",
     "showAll": "Show all",
     "zoomIn": "Zoom in",
-    "zoomOut": "Zoom out"
+    "zoomOut": "Zoom out",
+    "locating": "Locating..."
   },
   "filters": {
     "free": "Free",
@@ -72,7 +73,8 @@
     "yesterday": "yesterday",
     "daysAgo": "{days} days ago",
     "weeksAgo": "{weeks} weeks ago",
-    "monthsAgo": "{months} months ago"
+    "monthsAgo": "{months} months ago",
+    "photoBy": "Photo by {author}"
   },
   "suggest": {
     "title": "Know a loo? Share the scoop!",

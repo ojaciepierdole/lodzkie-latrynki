@@ -60,6 +60,13 @@ body {
   pointer-events: auto;
 }
 
+@media (min-width: 1024px) {
+  .bottom-sheet-overlay {
+    /* On desktop, overlay should not block map interaction when side panel is open */
+    pointer-events: none;
+  }
+}
+
 .bottom-sheet {
   position: fixed;
   bottom: 0;

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { User, Camera } from 'lucide-react';
 import type { Review } from '@/lib/types/toilet';
@@ -11,16 +11,20 @@ interface ReviewListProps {
   maxVisible?: number;
 }
 
-function timeAgo(dateStr: string): string {
-  const now = new Date();
-  const date = new Date(dateStr);
-  const diffMs = now.getTime() - date.getTime();
-  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-  if (diffDays === 0) return 'dzisiaj';
-  if (diffDays === 1) return 'wczoraj';
-  if (diffDays < 7) return `${diffDays} dni temu`;
-  if (diffDays < 30) return `${Math.floor(diffDays / 7)} tyg. temu`;
-  return `${Math.floor(diffDays / 30)} mies. temu`;
+function useTimeAgo() {
+  const t = useTranslations('reviews');
+
+  return useCallback((dateStr: string): string => {
+    const now = new Date();
+    const date = new Date(dateStr);
+    const diffMs = now.getTime() - date.getTime();
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    if (diffDays === 0) return t('today');
+    if (diffDays === 1) return t('yesterday');
+    if (diffDays < 7) return t('daysAgo', { days: diffDays });
+    if (diffDays < 30) return t('weeksAgo', { weeks: Math.floor(diffDays / 7) });
+    return t('monthsAgo', { months: Math.floor(diffDays / 30) });
+  }, [t]);
 }
 
 export default function ReviewList({
@@ -28,6 +32,7 @@ export default function ReviewList({
   maxVisible = 3,
 }: ReviewListProps) {
   const t = useTranslations('reviews');
+  const timeAgo = useTimeAgo();
   const [showAll, setShowAll] = useState(false);
 
   const averageRating = useMemo(() => {
@@ -39,7 +44,7 @@ export default function ReviewList({
   if (reviews.length === 0) {
     return (
       <p className="text-sm text-[var(--color-text-muted)] italic text-center py-4">
-        Brak opinii. Bądź pierwszy!
+        {t('noReviews')}
       </p>
     );
   }
@@ -56,7 +61,7 @@ export default function ReviewList({
           {averageRating.toFixed(1)}
         </span>
         <span className="text-sm text-[var(--color-text-secondary)]">
-          &middot; {reviews.length} {reviews.length === 1 ? 'opinia' : reviews.length < 5 ? 'opinie' : 'opinii'}
+          &middot; {t('count', { count: reviews.length })}
         </span>
       </div>
 
@@ -91,7 +96,7 @@ export default function ReviewList({
                 />
                 <img
                   src={review.photoUrl}
-                  alt={`Zdjęcie od ${review.authorName}`}
+                  alt={t('photoBy', { author: review.authorName })}
                   className="h-20 w-20 rounded-xl object-cover"
                 />
               </div>
@@ -107,7 +112,7 @@ export default function ReviewList({
           onClick={() => setShowAll(true)}
           className="text-sm font-semibold text-[var(--color-primary)] hover:underline cursor-pointer mt-2"
         >
-          Pokaż wszystkie ({reviews.length})
+          {t('showAll', { count: reviews.length })}
         </button>
       )}
     </div>
