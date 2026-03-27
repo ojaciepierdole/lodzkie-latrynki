@@ -5,8 +5,8 @@
       "source": "uml",
       "name": "al. G.Palki - Wojska Polskiego",
       "address": "al. G.Palki - Wojska Polskiego",
-      "lat": 51.7908,
-      "lng": 19.4878,
+      "lat": 51.7891,
+      "lng": 19.4791,
       "type": "paid",
       "accessible": false,
       "description": "płatna 2 zł",
@@ -42,7 +42,7 @@
         "raw": "7:00-16:30"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.735Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -59,7 +59,7 @@
         "raw": ""
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -76,7 +76,7 @@
         "raw": ""
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -93,7 +93,7 @@
         "raw": ""
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -138,7 +138,7 @@
         "raw": "7:30-15:30"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -155,7 +155,7 @@
         "raw": ""
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -200,7 +200,7 @@
         "raw": "7:30-15:30"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -217,7 +217,7 @@
         "raw": ""
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -262,7 +262,7 @@
         "raw": "6:30-16:30"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -270,8 +270,8 @@
       "source": "uml",
       "name": "Las Łagiewnicki",
       "address": "Las Łagiewnicki",
-      "lat": 51.8231,
-      "lng": 19.488,
+      "lat": 51.8313,
+      "lng": 19.4774,
       "type": "free",
       "accessible": true,
       "description": "5 kabin standard i 1 kabina dla osób niepełnosprawnych przy miejscu piknikowym",
@@ -279,7 +279,7 @@
         "raw": ""
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -287,8 +287,8 @@
       "source": "uml",
       "name": "Ogród Botaniczny",
       "address": "Ogród Botaniczny",
-      "lat": 51.757,
-      "lng": 19.405,
+      "lat": 51.7605,
+      "lng": 19.4076,
       "type": "free",
       "accessible": true,
       "description": "w budynku przy kawiarni, 3 kabiny męskie i 3 damskie, w tym jedna dla osób niepełnosprawnych, wejście na teren Ogrodu po zakupieniu biletu wstępu",
@@ -296,7 +296,7 @@
         "raw": "w godzinach otwarcia ogrodu.\nGodziny otwarcia: Ogród Botaniczny ŁÓDŹ"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -304,8 +304,8 @@
       "source": "uml",
       "name": "Park 3 Maja",
       "address": "Park 3 Maja",
-      "lat": 51.7691,
-      "lng": 19.4915,
+      "lat": 51.7688,
+      "lng": 19.4904,
       "type": "free",
       "accessible": true,
       "description": "1 kabina dla osób niepełnosprawnych",
@@ -313,7 +313,7 @@
         "raw": ""
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -321,8 +321,8 @@
       "source": "uml",
       "name": "Park Helenów",
       "address": "Park Helenów",
-      "lat": 51.782,
-      "lng": 19.468,
+      "lat": 51.7819,
+      "lng": 19.4686,
       "type": "free",
       "accessible": true,
       "description": "1 kabina dla osób niepełnosprawnych",
@@ -330,7 +330,7 @@
         "raw": ""
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -338,8 +338,8 @@
       "source": "uml",
       "name": "Park im. A. Mickiewicza",
       "address": "Park im. A. Mickiewicza",
-      "lat": 51.8052,
-      "lng": 19.4472,
+      "lat": 51.8049,
+      "lng": 19.4445,
       "type": "free",
       "accessible": true,
       "description": "1 kabina standard i 1 kabina dla osób niepełnosprawnych",
@@ -347,7 +347,7 @@
         "raw": ""
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -392,7 +392,7 @@
         "raw": "całodobowa"
       },
       "is24h": true,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -400,8 +400,8 @@
       "source": "uml",
       "name": "Park im. Łódzkich Harcerek",
       "address": "Park im. Łódzkich Harcerek",
-      "lat": 51.8222,
-      "lng": 19.4392,
+      "lat": 51.8223,
+      "lng": 19.4382,
       "type": "free",
       "accessible": true,
       "description": "1 kabina dla osób niepełnosprawnych (tylko w okresie letnim)",
@@ -409,7 +409,7 @@
         "raw": ""
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -417,8 +417,8 @@
       "source": "uml",
       "name": "Park im. marsz. J. Piłsudskiego",
       "address": "Park im. marsz. J. Piłsudskiego",
-      "lat": 51.754,
-      "lng": 19.42,
+      "lat": 51.7656,
+      "lng": 19.4129,
       "type": "free",
       "accessible": true,
       "description": "2 kabiny standard i 2 kabiny dla osób niepełnosprawnych",
@@ -426,7 +426,7 @@
         "raw": ""
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -434,8 +434,8 @@
       "source": "uml",
       "name": "Park im. Roberta Baden-Powella",
       "address": "Park im. Roberta Baden-Powella",
-      "lat": 51.7692,
-      "lng": 19.5025,
+      "lat": 51.7687,
+      "lng": 19.5022,
       "type": "free",
       "accessible": true,
       "description": "1 kabina dla osób niepełnosprawnych",
@@ -443,7 +443,7 @@
         "raw": ""
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -451,8 +451,8 @@
       "source": "uml",
       "name": "Park im. Szarych Szeregów",
       "address": "Park im. Szarych Szeregów",
-      "lat": 51.792,
-      "lng": 19.47,
+      "lat": 51.7917,
+      "lng": 19.4697,
       "type": "free",
       "accessible": true,
       "description": "1 kabina dla osób niepełnosprawnych",
@@ -460,7 +460,7 @@
         "raw": ""
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -468,8 +468,8 @@
       "source": "uml",
       "name": "Park Podolski",
       "address": "Park Podolski",
-      "lat": 51.7418,
-      "lng": 19.4963,
+      "lat": 51.7414,
+      "lng": 19.4927,
       "type": "free",
       "accessible": true,
       "description": "1 kabina dla osób niepełnosprawnych",
@@ -477,7 +477,7 @@
         "raw": ""
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -485,8 +485,8 @@
       "source": "uml",
       "name": "Park Reymonta",
       "address": "Park Reymonta",
-      "lat": 51.7449,
-      "lng": 19.4641,
+      "lat": 51.7443,
+      "lng": 19.4636,
       "type": "free",
       "accessible": false,
       "description": "szalet nieczynny - obok postawiony Toi Toi",
@@ -522,7 +522,7 @@
         "raw": "całodobowa"
       },
       "is24h": true,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -530,8 +530,8 @@
       "source": "uml",
       "name": "Park Staromiejski",
       "address": "Park Staromiejski",
-      "lat": 51.78,
-      "lng": 19.456,
+      "lat": 51.7798,
+      "lng": 19.4559,
       "type": "paid",
       "accessible": false,
       "description": "3 toalety automatyczne, płatne 2 zł wyłącznie gotówką",
@@ -567,7 +567,7 @@
         "raw": "calodobowa"
       },
       "is24h": true,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -575,8 +575,8 @@
       "source": "uml",
       "name": "Park Widzewska Górka",
       "address": "Park Widzewska Górka",
-      "lat": 51.757,
-      "lng": 19.524,
+      "lat": 51.7576,
+      "lng": 19.5238,
       "type": "free",
       "accessible": true,
       "description": "1 kabina standard i 1 kabina dla osób niepełnosprawnych",
@@ -584,7 +584,7 @@
         "raw": ""
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -629,7 +629,7 @@
         "raw": "7:00-16.30"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -674,7 +674,7 @@
         "raw": "7:00-16:30"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -682,8 +682,8 @@
       "source": "uml",
       "name": "Skwer im. A. Margolis-Edelman",
       "address": "Skwer im. A. Margolis-Edelman",
-      "lat": 51.773,
-      "lng": 19.463,
+      "lat": 51.7728,
+      "lng": 19.4634,
       "type": "paid",
       "accessible": false,
       "description": "toaleta automatyczna, płatna 2 zł",
@@ -719,7 +719,7 @@
         "raw": "całodobowa"
       },
       "is24h": true,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -764,7 +764,7 @@
         "raw": "całodobowa"
       },
       "is24h": true,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -772,8 +772,8 @@
       "source": "uml",
       "name": "Skwer Wiedźmina",
       "address": "Skwer Wiedźmina",
-      "lat": 51.765,
-      "lng": 19.461,
+      "lat": 51.7651,
+      "lng": 19.4603,
       "type": "paid",
       "accessible": false,
       "description": "toaleta automatyczna z dwoma kabinami, planowane uruchomienie czerwiec/ lipiec w 2025 r., płatna 2 zł wyłącznie gotówką",
@@ -809,7 +809,7 @@
         "raw": "całodobowa"
       },
       "is24h": true,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -826,7 +826,7 @@
         "raw": ""
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -871,7 +871,7 @@
         "raw": "pon i wt - zamknięte\nśr i ndz 16:00-1:00\nczw 16:00-2:00\npt 16:00-5:00\nsob 16:00-01:00"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -916,7 +916,7 @@
         "raw": "pon i wt - zamknięte\nśr i czw 12:00-22:00\npt i sob 12:00-01:00\nnd 13:00-20:00"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -961,7 +961,7 @@
         "raw": "środa-piątek 17:00–02:00\nsobota 17:00-06:00"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -1006,7 +1006,7 @@
         "raw": "pon-śr 10:00-20:45\nczw 12:00-21:45\npt 11:30-21:45\nsob-nd 12:00-21:45"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -1051,7 +1051,7 @@
         "raw": "pon-pt. 12:00-17:30\nsob 12:00-16:00"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -1096,7 +1096,7 @@
         "raw": "pon-sob 12:00-22:00\nnd 13:00-22:00"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -1141,7 +1141,7 @@
         "raw": "10:00-22:00"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -1186,7 +1186,7 @@
         "raw": "pon-czw: 11:45-21:45\npt-sob 11:45-22:45\nnd 11:45-21:45"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -1231,7 +1231,7 @@
         "raw": "pon-czw: 11:45-21:45\npt-sob 11:45-22:45\nnd 11:45-21:45"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -1239,8 +1239,8 @@
       "source": "uml",
       "name": "ul. Rydzowa-Lniana",
       "address": "ul. Rydzowa-Lniana",
-      "lat": 51.7975,
-      "lng": 19.3762,
+      "lat": 51.7979,
+      "lng": 19.3757,
       "type": "paid",
       "accessible": false,
       "description": "Na targowisku, płatna 2 zł",
@@ -1276,7 +1276,7 @@
         "raw": "7:00-16:30"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -1284,8 +1284,8 @@
       "source": "uml",
       "name": "ul. Targowa",
       "address": "ul. Targowa",
-      "lat": 51.762,
-      "lng": 19.472,
+      "lat": 51.761,
+      "lng": 19.4726,
       "type": "paid",
       "accessible": false,
       "description": "przejście podziemne, płatna 2 zł",
@@ -1321,7 +1321,7 @@
         "raw": "7:00-16:30"
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     },
     {
@@ -1329,8 +1329,8 @@
       "source": "uml",
       "name": "Uroczysko Lublinek",
       "address": "Uroczysko Lublinek",
-      "lat": 51.732,
-      "lng": 19.388,
+      "lat": 51.729,
+      "lng": 19.3831,
       "type": "free",
       "accessible": true,
       "description": "1 kabina standard i 1 kabina dla osób niepełnosprawnych",
@@ -1338,13 +1338,13 @@
         "raw": ""
       },
       "is24h": false,
-      "lastScraped": "2026-03-27T07:12:30.736Z",
+      "lastScraped": "2026-03-27T07:28:16.807Z",
       "status": "active"
     }
   ],
   "meta": {
     "total": 41,
-    "lastUpdated": "2026-03-27T07:13:15.887Z",
+    "lastUpdated": "2026-03-27T07:29:01.956Z",
     "sources": {
       "uml": 41,
       "community": 0
