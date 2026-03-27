@@ -34,6 +34,7 @@
     "distance": "a {distance}",
     "cabins": "{count, plural, one {# cabina} other {# cabinas}}",
     "addReview": "Comparte tu opinión",
+    "reportCorrection": "Reportar corrección",
     "source": {
       "uml": "Datos: Ciudad de Łódź",
       "community": "Reportado por la comunidad"
@@ -72,6 +73,21 @@
     "submit": "Enviar reporte",
     "success": "Gracias! Łódź no te olvidará.",
     "error": "Ups — algo se atascó. Inténtalo de nuevo."
+  },
+  "correction": {
+    "title": "Reportar corrección de datos",
+    "name": "Nombre",
+    "address": "Dirección",
+    "type": "Tipo",
+    "price": "Precio",
+    "accessible": "Accesible para personas con discapacidad",
+    "hours": "Horario de apertura",
+    "whatChanged": "¿Qué cambió?",
+    "whatChangedPlaceholder": "Describe qué está mal con los datos actuales...",
+    "submit": "Enviar corrección",
+    "success": "¡Gracias! Tu corrección ha sido enviada para revisión.",
+    "error": "No se pudo enviar la corrección. Inténtalo de nuevo.",
+    "button": "Reportar corrección"
   },
   "common": {
     "loading": "Buscando el refugio más cercano...",

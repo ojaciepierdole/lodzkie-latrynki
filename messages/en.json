@@ -34,6 +34,7 @@
     "distance": "{distance} away",
     "cabins": "{count, plural, one {# cabin} other {# cabins}}",
     "addReview": "Share your opinion",
+    "reportCorrection": "Report correction",
     "source": {
       "uml": "Data: City of Łódź",
       "community": "Reported by community"
@@ -72,6 +73,21 @@
     "submit": "Submit report",
     "success": "Thanks! Łódź won't forget you.",
     "error": "Oops — something got stuck. Give it another try."
+  },
+  "correction": {
+    "title": "Report data correction",
+    "name": "Name",
+    "address": "Address",
+    "type": "Type",
+    "price": "Price",
+    "accessible": "Accessible for people with disabilities",
+    "hours": "Opening hours",
+    "whatChanged": "What changed?",
+    "whatChangedPlaceholder": "Describe what's wrong with the current data...",
+    "submit": "Submit correction",
+    "success": "Thank you! Your correction has been submitted for review.",
+    "error": "Failed to submit correction. Please try again.",
+    "button": "Report correction"
   },
   "common": {
     "loading": "Searching for the nearest safe harbour...",

@@ -43,6 +43,10 @@ const SuggestForm = dynamic(() => import('@/components/SuggestForm'), {
   ssr: false,
 });
 
+const CorrectionForm = dynamic(() => import('@/components/ToiletCard/CorrectionForm'), {
+  ssr: false,
+});
+
 export default function HomePage() {
   const [filters, setFilters] = useState<FilterState>({
     showFree: true,
@@ -57,6 +61,7 @@ export default function HomePage() {
   const [isReviewFormOpen, setIsReviewFormOpen] = useState(false);
   const [isLocating, setIsLocating] = useState(false);
   const [isSuggestFormOpen, setIsSuggestFormOpen] = useState(false);
+  const [isCorrectionFormOpen, setIsCorrectionFormOpen] = useState(false);
 
   // Fetch reviews from Supabase API
   const fetchReviews = useCallback(async () => {
@@ -155,6 +160,14 @@ export default function HomePage() {
     setIsReviewFormOpen(false);
   }, []);
 
+  const handleOpenCorrectionForm = useCallback(() => {
+    setIsCorrectionFormOpen(true);
+  }, []);
+
+  const handleCloseCorrectionForm = useCallback(() => {
+    setIsCorrectionFormOpen(false);
+  }, []);
+
   const handleSubmitReview = useCallback(async (review: { rating: number; text: string }) => {
     if (!selectedToilet) return;
 
@@ -229,6 +242,7 @@ export default function HomePage() {
         reviews={reviews}
         onClose={handleCloseCard}
         onOpenReviewForm={handleOpenReviewForm}
+        onOpenCorrectionForm={handleOpenCorrectionForm}
       />
       {selectedToilet && (
         <ReviewForm
@@ -237,6 +251,13 @@ export default function HomePage() {
           isOpen={isReviewFormOpen}
           onClose={handleCloseReviewForm}
           onSubmit={handleSubmitReview}
+        />
+      )}
+      {selectedToilet && (
+        <CorrectionForm
+          toilet={selectedToilet}
+          isOpen={isCorrectionFormOpen}
+          onClose={handleCloseCorrectionForm}
         />
       )}
 

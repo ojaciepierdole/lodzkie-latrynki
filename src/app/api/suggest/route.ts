@@ -54,15 +54,22 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    const toiletData: Record<string, unknown> = {
+      name: body.name,
+      address: body.address,
+      type: body.type || 'free',
+      accessible: body.accessible || false,
+      description: body.notes || null,
+      hours_raw: body.hours || null,
+    }
+
+    // If this is a correction to an existing toilet
+    if (body.toiletId) {
+      toiletData.corrects_toilet_id = body.toiletId
+    }
+
     const { error } = await supabase.from('community_submissions').insert({
-      toilet_data: {
-        name: body.name,
-        address: body.address,
-        type: body.type || 'free',
-        accessible: body.accessible || false,
-        description: body.notes || null,
-        hours_raw: body.hours || null,
-      },
+      toilet_data: toiletData,
       ip_hash: ip ? Buffer.from(ip).toString('base64').slice(0, 16) : null,
     })
 

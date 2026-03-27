@@ -14,6 +14,7 @@ import {
   Coins,
   Accessibility,
   MessageSquarePlus,
+  FileWarning,
 } from 'lucide-react';
 import type { Toilet, Review } from '@/lib/types/toilet';
 import ReviewList from './ReviewList';
@@ -26,6 +27,7 @@ interface ToiletCardProps {
   reviews: Review[];
   onClose: () => void;
   onOpenReviewForm: () => void;
+  onOpenCorrectionForm: () => void;
 }
 
 type OpenStatus = 'h24' | 'open' | 'closed' | null;
@@ -37,6 +39,7 @@ interface CardContentProps {
   reviews: Review[];
   onClose: () => void;
   onOpenReviewForm: () => void;
+  onOpenCorrectionForm: () => void;
   showDragHandle: boolean;
   t: ReturnType<typeof useTranslations>;
   tc: ReturnType<typeof useTranslations>;
@@ -49,6 +52,7 @@ function CardContent({
   reviews,
   onClose,
   onOpenReviewForm,
+  onOpenCorrectionForm,
   showDragHandle,
   t,
   tc,
@@ -176,6 +180,15 @@ function CardContent({
         {t('addReview')}
       </button>
 
+      {/* Correction CTA */}
+      <button
+        onClick={onOpenCorrectionForm}
+        className="mt-2 w-full text-[var(--color-text-secondary)] hover:text-[var(--color-text)] flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-medium transition-colors cursor-pointer"
+      >
+        <FileWarning size={14} />
+        {t('reportCorrection')}
+      </button>
+
       {/* Source info */}
       <p className="mt-4 text-xs text-[var(--color-text-muted)] text-center">
         {toilet.source === 'uml' ? t('source.uml') : t('source.community')}
@@ -190,6 +203,7 @@ export default function ToiletCard({
   reviews,
   onClose,
   onOpenReviewForm,
+  onOpenCorrectionForm,
 }: ToiletCardProps) {
   const t = useTranslations('toilet');
   const tc = useTranslations('common');
@@ -246,6 +260,7 @@ export default function ToiletCard({
             reviews={reviews}
             onClose={onClose}
             onOpenReviewForm={onOpenReviewForm}
+            onOpenCorrectionForm={onOpenCorrectionForm}
             showDragHandle={true}
             t={t}
             tc={tc}
@@ -267,6 +282,7 @@ export default function ToiletCard({
             reviews={reviews}
             onClose={onClose}
             onOpenReviewForm={onOpenReviewForm}
+            onOpenCorrectionForm={onOpenCorrectionForm}
             showDragHandle={false}
             t={t}
             tc={tc}

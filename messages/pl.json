@@ -34,6 +34,7 @@
     "distance": "{distance} stąd",
     "cabins": "{count, plural, one {# kabina} few {# kabiny} many {# kabin} other {# kabin}}",
     "addReview": "Podziel się opinią",
+    "reportCorrection": "Zgłoś korektę",
     "source": {
       "uml": "Dane: Urząd Miasta Łodzi",
       "community": "Zgłoszone przez społeczność"
@@ -72,6 +73,21 @@
     "submit": "Wyślij zgłoszenie",
     "success": "Dzięki! Łódź Ci nie zapomni.",
     "error": "Ups — coś się zacięło. Spróbuj jeszcze raz."
+  },
+  "correction": {
+    "title": "Zgłoś korektę danych",
+    "name": "Nazwa",
+    "address": "Adres",
+    "type": "Typ",
+    "price": "Cena",
+    "accessible": "Dostępna dla osób z niepełnosprawnością",
+    "hours": "Godziny otwarcia",
+    "whatChanged": "Co się zmieniło?",
+    "whatChangedPlaceholder": "Opisz co jest nie tak z obecnymi danymi...",
+    "submit": "Wyślij korektę",
+    "success": "Dziękujemy! Korekta trafiła do weryfikacji.",
+    "error": "Nie udało się wysłać korekty. Spróbuj ponownie.",
+    "button": "Zgłoś korektę"
   },
   "common": {
     "loading": "Szukamy najbliższej przystani...",
