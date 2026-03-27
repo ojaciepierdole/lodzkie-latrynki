@@ -1,6 +1,6 @@
 'use client';
 
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useRouter, usePathname } from '@/i18n/navigation';
 import { locales, localeNames, type Locale } from '@/i18n/config';
 import { useState, useRef, useEffect } from 'react';
@@ -18,6 +18,7 @@ export function LanguageSwitcher() {
   const locale = useLocale() as Locale;
   const router = useRouter();
   const pathname = usePathname();
+  const t = useTranslations('common');
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -31,6 +32,15 @@ export function LanguageSwitcher() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, [open]);
+
   function switchLocale(newLocale: Locale) {
     router.replace(pathname, { locale: newLocale });
     setOpen(false);
@@ -41,7 +51,9 @@ export function LanguageSwitcher() {
       <button
         onClick={() => setOpen(!open)}
         className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-sm font-medium hover:bg-[var(--color-surface)] transition-colors"
-        aria-label="Change language"
+        aria-label={t('changeLanguage')}
+        aria-expanded={open}
+        aria-haspopup="menu"
       >
         <Globe size={18} className="text-[var(--color-text)]" />
         <span className="hidden sm:inline text-[var(--color-text)]">
@@ -54,11 +66,12 @@ export function LanguageSwitcher() {
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-2 bg-[var(--color-card)] border border-[var(--color-border)] rounded-2xl shadow-[0_8px_24px_rgba(0,0,0,0.12)] py-1.5 min-w-[180px]" style={{ zIndex: 10000 }}>
+        <div className="absolute right-0 mt-2 bg-[var(--color-card)] border border-[var(--color-border)] rounded-2xl shadow-[0_8px_24px_rgba(0,0,0,0.12)] py-1.5 min-w-[180px]" style={{ zIndex: 10000 }} role="menu">
           {locales.map((l) => (
             <button
               key={l}
               onClick={() => switchLocale(l)}
+              role="menuitem"
               className={`w-full text-left px-3 py-2 text-sm flex items-center gap-2 hover:bg-[var(--color-surface)] transition-colors rounded-xl mx-1 ${
                 l === locale
                   ? 'font-semibold text-[var(--color-primary)]'

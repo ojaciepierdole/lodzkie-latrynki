@@ -22,6 +22,7 @@ export default function ReviewForm({
   onSubmit,
 }: ReviewFormProps) {
   const t = useTranslations('reviews');
+  const tc = useTranslations('common');
 
   const [rating, setRating] = useState(0);
   const [text, setText] = useState('');
@@ -83,10 +84,10 @@ export default function ReviewForm({
             <div className="flex flex-col items-center justify-center py-10 gap-3 cursor-pointer" onClick={onClose}>
               <CheckCircle size={48} className="text-emerald-500" />
               <p className="text-lg font-bold text-[var(--color-text)]">
-                Dzięki za opinię!
+                {t('success')}
               </p>
               <p className="text-sm text-[var(--color-text-secondary)]">
-                Łódź Ci nie zapomni.
+                {t('successSub')}
               </p>
             </div>
           ) : (
@@ -96,14 +97,14 @@ export default function ReviewForm({
                 type="button"
                 onClick={onClose}
                 className="absolute top-4 right-4 text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
-                aria-label="Zamknij"
+                aria-label={tc('close')}
               >
                 <X size={20} />
               </button>
 
               {/* Title */}
               <h3 className="text-lg font-bold text-[var(--color-text)]">
-                Oceń tę latrynkę
+                {t('formTitle')}
               </h3>
               <p className="text-sm text-[var(--color-text-secondary)] mt-0.5">
                 {toiletName}
@@ -118,14 +119,14 @@ export default function ReviewForm({
               <textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="Napisz opinię..."
+                placeholder={t('placeholder')}
                 className="w-full bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-3 text-sm resize-none h-24 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]"
               />
 
               {/* Photo button (disabled) */}
               <div className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] px-3 py-2 mt-2">
                 <Camera size={16} />
-                <span>Dodaj zdjęcie (wkrótce)</span>
+                <span>{t('addPhoto')}</span>
               </div>
 
               {/* Submit button */}
@@ -138,12 +139,12 @@ export default function ReviewForm({
                 }`}
               >
                 <Send size={16} />
-                Wyślij opinię
+                {t('submit')}
               </button>
 
               {/* Footer */}
               <p className="text-xs text-[var(--color-text-muted)] text-center mt-3">
-                Opinia jest anonimowa.
+                {t('anonymous')}
               </p>
             </>
           )}

@@ -127,7 +127,8 @@
     "no": "No",
     "close": "Cerrar",
     "back": "Volver",
-    "noResults": "Ningún baño cumple tus filtros. Prueba con menos restricciones!"
+    "noResults": "Ningún baño cumple tus filtros. Prueba con menos restricciones!",
+    "changeLanguage": "Cambiar idioma"
   },
   "footer": {
     "data": "Datos: Ciudad de Łódź",

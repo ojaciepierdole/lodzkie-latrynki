@@ -127,7 +127,8 @@
     "no": "Nein",
     "close": "Schließen",
     "back": "Zurück",
-    "noResults": "Keine Toilette entspricht Ihren Filtern. Versuchen Sie es mit weniger Einschränkungen!"
+    "noResults": "Keine Toilette entspricht Ihren Filtern. Versuchen Sie es mit weniger Einschränkungen!",
+    "changeLanguage": "Sprache ändern"
   },
   "footer": {
     "data": "Daten: Stadt Łódź",

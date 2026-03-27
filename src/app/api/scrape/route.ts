@@ -3,6 +3,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { scrapeAllToilets } from '@/lib/scraper/uml-parser'
 import { geocodeBatch } from '@/lib/scraper/geocoder'
 
+export const maxDuration = 60;
+
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -122,13 +124,20 @@ export async function POST(request: NextRequest) {
 
     // 6. Mark toilets not found in UML as 'closed' (if they were 'uml' source and not overridden)
     let closedCount = 0
-    for (const existing of existingUml || []) {
-      if (!scrapedIds.has(existing.id) && !overriddenIds.has(existing.id)) {
-        await supabase
-          .from('toilets')
-          .update({ status: 'closed' })
-          .eq('id', existing.id)
-        closedCount++
+
+    // Safety: if scraper returned very few results, it's likely a parsing error
+    // Don't close existing toilets based on potentially broken data
+    if (toilets.length < 10) {
+      console.warn(`[Scraper] Only ${toilets.length} toilets found — skipping close logic to prevent data loss`)
+    } else {
+      for (const existing of existingUml || []) {
+        if (!scrapedIds.has(existing.id) && !overriddenIds.has(existing.id)) {
+          await supabase
+            .from('toilets')
+            .update({ status: 'closed' })
+            .eq('id', existing.id)
+          closedCount++
+        }
       }
     }
 

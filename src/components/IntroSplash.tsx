@@ -28,11 +28,12 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
 
   // Step 1: Check sessionStorage after mount to avoid hydration mismatch
   useEffect(() => {
-    if (hasIntroCookie()) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (hasIntroCookie() || prefersReducedMotion) {
       setPhase('done');
-    } else {
-      setPhase('video');
+      return;
     }
+    setPhase('video');
   }, []);
 
   // Step 2: Setup video playback only after confirming intro wasn't seen
@@ -173,8 +174,9 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
             </div>
             {/* Skip button */}
             <button
+              type="button"
               onClick={handleEnded}
-              className="absolute bottom-8 right-6 text-white/40 text-xs tracking-wider uppercase hover:text-white/70 transition-colors"
+              className="absolute bottom-8 right-6 text-white/70 text-xs tracking-wider uppercase hover:text-white/90 transition-colors"
             >
               {t('skip')}
             </button>

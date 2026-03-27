@@ -127,7 +127,8 @@
     "no": "No",
     "close": "Close",
     "back": "Back",
-    "noResults": "No loos match your filters. Try loosening them up!"
+    "noResults": "No loos match your filters. Try loosening them up!",
+    "changeLanguage": "Change language"
   },
   "footer": {
     "data": "Data: City of Łódź",

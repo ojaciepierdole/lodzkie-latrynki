@@ -52,12 +52,16 @@ export function FilterBar({ filters, onFilterChange }: FilterBarProps) {
           <button
             key={key}
             onClick={() => toggle(key)}
+            role="switch"
+            aria-checked={active}
+            aria-label={label}
             style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               gap: 4,
               padding: '5px 2px',
+              minHeight: '44px',
               borderRadius: 8,
               fontSize: 10,
               fontWeight: 600,
@@ -66,7 +70,7 @@ export function FilterBar({ filters, onFilterChange }: FilterBarProps) {
               transition: 'all 150ms',
               border: 'none',
               background: 'transparent',
-              color: active ? activeColor : '#D6D3D1',
+              color: active ? activeColor : '#78716C',
             }}
           >
             {/* Toggle switch */}
@@ -75,7 +79,7 @@ export function FilterBar({ filters, onFilterChange }: FilterBarProps) {
                 width: 28,
                 height: 16,
                 borderRadius: 8,
-                background: active ? activeColor : '#D6D3D1',
+                background: active ? activeColor : '#A8A29E',
                 position: 'relative',
                 transition: 'background 150ms',
                 flexShrink: 0,

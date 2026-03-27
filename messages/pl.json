@@ -23,11 +23,11 @@
     "free": "Bezpłatna",
     "paid": "Płatna",
     "price": "{price}",
-    "open": "Otwarte",
-    "closed": "Zamknięte",
-    "closedForSeason": "Zamknięte sezonowo",
-    "inferredOpen": "Prawdop. otwarte",
-    "inferredClosed": "Prawdop. zamknięte",
+    "open": "Otwarta",
+    "closed": "Zamknięta",
+    "closedForSeason": "Zamknięta sezonowo",
+    "inferredOpen": "Prawdop. otwarta",
+    "inferredClosed": "Prawdop. zamknięta",
     "hours": "{hours}",
     "h24": "Całodobowo",
     "accessible": "Dostępna",
@@ -74,7 +74,7 @@
     "count": "{count, plural, one {# opinia} few {# opinie} many {# opinii} other {# opinii}}",
     "noReviews": "Brak opinii. Bądź pierwszy!",
     "showAll": "Pokaż wszystkie ({count})",
-    "formTitle": "Oceń tę latrynkę",
+    "formTitle": "Oceń tę toaletę",
     "placeholder": "Napisz opinię...",
     "addPhoto": "Dodaj zdjęcie (wkrótce)",
     "submit": "Wyślij opinię",
@@ -89,7 +89,7 @@
     "photoBy": "Zdjęcie od {author}"
   },
   "suggest": {
-    "title": "Znasz latrynkę? Podziel się!",
+    "title": "Znasz toaletę? Podziel się!",
     "subtitle": "Pomóż mieszkańcom i turystom — zgłoś toaletę, której nie ma na mapie.",
     "address": "Adres",
     "addressPlaceholder": "np. ul. Piotrkowska 104",
@@ -127,7 +127,8 @@
     "no": "Nie",
     "close": "Zamknij",
     "back": "Wróć",
-    "noResults": "Żadna latrynka nie spełnia kryteriów. Poluzuj filtry!"
+    "noResults": "Żadna toaleta nie spełnia kryteriów. Poluzuj filtry!",
+    "changeLanguage": "Zmień język"
   },
   "footer": {
     "data": "Dane: Urząd Miasta Łodzi",
@@ -150,7 +151,7 @@
     "slide2Feature3": "Dostępne dla osób z\u00a0niepełnosprawnością",
     "slide2Feature4": "Otwarte teraz — filtruj na żywo",
     "slide3Title": "Prowadź mnie!",
-    "slide3Body": "Kliknij toaletę na mapie → sprawdź godziny i\u00a0opinie → nawiguj jednym tapnięciem.",
+    "slide3Body": "Kliknij toaletę na mapie → sprawdź godziny i\u00a0opinie → nawiguj jednym kliknięciem.",
     "slide3Aside": "Proste jak... no wiesz.",
     "slide4Title": "Bo z gównem jeszcze nikt nie\u00a0wygrał",
     "slide4Subtitle": "Życzymy suchych spodni i\u00a0krótkich kolejek.",
