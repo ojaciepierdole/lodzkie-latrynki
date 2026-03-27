@@ -1,6 +1,17 @@
+export type ToiletCategory = 'public' | 'commercial' | 'cultural' | 'government';
+
+export type ToiletFeature =
+  | 'female'
+  | 'male'
+  | 'neutral'
+  | 'changing_table'
+  | 'child_friendly'
+  | 'porcelain'
+  | 'hygiene_supplies';
+
 export interface Toilet {
   id: string;
-  source: 'uml' | 'community';
+  source: 'uml' | 'gdziejesttron' | 'community';
 
   // Location
   name: string;
@@ -13,6 +24,11 @@ export interface Toilet {
   price?: string;
   accessible: boolean;
   description?: string;
+  category: ToiletCategory;
+  features: ToiletFeature[];
+  images: string[];
+  cabinCount?: number;
+  claimedBy?: string;
 
   // Hours
   hours: OpeningHours;
@@ -57,6 +73,17 @@ export interface Review {
   authorName: string;
   createdAt: string;
   isMock: boolean;
+  source: 'gdziejesttron' | 'community';
+  sourceId?: string;
+}
+
+export interface ToiletSource {
+  toiletId: string;
+  source: Toilet['source'];
+  sourceId: string;
+  lastSyncedAt: string;
+  confidence: number;
+  rawData?: Record<string, unknown>;
 }
 
 export interface ToiletsResponse {
@@ -64,6 +91,6 @@ export interface ToiletsResponse {
   meta: {
     total: number;
     lastUpdated: string;
-    sources: { uml: number; community: number };
+    sources: { uml: number; gdziejesttron: number; community: number };
   };
 }

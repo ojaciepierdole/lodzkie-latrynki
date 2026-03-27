@@ -1,0 +1,10 @@
+# DATA_QUALITY Domain Rules
+DATA_QUALITY_RULE_0=Addresses: UPPERCASE → Title Case, strip trailing whitespace, fix "Łódz" → "Łódź"
+DATA_QUALITY_RULE_1=Addresses: normalize format to "Ulica NR, Miasto" — strip postal codes, double spaces, leading "ul."/"al." inconsistencies
+DATA_QUALITY_RULE_2=Coordinates: must be within aglomeracja bbox (lat 51.58-51.92, lng 19.15-19.75) — reject outliers
+DATA_QUALITY_RULE_3=Coordinates: prefer Google Geocoding API values (already verified in seed) over gdziejesttron values for overlapping records
+DATA_QUALITY_RULE_4=Hours: validate format HH:MM, "from" < "to", reject nonsensical values (e.g. open 25:00)
+DATA_QUALITY_RULE_5=Hours: if openByDays has only key "1" with no other days, it likely means Mon-Sun (all week) — verify before expanding
+DATA_QUALITY_RULE_6=Names: trim whitespace, collapse multiple spaces, preserve original casing (proper nouns)
+DATA_QUALITY_RULE_7=Empty strings "" and null are equivalent — normalize to null for optional fields
+DATA_QUALITY_RULE_8=qty (cabin count): must be positive integer or null — reject 0 or negative values

@@ -39,6 +39,7 @@ export async function GET(request: NextRequest) {
     photoUrl: r.photo_url,
     createdAt: r.created_at,
     isMock: r.is_mock,
+    source: (r.source as 'gdziejesttron' | 'community') || 'community',
   }))
 
   return NextResponse.json(reviews, {
@@ -88,6 +89,7 @@ export async function POST(request: NextRequest) {
         text: data.text,
         authorName: data.author_name,
         createdAt: data.created_at,
+        source: data.source || 'community',
       }
     })
   } catch (error) {

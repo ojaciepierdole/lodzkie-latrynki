@@ -1,0 +1,17 @@
+# CARL Manifest — wcgo.pl
+# Domain registry and state
+
+DATA_IMPORT_STATE=active
+DATA_IMPORT_RECALL=import, gdziejesttron, throne, mapping, seed, merge
+DATA_IMPORT_EXCLUDE=
+DATA_IMPORT_ALWAYS_ON=false
+
+DATA_QUALITY_STATE=active
+DATA_QUALITY_RECALL=address, normalize, clean, geocode, hours, coordinates, validate
+DATA_QUALITY_EXCLUDE=
+DATA_QUALITY_ALWAYS_ON=false
+
+SUPABASE_STATE=active
+SUPABASE_RECALL=supabase, schema, migration, rls, database, sql, table
+SUPABASE_EXCLUDE=
+SUPABASE_ALWAYS_ON=false

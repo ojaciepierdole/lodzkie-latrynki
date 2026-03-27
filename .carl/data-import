@@ -1,0 +1,11 @@
+# DATA_IMPORT Domain Rules
+DATA_IMPORT_RULE_0=Source provenance: every imported record MUST have `source` field ("uml", "gdziejesttron", "community") — never lose origin
+DATA_IMPORT_RULE_1=gdziejesttron API: GET /throne/list — public, no auth, returns full JSON array (10k+ records)
+DATA_IMPORT_RULE_2=Bounding box aglomeracja łódzka: lat 51.58-51.92, lng 19.15-19.75 — filter BEFORE processing
+DATA_IMPORT_RULE_3=Deduplication: haversine distance < 100m = potential duplicate — merge, don't discard
+DATA_IMPORT_RULE_4=gdziejesttron IDs are integers, our IDs are MD5 hashes — generate new ID for imported records: "gdziejesttron-{original_id}"
+DATA_IMPORT_RULE_5=Parameter mapping: "Dla osób z niepełnosprawnością" → accessible=true, "Płatna" → type="paid", all others → features[] array
+DATA_IMPORT_RULE_6=kind mapping: "toaleta-publiczna" → category="public", "gastronomia-i-inne-uslugi" → category="commercial", "kultura" → category="cultural", "administracja-publiczna" → category="government"
+DATA_IMPORT_RULE_7=openByDays format: {"1": {"from":"06:00","to":"22:00"}} where keys 1-7 = Mon-Sun — convert to our hours.mon/.tue/... format
+DATA_IMPORT_RULE_8=Robots.txt says Crawl-delay: 10 — respect when fetching, but /throne/list is a single request (no crawling needed)
+DATA_IMPORT_RULE_9=Images from gdziejesttron are relative paths (/upload/...) — prefix with https://gdziejesttron.pl for full URLs

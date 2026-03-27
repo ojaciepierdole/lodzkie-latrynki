@@ -28,6 +28,11 @@ export async function GET() {
     price: t.price,
     accessible: t.accessible,
     description: t.description,
+    category: t.category || 'public',
+    features: [],
+    images: [],
+    cabinCount: t.cabin_count || undefined,
+    claimedBy: t.claimed_by || undefined,
     hours: t.hours,
     is24h: t.is24h,
     lastScraped: t.last_scraped,
@@ -43,7 +48,7 @@ export async function GET() {
     meta: {
       total: count || transformedData.length,
       lastUpdated: new Date().toISOString(),
-      sources: { uml: umlCount, community: communityCount },
+      sources: { uml: umlCount, gdziejesttron: transformedData.filter(t => t.source === 'gdziejesttron').length, community: communityCount },
     },
   }, {
     headers: {

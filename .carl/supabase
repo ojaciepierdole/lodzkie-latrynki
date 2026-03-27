@@ -1,0 +1,10 @@
+# SUPABASE Domain Rules
+SUPABASE_RULE_0=Schema: main table "toilets" with all core fields, separate "toilet_features" (many-to-many), "reviews" (one-to-many), "sources" (provenance tracking)
+SUPABASE_RULE_1=RLS: public read (anon can SELECT), authenticated write (INSERT/UPDATE for crowdsource submissions)
+SUPABASE_RULE_2=Use Supabase MCP for SQL execution — NOT Alembic (frozen per GT conventions)
+SUPABASE_RULE_3=Primary key: UUID v4 for new records, preserve existing IDs in migration (store as `legacy_id`)
+SUPABASE_RULE_4=PostGIS: use geography type for lat/lng — enables ST_DWithin for proximity queries
+SUPABASE_RULE_5=Indexes: GiST on geography column, btree on source, btree on status, btree on category
+SUPABASE_RULE_6=Timestamps: created_at (default now()), updated_at (trigger), last_verified_at (manual)
+SUPABASE_RULE_7=Soft delete: status enum ('active', 'pending', 'closed', 'archived') — never hard delete
+SUPABASE_RULE_8=Migration: generate SQL file, review, apply via Supabase MCP — never direct psql
