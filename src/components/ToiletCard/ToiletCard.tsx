@@ -140,7 +140,7 @@ function CardContent({
       <h2 className="text-lg font-bold text-[var(--color-text)] pr-8">
         {toilet.name}
       </h2>
-      {toilet.address !== toilet.name && (
+      {toilet.address && !toilet.name.includes(toilet.address) && toilet.address !== toilet.name && (
         <p className="text-sm text-[var(--color-text-secondary)] mt-0.5">
           {toilet.address}
         </p>
