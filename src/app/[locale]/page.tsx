@@ -246,7 +246,7 @@ export default function HomePage() {
         aria-label="Zaproponuj toaletę"
         style={{
           position: 'fixed',
-          bottom: 'max(24px, env(safe-area-inset-bottom, 0px))',
+          bottom: 'calc(max(24px, env(safe-area-inset-bottom, 0px)) + 60px)',
           right: 16,
           zIndex: 900,
           display: 'flex',
