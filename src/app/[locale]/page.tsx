@@ -216,9 +216,12 @@ export default function HomePage() {
   return (
     <IntroSplash>
       <main className="flex flex-col h-dvh">
+        <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', borderWidth: 0 }}>
+          wcgo.pl — Mapa toalet publicznych w Łodzi
+        </h1>
         <Header />
         <FilterBar filters={filters} onFilterChange={setFilters} />
-        <div className="flex-1 relative">
+        <div className="flex-1 relative" role="application" aria-label="Mapa toalet publicznych w Łodzi">
           <MapContainer
             toilets={[]}
             filters={filters}
@@ -263,6 +266,7 @@ export default function HomePage() {
 
       {/* Suggest toilet FAB — small "+" button, bottom-left to avoid Leaflet zoom controls */}
       <button
+        type="button"
         onClick={handleOpenSuggestForm}
         aria-label="Zaproponuj toaletę"
         style={{

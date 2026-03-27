@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useSwipeDismiss } from '@/lib/hooks/useSwipeDismiss';
 import {
@@ -112,7 +112,7 @@ function CardContent({
   return (
     <div className="relative p-5">
       {/* Drag handle (mobile only) */}
-      {showDragHandle && <div className="drag-handle lg:hidden" />}
+      {showDragHandle && <div className="drag-handle lg:hidden" aria-hidden="true" />}
 
       {/* Close button */}
       <button
@@ -137,9 +137,9 @@ function CardContent({
           </>
         )}
       </p>
-      <h3 className="text-lg font-bold text-[var(--color-text)] pr-8">
+      <h2 className="text-lg font-bold text-[var(--color-text)] pr-8">
         {toilet.name}
-      </h3>
+      </h2>
       {toilet.address !== toilet.name && (
         <p className="text-sm text-[var(--color-text-secondary)] mt-0.5">
           {toilet.address}
@@ -203,7 +203,7 @@ function CardContent({
           )}
           {openStatus === 'open' && (
             <span className="text-emerald-600 font-semibold flex items-center gap-1.5">
-              <span className="relative flex h-2.5 w-2.5">
+              <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
               </span>
@@ -212,19 +212,19 @@ function CardContent({
           )}
           {openStatus === 'closed' && (
             <span className="text-gray-500 font-semibold flex items-center gap-1.5">
-              <span className="inline-flex rounded-full h-2.5 w-2.5 bg-gray-400"></span>
+              <span className="inline-flex rounded-full h-2.5 w-2.5 bg-gray-400" aria-hidden="true"></span>
               {t('closed')}
             </span>
           )}
           {openStatus === 'inferred_open' && (
             <span className="text-emerald-500 font-medium flex items-center gap-1.5 text-sm">
-              <span className="inline-flex rounded-full h-2 w-2 bg-emerald-400 opacity-60"></span>
+              <span className="inline-flex rounded-full h-2 w-2 bg-emerald-400 opacity-60" aria-hidden="true"></span>
               {t('inferredOpen')}
             </span>
           )}
           {openStatus === 'inferred_closed' && (
             <span className="text-gray-400 font-medium flex items-center gap-1.5 text-sm">
-              <span className="inline-flex rounded-full h-2 w-2 bg-gray-300"></span>
+              <span className="inline-flex rounded-full h-2 w-2 bg-gray-300" aria-hidden="true"></span>
               {t('inferredClosed')}
             </span>
           )}
@@ -382,6 +382,16 @@ export default function ToiletCard({
 
   const swipe = useSwipeDismiss(onClose);
 
+  // Close on Escape key
+  useEffect(() => {
+    if (!isOpen) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, [isOpen, onClose]);
+
   return (
     <>
       {/* Overlay */}
@@ -394,6 +404,9 @@ export default function ToiletCard({
       {/* Bottom sheet (mobile) */}
       <div
         ref={swipe.ref}
+        role="dialog"
+        aria-modal="true"
+        aria-label={toilet?.name}
         className={`bottom-sheet lg:hidden bg-[var(--color-card)] rounded-t-3xl shadow-[0_-4px_24px_rgba(0,0,0,0.1)] ${
           isOpen ? 'open' : ''
         }`}
@@ -420,6 +433,9 @@ export default function ToiletCard({
 
       {/* Side panel (desktop) */}
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={toilet?.name}
         className={`side-panel hidden lg:block bg-[var(--color-card)] rounded-2xl shadow-[0_8px_24px_rgba(0,0,0,0.12)] ${
           isOpen ? 'open' : ''
         }`}
