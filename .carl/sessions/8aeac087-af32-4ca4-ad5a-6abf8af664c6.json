@@ -1,11 +1,11 @@
 {
-  "uuid": "03b647ac-1586-4d4c-b710-4555eb23fe30",
-  "started": "2026-03-27T09:37:17.353227",
+  "uuid": "8aeac087-af32-4ca4-ad5a-6abf8af664c6",
+  "started": "2026-03-30T00:57:06.193781",
   "cwd": "/Volumes/Wellness/Dropbox/10_DEV/lodzkie-latrynki",
   "label": "lodzkie-latrynki",
   "title": null,
-  "prompt_count": 8,
-  "last_activity": "2026-03-27T10:33:20.118118",
+  "prompt_count": 0,
+  "last_activity": "2026-03-30T00:57:06.193781",
   "overrides": {
     "DEVMODE": null,
     "DATA_IMPORT_STATE": null,
