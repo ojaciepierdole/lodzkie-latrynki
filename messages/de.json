@@ -16,7 +16,14 @@
     "free": "Kostenlos",
     "paid": "Kostenpflichtig",
     "accessible": "Barrierefrei",
-    "openNow": "Jetzt geöffnet"
+    "openNow": "Jetzt geöffnet",
+    "typeAll": "Alle",
+    "typeLabel": "Toilettentyp",
+    "featuresLabel": "Zusätzliche Filter",
+    "reset": "Filter zurücksetzen",
+    "showing": "{filtered} von {total} angezeigt",
+    "allToilets": "Alle Toiletten",
+    "activeFilters": "{count} aktiv"
   },
   "toilet": {
     "label": "Öffentliche Toilette",

@@ -13,10 +13,17 @@
     "locating": "Шукаю..."
   },
   "filters": {
-    "free": "Безкоштовно",
-    "paid": "Платно",
-    "accessible": "Доступно",
-    "openNow": "Відчинено зараз"
+    "free": "Безкоштовні",
+    "paid": "Платні",
+    "accessible": "Доступні",
+    "openNow": "Зараз відкриті",
+    "typeAll": "Усі",
+    "typeLabel": "Тип туалету",
+    "featuresLabel": "Додаткові фільтри",
+    "reset": "Скинути фільтри",
+    "showing": "Показано {filtered} з {total}",
+    "allToilets": "Усі туалети",
+    "activeFilters": "{count} активних"
   },
   "toilet": {
     "label": "Громадський туалет",

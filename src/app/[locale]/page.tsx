@@ -49,11 +49,12 @@ const CorrectionForm = dynamic(() => import('@/components/ToiletCard/CorrectionF
 
 export default function HomePage() {
   const [filters, setFilters] = useState<FilterState>({
-    showFree: true,
-    showPaid: true,
+    type: 'all',
     accessible: false,
     openNow: false,
   });
+  const [filteredCount, setFilteredCount] = useState(0);
+  const [totalCount, setTotalCount] = useState(0);
   const [selectedToilet, setSelectedToilet] = useState<Toilet | null>(null);
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
   const [mapCenter, setMapCenter] = useState<[number, number]>([51.7592, 19.456]);
@@ -98,7 +99,14 @@ export default function HomePage() {
     try {
       const res = await fetch('/api/toilets');
       const data: ToiletsResponse = await res.json();
-      const active = data.data.filter(t => t.status === 'active' && t.lat !== 0);
+      const active = data.data
+        .filter(t => t.status === 'active' && t.lat !== 0)
+        .filter(t => {
+          if (filters.type === 'free' && t.type !== 'free') return false;
+          if (filters.type === 'paid' && t.type !== 'paid') return false;
+          if (filters.accessible && !t.accessible) return false;
+          return true;
+        });
 
       if (active.length > 0) {
         const nearest = active.reduce((best, t) => {
@@ -111,7 +119,7 @@ export default function HomePage() {
     } catch {
       // silent
     }
-  }, []);
+  }, [filters]);
 
   const handleFindNearest = useCallback(() => {
     setIsLocating(true);
@@ -220,7 +228,7 @@ export default function HomePage() {
           wcgo.pl — Mapa toalet publicznych w Łodzi
         </h1>
         <Header />
-        <FilterBar filters={filters} onFilterChange={setFilters} />
+        <FilterBar filters={filters} onFilterChange={setFilters} filteredCount={filteredCount} totalCount={totalCount} />
         <div className="flex-1 relative" role="application" aria-label="Mapa toalet publicznych w Łodzi">
           <MapContainer
             toilets={[]}
@@ -230,7 +238,43 @@ export default function HomePage() {
             onMarkerClick={handleMarkerClick}
             onUserLocationFound={handleUserLocationFound}
             onMapMove={setMapCenter}
+            onFilteredCountChange={setFilteredCount}
+            onTotalCountChange={setTotalCount}
           />
+          {filteredCount === 0 && totalCount > 0 && (
+            <div style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              zIndex: 500,
+              background: 'var(--color-card)',
+              borderRadius: 12,
+              padding: '20px 24px',
+              boxShadow: '0 4px 24px rgba(0,0,0,0.15)',
+              textAlign: 'center',
+              maxWidth: 280,
+            }}>
+              <p style={{ fontSize: 15, fontWeight: 600, color: 'var(--color-text)', margin: '0 0 8px' }}>
+                Żadna toaleta nie spełnia kryteriów
+              </p>
+              <button
+                type="button"
+                onClick={() => setFilters({ type: 'all', accessible: false, openNow: false })}
+                style={{
+                  fontSize: 14,
+                  fontWeight: 600,
+                  color: 'var(--color-cta)',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  padding: '8px 16px',
+                }}
+              >
+                Resetuj filtry
+              </button>
+            </div>
+          )}
         </div>
       </main>
 

@@ -13,10 +13,17 @@
     "locating": "Buscando..."
   },
   "filters": {
-    "free": "Gratis",
+    "free": "Gratuitos",
     "paid": "De pago",
-    "accessible": "Accesible",
-    "openNow": "Abierto ahora"
+    "accessible": "Accesibles",
+    "openNow": "Abiertos",
+    "typeAll": "Todos",
+    "typeLabel": "Tipo de baño",
+    "featuresLabel": "Filtros adicionales",
+    "reset": "Restablecer filtros",
+    "showing": "Mostrando {filtered} de {total}",
+    "allToilets": "Todos los baños",
+    "activeFilters": "{count} activos"
   },
   "toilet": {
     "label": "Baño público",

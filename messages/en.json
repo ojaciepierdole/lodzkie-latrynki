@@ -16,7 +16,14 @@
     "free": "Free",
     "paid": "Paid",
     "accessible": "Accessible",
-    "openNow": "Open now"
+    "openNow": "Open now",
+    "typeAll": "All",
+    "typeLabel": "Toilet type",
+    "featuresLabel": "Additional filters",
+    "reset": "Reset filters",
+    "showing": "Showing {filtered} of {total}",
+    "allToilets": "All toilets",
+    "activeFilters": "{count} active"
   },
   "toilet": {
     "label": "Public toilet",

@@ -107,6 +107,8 @@ interface MapContainerProps {
   onMarkerClick: (toilet: Toilet) => void;
   onUserLocationFound: (coords: [number, number]) => void;
   onMapMove: (center: [number, number]) => void;
+  onFilteredCountChange?: (count: number) => void;
+  onTotalCountChange?: (count: number) => void;
 }
 
 // --- Fly to selected toilet ---
@@ -151,6 +153,8 @@ export default function MapContainerComponent({
   onMarkerClick,
   onUserLocationFound,
   onMapMove,
+  onFilteredCountChange,
+  onTotalCountChange,
 }: MapContainerProps) {
   const [allToilets, setAllToilets] = useState<Toilet[]>([]);
 
@@ -175,17 +179,19 @@ export default function MapContainerComponent({
     }
   }, [toilets]);
 
+  const activeToilets = useMemo(() =>
+    allToilets.filter(t => t.lat !== 0 && t.lng !== 0 && t.status === 'active'),
+    [allToilets]
+  );
+
   const filteredToilets = useMemo(() => {
     return allToilets
       .filter((t) => t.lat !== 0 && t.lng !== 0)
       .filter((t) => t.status === 'active')
       .filter((t) => {
-        // Type visibility: toggle OFF = hide that type
-        if (t.type === 'free' && !filters.showFree) return false;
-        if (t.type === 'paid' && !filters.showPaid) return false;
-        // Accessible: ON = show only accessible
+        if (filters.type === 'free' && t.type !== 'free') return false;
+        if (filters.type === 'paid' && t.type !== 'paid') return false;
         if (filters.accessible && !t.accessible) return false;
-        // Open now: ON = show only open
         if (filters.openNow) {
           const open = isOpenNow(t.hours);
           if (open === false || (open === null && !t.is24h)) return false;
@@ -193,6 +199,14 @@ export default function MapContainerComponent({
         return true;
       });
   }, [allToilets, filters]);
+
+  useEffect(() => {
+    onFilteredCountChange?.(filteredToilets.length);
+  }, [filteredToilets.length, onFilteredCountChange]);
+
+  useEffect(() => {
+    onTotalCountChange?.(activeToilets.length);
+  }, [activeToilets.length, onTotalCountChange]);
 
   const handleLocationFound = useCallback(
     (coords: [number, number]) => {
